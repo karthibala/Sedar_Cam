@@ -150,15 +150,15 @@ function update_check() {
 		success:function (json) {
 			
 			produc_row_count = json.product_count;
-			productlist_count = localStorage.getItem("productlist_count");
+			//productlist_count = localStorage.getItem("productlist_count");
 			alert('inside'+produc_row_count);
-			alert('inside session'+productlist_count);
-			if (produc_row_count > productlist_count) {
-				product_sync();
-			}
-			if (produc_row_count == productlist_count) {
-				modified_product_sync();
-			}
+			//alert('inside session'+productlist_count);
+			//if (produc_row_count > productlist_count) {
+			//	product_sync();
+			//}
+			//if (produc_row_count == productlist_count) {
+			//	modified_product_sync();
+			//}
 		}
 	});
 	//END update check
@@ -201,9 +201,9 @@ function totalitem_count() {
 	var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100 * 1024 * 1024);
 	db.transaction(function (tx){
 		tx.executeSql('SELECT * FROM productlist', [], function (tx, results) {
-			len1 = results.rows.length;
-			alert("productlist row length"+len1);
-			localStorage.setItem("productlist_count", len1);
+			productlist_count = results.rows.length;
+			alert("productlist row length"+productlist_count);
+			localStorage.setItem("productlist_count", productlist_count);
 		});
 	});
 }
@@ -231,9 +231,14 @@ $(document).ready(function(){
 					if(j==ajaxlength){
 							totalitem_count();
 							//alert('All data productlist updated');
-							alert("productlist outside the function"+len1);
+							alert("productlist outside the function"+productlist_count);
+							
 							update_check();
 							alert('inside'+produc_row_count);
+							
+							if (produc_row_count > productlist_count) {
+								product_sync();
+							}
 						}
 				}
 			});

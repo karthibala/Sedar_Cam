@@ -127,6 +127,18 @@
 							<p><a href="#" class="topcoat-button" onclick="window.plugins.childBrowser.showWebPage('http://www.nhl.com', {});">ChildBrowser</a></p>-->
 						    
 							    </div>
+						       <div class='row form-group'>
+							<section class="col col-xs-12">
+								<span>Local item count :<span id="localitem_count"></span></span>
+							</section>
+							<section class="col col-xs-12">
+								<span>Server item count :<span id="serveritem_count"></span></span>
+							</section>
+							<section class="col col-xs-12">
+								<span>Your App Version is <span id="app_ver"></span></span>
+							</section>
+							
+						       </div>
 							    </fieldset>
 							    
 						    </div>
@@ -134,7 +146,7 @@
 					</div>
 				</div>
 			</div>
-			<span>Your App Version is <span id="app_ver"></span></span>
+			
 
 		
 <script>
@@ -153,8 +165,9 @@ function update_check() {
 			
 			var produc_row_count = json.product_count;
 			var productlist_count = localStorage.getItem("productlist_count");
-			alert('server count'+produc_row_count);
-			alert('local Count'+productlist_count);
+			//alert('server count'+produc_row_count);
+			//alert('local Count'+productlist_count);
+			localStorage.setItem("server_item_count", produc_row_count);
 			//alert('inside session'+productlist_count);
 			if (produc_row_count > productlist_count) {
 				product_sync();
@@ -218,6 +231,8 @@ function successID(){
 		return true;
 	}
 $(document).ready(function(){
+	
+	
 	// sync with Product list modified
 	var name='guru';
 	$.ajax({
@@ -367,6 +382,14 @@ $(document).ready(function(){
 		}
 	});
 	// END sync with showroom
+	
+	//item counts display
+	var localitem_count = localStorage.getItem("productlist_count");
+	document.getElementById("localitem_count").innerHTML = localitem_count;
+	var serveritem_count = localStorage.getItem("server_item_count");
+	document.getElementById("serveritem_count").innerHTML = serveritem_count;
+	
+	//End item counts display
 });
 //get ready doc end
 
@@ -376,7 +399,7 @@ if(user_name==null){
 }
 //update check
 function updatecheck(){
-	var appcode='SEDARWAVE0015';
+	var appcode='SEDARWAVE0016';
 	document.getElementById("app_ver").innerHTML = appcode;
 	$.ajax({
 		type: "POST",

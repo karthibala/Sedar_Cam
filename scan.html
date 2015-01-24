@@ -138,7 +138,6 @@
 
 		
 <script>
-var productlist_count = 0;	
 function update_check() {
 	//update check
 	
@@ -153,24 +152,10 @@ function update_check() {
 		success:function (json) {
 			
 			var produc_row_count = json.product_count;
-			//var productlist_count = localStorage.getItem("productlist_count");
-			alert('inside'+produc_row_count);
-			//alert('sission count'+productlist_count);
-			var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100 * 1024 * 1024);
-			db.transaction(function (tx){
-				tx.executeSql('SELECT * FROM productlist', [], function (tx, results) {
-					productlist_count = results.rows.length;
-					//alert("inside productlist row length"+productlist_count);
-					//alert('insidefetch'+produc_row_count);
-					//localStorage.setItem("productlist_count", productlist_count);
-					//window.open('scan.html', '_blank','location=no');
-					//update_check();
-					//alert('inside'+produc_row_count);
-				});
-			});
-			
-			alert('local database count'+productlist_count);
+			var productlist_count = localStorage.getItem("productlist_count");
 			alert('server count'+produc_row_count);
+			alert('local Count'+productlist_count);
+			//alert('inside session'+productlist_count);
 			if (produc_row_count > productlist_count) {
 				product_sync();
 			}
@@ -204,7 +189,7 @@ function product_sync() {
 						j++;
 						if(j==ajaxlength12){
 							
-							alert('Successfully Updated');
+							//alert('All data productlist updated');
 							
 							//window.open('scan.html', '_blank','location=no');
 						}
@@ -242,7 +227,7 @@ $(document).ready(function(){
 		processData: false,
 		success:function (json) {
 			var ajaxlength = json.rows.length;
-			alert("inside modified"+ajaxlength);
+			//alert("inside modified"+ajaxlength);
 			var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100 * 1024 * 1024);
 			db.transaction(function(tx){
 				var j=0;
@@ -250,8 +235,9 @@ $(document).ready(function(){
 					tx.executeSql('INSERT OR REPLACE INTO productlist (id, item_code, brand, catalogue_name, category, fabric_width, AED_price_per_SQM, AED_stitching_price, Roman_Price_per_SQM, AED_norm_lining_per_SQM, AED_branded_lining_per_SQM, AED_cataluna_blackout_per_SQM, AED_antartica_blackout_per_SQM, AED_bateaux_per_SQM, AED_plata_per_SQM, SALE_AED_price_per_SQM, SALE_AED_stitching_price, SALE_AED_norm_lining_per_SQM, SALE_AED_branded_lining_per_SQM, SALE_AED_cataluna_blackout_per_SQM, SALE_AED_antartica_blackout_per_SQM, SALE_AED_bateaux_per_SQM, SALE_AED_plata_per_SQM, SAR_price_per_SQM, SAR_stitching_price, SAR_norm_lining_per_SQM, SAR_branded_lining_per_SQM, SAR_cataluna_blackout_per_SQM, SAR_antartica_blackout_per_SQM, SAR_bateaux_per_SQM, SAR_plata_per_SQM, SALE_SAR_price_per_SQM, SALE_SAR_stitching_price, SALE_SAR_norm_lining_per_SQM, SALE_SAR_branded_lining_per_SQM, SALE_SAR_cataluna_blackout_per_SQM, SALE_SAR_antartica_blackout_per_SQM, SALE_SAR_bateaux_per_SQM, SALE_SAR_plata_per_SQM, QAR_price_per_SQM, QAR_stitching_price, QAR_norm_lining_per_SQM, QAR_branded_lining_per_SQM, QAR_cataluna_blackout_per_SQM, QAR_antartica_blackout_per_SQM, QAR_bateaux_per_SQM, QAR_plata_per_SQM, SALE_QAR_price_per_SQM, SALE_QAR_stitching_price, SALE_QAR_norm_lining_per_SQM, SALE_QAR_branded_lining_per_SQM, SALE_QAR_cataluna_blackout_per_SQM, SALE_QAR_antartica_blackout_per_SQM, SALE_QAR_bateaux_per_SQM, SALE_QAR_plata_per_SQM, OMR_price_per_SQM, OMR_stitching_price, OMR_norm_lining_per_SQM, OMR_branded_lining_per_SQM, OMR_cataluna_blackout_per_SQM, OMR_antartica_blackout_per_SQM, OMR_bateaux_per_SQM, OMR_plata_per_SQM, SALE_OMR_price_per_SQM, SALE_OMR_stitching_price, SALE_OMR_norm_lining_per_SQM, SALE_OMR_branded_lining_per_SQM, SALE_OMR_cataluna_blackout_per_SQM, SALE_OMR_antartica_blackout_per_SQM, SALE_OMR_bateaux_per_SQM, SALE_OMR_plata_per_SQM, BHD_price_per_SQM, BHD_stitching_price, BHD_norm_lining_per_SQM, BHD_branded_lining_per_SQM, BHD_cataluna_blackout_per_SQM, BHD_antartica_blackout_per_SQM, BHD_bateaux_per_SQM, BHD_plata_per_SQM, SALE_BHD_price_per_SQM, SALE_BHD_stitching_price, SALE_BHD_norm_lining_per_SQM, SALE_BHD_branded_lining_per_SQM, SALE_BHD_cataluna_blackout_per_SQM, SALE_BHD_antartica_blackout_per_SQM, SALE_BHD_bateaux_per_SQM, SALE_BHD_plata_per_SQM, SALE_AED_Roman_Price_per_SQM, AED_Roman_Price_per_SQM, SALE_SAR_Roman_Price_per_SQM, SAR_Roman_Price_per_SQM, SALE_QAR_Roman_Price_per_SQM, QAR_Roman_Price_per_SQM, SALE_OMR_Roman_Price_per_SQM, OMR_Roman_Price_per_SQM, SALE_BHD_Roman_Price_per_SQM, BHD_Roman_Price_per_SQM, panelheight, weight_gramsm2, additional_notes, image, image1, image2, image3, fabric, product_possible, deleted, last_mod, user_id) VALUES ("' + json.rows[i].id + '",  "' + json.rows[i].item_code + '",  "' + json.rows[i].brand + '",  "' + json.rows[i].catalogue_name + '",  "' + json.rows[i].category + '",  "' + json.rows[i].fabric_width + '",  "' + json.rows[i].AED_price_per_SQM + '",  "' + json.rows[i].AED_stitching_price + '",  "' + json.rows[i].Roman_Price_per_SQM + '",  "' + json.rows[i].AED_norm_lining_per_SQM + '",  "' + json.rows[i].AED_branded_lining_per_SQM + '",  "' + json.rows[i].AED_cataluna_blackout_per_SQM + '",  "' + json.rows[i].AED_antartica_blackout_per_SQM + '",  "' + json.rows[i].AED_bateaux_per_SQM + '",  "' + json.rows[i].AED_plata_per_SQM + '",  "' + json.rows[i].SALE_AED_price_per_SQM + '",  "' + json.rows[i].SALE_AED_stitching_price + '",  "' + json.rows[i].SALE_AED_norm_lining_per_SQM + '",  "' + json.rows[i].SALE_AED_branded_lining_per_SQM + '",  "' + json.rows[i].SALE_AED_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SALE_AED_antartica_blackout_per_SQM + '",  "' + json.rows[i].SALE_AED_bateaux_per_SQM + '",  "' + json.rows[i].SALE_AED_plata_per_SQM + '",  "' + json.rows[i].SAR_price_per_SQM + '",  "' + json.rows[i].SAR_stitching_price + '",  "' + json.rows[i].SAR_norm_lining_per_SQM + '",  "' + json.rows[i].SAR_branded_lining_per_SQM + '",  "' + json.rows[i].SAR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SAR_antartica_blackout_per_SQM + '",  "' + json.rows[i].SAR_bateaux_per_SQM + '",  "' + json.rows[i].SAR_plata_per_SQM + '",  "' + json.rows[i].SALE_SAR_price_per_SQM + '",  "' + json.rows[i].SALE_SAR_stitching_price + '",  "' + json.rows[i].SALE_SAR_norm_lining_per_SQM + '",  "' + json.rows[i].SALE_SAR_branded_lining_per_SQM + '",  "' + json.rows[i].SALE_SAR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SALE_SAR_antartica_blackout_per_SQM + '",  "' + json.rows[i].SALE_SAR_bateaux_per_SQM + '",  "' + json.rows[i].SALE_SAR_plata_per_SQM + '",  "' + json.rows[i].QAR_price_per_SQM + '",  "' + json.rows[i].QAR_stitching_price + '",  "' + json.rows[i].QAR_norm_lining_per_SQM + '",  "' + json.rows[i].QAR_branded_lining_per_SQM + '",  "' + json.rows[i].QAR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].QAR_antartica_blackout_per_SQM + '",  "' + json.rows[i].QAR_bateaux_per_SQM + '",  "' + json.rows[i].QAR_plata_per_SQM + '",  "' + json.rows[i].SALE_QAR_price_per_SQM + '",  "' + json.rows[i].SALE_QAR_stitching_price + '",  "' + json.rows[i].SALE_QAR_norm_lining_per_SQM + '",  "' + json.rows[i].SALE_QAR_branded_lining_per_SQM + '",  "' + json.rows[i].SALE_QAR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SALE_QAR_antartica_blackout_per_SQM + '",  "' + json.rows[i].SALE_QAR_bateaux_per_SQM + '",  "' + json.rows[i].SALE_QAR_plata_per_SQM + '",  "' + json.rows[i].OMR_price_per_SQM + '",  "' + json.rows[i].OMR_stitching_price + '",  "' + json.rows[i].OMR_norm_lining_per_SQM + '",  "' + json.rows[i].OMR_branded_lining_per_SQM + '",  "' + json.rows[i].OMR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].OMR_antartica_blackout_per_SQM + '",  "' + json.rows[i].OMR_bateaux_per_SQM + '",  "' + json.rows[i].OMR_plata_per_SQM + '",  "' + json.rows[i].SALE_OMR_price_per_SQM + '",  "' + json.rows[i].SALE_OMR_stitching_price + '",  "' + json.rows[i].SALE_OMR_norm_lining_per_SQM + '",  "' + json.rows[i].SALE_OMR_branded_lining_per_SQM + '",  "' + json.rows[i].SALE_OMR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SALE_OMR_antartica_blackout_per_SQM + '",  "' + json.rows[i].SALE_OMR_bateaux_per_SQM + '",  "' + json.rows[i].SALE_OMR_plata_per_SQM + '",  "' + json.rows[i].BHD_price_per_SQM + '",  "' + json.rows[i].BHD_stitching_price + '",  "' + json.rows[i].BHD_norm_lining_per_SQM + '",  "' + json.rows[i].BHD_branded_lining_per_SQM + '",  "' + json.rows[i].BHD_cataluna_blackout_per_SQM + '",  "' + json.rows[i].BHD_antartica_blackout_per_SQM + '",  "' + json.rows[i].BHD_bateaux_per_SQM + '",  "' + json.rows[i].BHD_plata_per_SQM + '",  "' + json.rows[i].SALE_BHD_price_per_SQM + '",  "' + json.rows[i].SALE_BHD_stitching_price + '",  "' + json.rows[i].SALE_BHD_norm_lining_per_SQM + '",  "' + json.rows[i].SALE_BHD_branded_lining_per_SQM + '",  "' + json.rows[i].SALE_BHD_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SALE_BHD_antartica_blackout_per_SQM + '",  "' + json.rows[i].SALE_BHD_bateaux_per_SQM + '",  "' + json.rows[i].SALE_BHD_plata_per_SQM + '",  "' + json.rows[i].SALE_AED_Roman_Price_per_SQM + '",  "' + json.rows[i].AED_Roman_Price_per_SQM + '",  "' + json.rows[i].SALE_SAR_Roman_Price_per_SQM + '",  "' + json.rows[i].SAR_Roman_Price_per_SQM + '",  "' + json.rows[i].SALE_QAR_Roman_Price_per_SQM + '",  "' + json.rows[i].QAR_Roman_Price_per_SQM + '",  "' + json.rows[i].SALE_OMR_Roman_Price_per_SQM + '",  "' + json.rows[i].OMR_Roman_Price_per_SQM + '",  "' + json.rows[i].SALE_BHD_Roman_Price_per_SQM + '",  "' + json.rows[i].BHD_Roman_Price_per_SQM + '",  "' + json.rows[i].panelheight + '",  "' + json.rows[i].weight_gramsm2 + '",  "' + json.rows[i].additional_notes + '",  "' + json.rows[i].image + '",  "' + json.rows[i].image1 + '",  "' + json.rows[i].image2 + '",  "' + json.rows[i].image3 + '",  "' + json.rows[i].fabric + '",  "' + json.rows[i].product_possible + '",  "' + json.rows[i].deleted + '",  "' + json.rows[i].last_mod + '",  "' + json.rows[i].user_id + '")',successID);
 					j++;
 					if(j==ajaxlength){
-							//totalitem_count();
-							update_check();
+							
+							totalitem_count();
+							//update_check();
 							//alert('All data productlist updated');
 							//alert("productlist outside the function"+productlist_count);
 							

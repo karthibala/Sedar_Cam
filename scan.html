@@ -177,8 +177,9 @@ function product_sync() {
 		dataType:"json",
 		processData: false,
 		success:function (json) {
-			var ajaxlength12 = json.rows.length;
+			
 			$("#data_update_status").addClass("hide");
+			var ajaxlength12 = json.rows.length;
 			localStorage.setItem("productlist_count", ajaxlength12);
 				var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100 * 1024 * 1024);
 				db.transaction(function(tx){
@@ -189,7 +190,7 @@ function product_sync() {
 						j++;
 						if(j==ajaxlength12){
 							
-							//alert('All data productlist updated');
+							alert('All data productlist updated');
 							
 							//window.open('scan.html', '_blank','location=no');
 						}

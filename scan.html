@@ -69,7 +69,7 @@
 			<!-- MAIN CONTENT -->
 			<div id="content" class="container">
 
-				<div class="row">
+				<div class="">
 				<div id="scanner" class="well no-padding">
 				<div  class="container smart-form client-form" >
 				<header>
@@ -169,6 +169,8 @@ function update_check() {
 			//alert('local Count'+productlist_count);
 			localStorage.setItem("server_item_count", produc_row_count);
 			//alert('inside session'+productlist_count);
+			document.getElementById("serveritem_count").innerHTML = produc_row_count;
+			document.getElementById("localitem_count").innerHTML = productlist_count;
 			if (produc_row_count > productlist_count) {
 				product_sync();
 			}

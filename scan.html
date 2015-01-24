@@ -140,6 +140,8 @@
 <script>
 function update_check() {
 	//update check
+	alert('inside'+produc_row_count);
+	var variable_count = produc_row_count;
 	alert('inside the update check');
 	var name='guru';
 	$.ajax({
@@ -153,7 +155,9 @@ function update_check() {
 			var produc_row_count = json.product_count;
 			//productlist_count = localStorage.getItem("productlist_count");
 			alert('inside'+produc_row_count);
-			alert("productlist outside the function"+productlist_count);
+			alert(name);
+			alert("productlist outside the function"+variable_count);
+			alert(name);
 			alert('everything fine');
 			//alert('inside session'+productlist_count);
 			//if (produc_row_count > productlist_count) {

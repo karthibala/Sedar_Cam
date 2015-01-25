@@ -63,8 +63,9 @@ $(document).ready(function(){
 				}
 				function querySuccess(tx, results) {
 						var len = results.rows.length;
-						for (var i=0; i<len; i++){ 
-								//alert(results.rows.item(i).panelheight);
+						for (var i=0; i<len; i++){
+                
+								alert(results.rows.item(i).AED_stitching_price);
 								//alert(results.rows.item(i).weight_gramsm2);
                 if (results.rows.item(0).image=="") {
                     $("#previewimage1").addClass("hide");
@@ -112,10 +113,10 @@ $(document).ready(function(){
 								document.getElementById("SALE_AED_price_per_SQM").innerHTML = results.rows.item(i).SALE_AED_price_per_SQM;
 								document.getElementById("AED_Roman_Price_per_SQM").innerHTML = results.rows.item(i).AED_Roman_Price_per_SQM;
 								document.getElementById("SALE_AED_Roman_Price_per_SQM").innerHTML = results.rows.item(i).SALE_AED_Roman_Price_per_SQM;
-                //document.getElementById("AED_stitching_price").innerHTML = results.rows.item(i).AED_stitching_price;
+                document.getElementById("AED_stitching_price").innerHTML = results.rows.item(i).AED_stitching_price;
 								document.getElementById("SALE_AED_stitching_price").innerHTML = results.rows.item(i).SALE_AED_stitching_price;
-								//document.getElementById("AED_norm_lining_per_SQM").innerHTML = results.rows.item(i).AED_norm_lining_per_SQM;
-								//document.getElementById("SALE_AED_norm_lining_per_SQM").innerHTML = results.rows.item(i).SALE_AED_norm_lining_per_SQM;
+								document.getElementById("AED_norm_lining_per_SQM").innerHTML = results.rows.item(i).AED_norm_lining_per_SQM;
+								document.getElementById("SALE_AED_norm_lining_per_SQM").innerHTML = results.rows.item(i).SALE_AED_norm_lining_per_SQM;
 								document.getElementById("AED_branded_lining_per_SQM").innerHTML = results.rows.item(i).AED_branded_lining_per_SQM;
 								document.getElementById("SALE_AED_branded_lining_per_SQM").innerHTML = results.rows.item(i).SALE_AED_branded_lining_per_SQM;
 								document.getElementById("AED_cataluna_blackout_per_SQM").innerHTML = results.rows.item(i).AED_cataluna_blackout_per_SQM;
@@ -133,8 +134,8 @@ $(document).ready(function(){
 								document.getElementById("SALE_SAR_Roman_Price_per_SQM").innerHTML = results.rows.item(i).SALE_SAR_Roman_Price_per_SQM;
 								document.getElementById("SAR_stitching_price").innerHTML = results.rows.item(i).SAR_stitching_price;
 								document.getElementById("SALE_SAR_stitching_price").innerHTML = results.rows.item(i).SALE_SAR_stitching_price;
-								//document.getElementById("SAR_norm_lining_per_SQM").innerHTML = results.rows.item(i).SAR_norm_lining_per_SQM;
-								//document.getElementById("SALE_SAR_norm_lining_per_SQM").innerHTML = results.rows.item(i).SALE_SAR_norm_lining_per_SQM;
+								document.getElementById("SAR_norm_lining_per_SQM").innerHTML = results.rows.item(i).SAR_norm_lining_per_SQM;
+								document.getElementById("SALE_SAR_norm_lining_per_SQM").innerHTML = results.rows.item(i).SALE_SAR_norm_lining_per_SQM;
 								document.getElementById("SAR_branded_lining_per_SQM").innerHTML = results.rows.item(i).SAR_branded_lining_per_SQM;
 								document.getElementById("SALE_SAR_branded_lining_per_SQM").innerHTML = results.rows.item(i).SALE_SAR_branded_lining_per_SQM;
 								document.getElementById("SAR_cataluna_blackout_per_SQM").innerHTML = results.rows.item(i).SAR_cataluna_blackout_per_SQM;
@@ -152,8 +153,8 @@ $(document).ready(function(){
 								document.getElementById("SALE_QAR_Roman_Price_per_SQM").innerHTML = results.rows.item(i).SALE_QAR_Roman_Price_per_SQM;
 								document.getElementById("QAR_stitching_price").innerHTML = results.rows.item(i).QAR_stitching_price;
 								document.getElementById("SALE_QAR_stitching_price").innerHTML = results.rows.item(i).SALE_QAR_stitching_price;
-								//document.getElementById("QAR_norm_lining_per_SQM").innerHTML = results.rows.item(i).QAR_norm_lining_per_SQM;
-								//document.getElementById("SALE_QAR_norm_lining_per_SQM").innerHTML = results.rows.item(i).SALE_QAR_norm_lining_per_SQM;
+								document.getElementById("QAR_norm_lining_per_SQM").innerHTML = results.rows.item(i).QAR_norm_lining_per_SQM;
+								document.getElementById("SALE_QAR_norm_lining_per_SQM").innerHTML = results.rows.item(i).SALE_QAR_norm_lining_per_SQM;
 								document.getElementById("QAR_branded_lining_per_SQM").innerHTML = results.rows.item(i).QAR_branded_lining_per_SQM;
 								document.getElementById("SALE_QAR_branded_lining_per_SQM").innerHTML = results.rows.item(i).SALE_QAR_branded_lining_per_SQM;
 								document.getElementById("QAR_cataluna_blackout_per_SQM").innerHTML = results.rows.item(i).QAR_cataluna_blackout_per_SQM;
@@ -170,8 +171,8 @@ $(document).ready(function(){
 								document.getElementById("OMR_Roman_Price_per_SQM").innerHTML = results.rows.item(i).OMR_Roman_Price_per_SQM;
 								document.getElementById("SALE_OMR_Roman_Price_per_SQM").innerHTML = results.rows.item(i).SALE_OMR_Roman_Price_per_SQM;
 								document.getElementById("OMR_stitching_price").innerHTML = results.rows.item(i).OMR_stitching_price;
-								//document.getElementById("SALE_OMR_stitching_price").innerHTML = results.rows.item(i).SALE_OMR_stitching_price;
-								//document.getElementById("OMR_norm_lining_per_SQM").innerHTML = results.rows.item(i).OMR_norm_lining_per_SQM;
+								document.getElementById("SALE_OMR_stitching_price").innerHTML = results.rows.item(i).SALE_OMR_stitching_price;
+								document.getElementById("OMR_norm_lining_per_SQM").innerHTML = results.rows.item(i).OMR_norm_lining_per_SQM;
 								document.getElementById("SALE_OMR_norm_lining_per_SQM").innerHTML = results.rows.item(i).SALE_OMR_norm_lining_per_SQM;
 								document.getElementById("OMR_branded_lining_per_SQM").innerHTML = results.rows.item(i).OMR_branded_lining_per_SQM;
 								document.getElementById("SALE_OMR_branded_lining_per_SQM").innerHTML = results.rows.item(i).SALE_OMR_branded_lining_per_SQM;
@@ -191,8 +192,8 @@ $(document).ready(function(){
 								document.getElementById("SALE_BHD_Roman_Price_per_SQM").innerHTML = results.rows.item(i).SALE_BHD_Roman_Price_per_SQM;
 								document.getElementById("BHD_stitching_price").innerHTML = results.rows.item(i).BHD_stitching_price;
 								document.getElementById("SALE_BHD_stitching_price").innerHTML = results.rows.item(i).SALE_BHD_stitching_price;
-								//document.getElementById("BHD_norm_lining_per_SQM").innerHTML = results.rows.item(i).BHD_norm_lining_per_SQM;
-								//document.getElementById("SALE_BHD_norm_lining_per_SQM").innerHTML = results.rows.item(i).SALE_BHD_norm_lining_per_SQM;
+								document.getElementById("BHD_norm_lining_per_SQM").innerHTML = results.rows.item(i).BHD_norm_lining_per_SQM;
+								document.getElementById("SALE_BHD_norm_lining_per_SQM").innerHTML = results.rows.item(i).SALE_BHD_norm_lining_per_SQM;
 								document.getElementById("BHD_branded_lining_per_SQM").innerHTML = results.rows.item(i).BHD_branded_lining_per_SQM;
 								document.getElementById("SALE_BHD_branded_lining_per_SQM").innerHTML = results.rows.item(i).SALE_BHD_branded_lining_per_SQM;
 								document.getElementById("BHD_cataluna_blackout_per_SQM").innerHTML = results.rows.item(i).BHD_cataluna_blackout_per_SQM;
@@ -211,10 +212,10 @@ $(document).ready(function(){
 								document.getElementById("SALE_AED_price_per_SQM1").innerHTML = results.rows.item(i).SALE_AED_price_per_SQM;
 								document.getElementById("AED_Roman_Price_per_SQM1").innerHTML = results.rows.item(i).AED_Roman_Price_per_SQM;
 								document.getElementById("SALE_AED_Roman_Price_per_SQM1").innerHTML = results.rows.item(i).SALE_AED_Roman_Price_per_SQM;
-                //document.getElementById("AED_stitching_price1").innerHTML = results.rows.item(i).AED_stitching_price;
-								document.getElementById("SALE_AED_stitching_price1").innerHTML = results.rows.item(i).SALE_AED_stitching_price;
-								//document.getElementById("AED_norm_lining_per_SQM1").innerHTML = results.rows.item(i).AED_norm_lining_per_SQM;
-								//document.getElementById("SALE_AED_norm_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_AED_norm_lining_per_SQM;
+								document.getElementById("AED_stitching_price1").innerHTML = results.rows.item(i).AED_stitching_price;
+                document.getElementById("SALE_AED_stitching_price1").innerHTML = results.rows.item(i).SALE_AED_stitching_price;
+								document.getElementById("AED_norm_lining_per_SQM1").innerHTML = results.rows.item(i).AED_norm_lining_per_SQM;
+								document.getElementById("SALE_AED_norm_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_AED_norm_lining_per_SQM;
 								document.getElementById("AED_branded_lining_per_SQM1").innerHTML = results.rows.item(i).AED_branded_lining_per_SQM;
 								document.getElementById("SALE_AED_branded_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_AED_branded_lining_per_SQM;
 								document.getElementById("AED_cataluna_blackout_per_SQM1").innerHTML = results.rows.item(i).AED_cataluna_blackout_per_SQM;
@@ -232,8 +233,8 @@ $(document).ready(function(){
 								document.getElementById("SALE_SAR_Roman_Price_per_SQM1").innerHTML = results.rows.item(i).SALE_SAR_Roman_Price_per_SQM;
 								document.getElementById("SAR_stitching_price1").innerHTML = results.rows.item(i).SAR_stitching_price;
 								document.getElementById("SALE_SAR_stitching_price1").innerHTML = results.rows.item(i).SALE_SAR_stitching_price;
-								//document.getElementById("SAR_norm_lining_per_SQM1").innerHTML = results.rows.item(i).SAR_norm_lining_per_SQM;
-								//document.getElementById("SALE_SAR_norm_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_SAR_norm_lining_per_SQM;
+								document.getElementById("SAR_norm_lining_per_SQM1").innerHTML = results.rows.item(i).SAR_norm_lining_per_SQM;
+								document.getElementById("SALE_SAR_norm_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_SAR_norm_lining_per_SQM;
 								document.getElementById("SAR_branded_lining_per_SQM1").innerHTML = results.rows.item(i).SAR_branded_lining_per_SQM;
 								document.getElementById("SALE_SAR_branded_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_SAR_branded_lining_per_SQM;
 								document.getElementById("SAR_cataluna_blackout_per_SQM1").innerHTML = results.rows.item(i).SAR_cataluna_blackout_per_SQM;
@@ -251,8 +252,8 @@ $(document).ready(function(){
 								document.getElementById("SALE_OMR_Roman_Price_per_SQM1").innerHTML = results.rows.item(i).SALE_OMR_Roman_Price_per_SQM;
 								document.getElementById("OMR_stitching_price1").innerHTML = results.rows.item(i).OMR_stitching_price;
 								document.getElementById("SALE_OMR_stitching_price1").innerHTML = results.rows.item(i).SALE_OMR_stitching_price;
-								//document.getElementById("OMR_norm_lining_per_SQM1").innerHTML = results.rows.item(i).OMR_norm_lining_per_SQM;
-								//document.getElementById("SALE_OMR_norm_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_OMR_norm_lining_per_SQM;
+								document.getElementById("OMR_norm_lining_per_SQM1").innerHTML = results.rows.item(i).OMR_norm_lining_per_SQM;
+								document.getElementById("SALE_OMR_norm_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_OMR_norm_lining_per_SQM;
 								document.getElementById("OMR_branded_lining_per_SQM1").innerHTML = results.rows.item(i).OMR_branded_lining_per_SQM;
 								document.getElementById("SALE_OMR_branded_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_OMR_branded_lining_per_SQM;
 								document.getElementById("OMR_cataluna_blackout_per_SQM1").innerHTML = results.rows.item(i).OMR_cataluna_blackout_per_SQM;
@@ -271,8 +272,8 @@ $(document).ready(function(){
 								document.getElementById("SALE_BHD_Roman_Price_per_SQM1").innerHTML = results.rows.item(i).SALE_BHD_Roman_Price_per_SQM;
 								document.getElementById("BHD_stitching_price1").innerHTML = results.rows.item(i).BHD_stitching_price;
 								document.getElementById("SALE_BHD_stitching_price1").innerHTML = results.rows.item(i).SALE_BHD_stitching_price;
-								//document.getElementById("BHD_norm_lining_per_SQM1").innerHTML = results.rows.item(i).BHD_norm_lining_per_SQM;
-								//document.getElementById("SALE_BHD_norm_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_BHD_norm_lining_per_SQM;
+								document.getElementById("BHD_norm_lining_per_SQM1").innerHTML = results.rows.item(i).BHD_norm_lining_per_SQM;
+								document.getElementById("SALE_BHD_norm_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_BHD_norm_lining_per_SQM;
 								document.getElementById("BHD_branded_lining_per_SQM1").innerHTML = results.rows.item(i).BHD_branded_lining_per_SQM;
 								document.getElementById("SALE_BHD_branded_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_BHD_branded_lining_per_SQM;
 								document.getElementById("BHD_cataluna_blackout_per_SQM1").innerHTML = results.rows.item(i).BHD_cataluna_blackout_per_SQM;
@@ -291,8 +292,8 @@ $(document).ready(function(){
 								document.getElementById("SALE_QAR_Roman_Price_per_SQM1").innerHTML = results.rows.item(i).SALE_QAR_Roman_Price_per_SQM;
 								document.getElementById("QAR_stitching_price1").innerHTML = results.rows.item(i).QAR_stitching_price;
 								document.getElementById("SALE_QAR_stitching_price1").innerHTML = results.rows.item(i).SALE_QAR_stitching_price;
-								//document.getElementById("QAR_norm_lining_per_SQM1").innerHTML = results.rows.item(i).QAR_norm_lining_per_SQM;
-								//document.getElementById("SALE_QAR_norm_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_QAR_norm_lining_per_SQM;
+								document.getElementById("QAR_norm_lining_per_SQM1").innerHTML = results.rows.item(i).QAR_norm_lining_per_SQM;
+								document.getElementById("SALE_QAR_norm_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_QAR_norm_lining_per_SQM;
 								document.getElementById("QAR_branded_lining_per_SQM1").innerHTML = results.rows.item(i).QAR_branded_lining_per_SQM;
 								document.getElementById("SALE_QAR_branded_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_QAR_branded_lining_per_SQM;
 								document.getElementById("QAR_cataluna_blackout_per_SQM1").innerHTML = results.rows.item(i).QAR_cataluna_blackout_per_SQM;

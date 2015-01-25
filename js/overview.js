@@ -112,7 +112,7 @@ $(document).ready(function(){
 								document.getElementById("SALE_AED_price_per_SQM").innerHTML = results.rows.item(i).SALE_AED_price_per_SQM;
 								document.getElementById("AED_Roman_Price_per_SQM").innerHTML = results.rows.item(i).AED_Roman_Price_per_SQM;
 								document.getElementById("SALE_AED_Roman_Price_per_SQM").innerHTML = results.rows.item(i).SALE_AED_Roman_Price_per_SQM;
-                document.getElementById("AED_stitching_price").innerHTML = results.rows.item(i).AED_stitching_price;
+                //document.getElementById("AED_stitching_price").innerHTML = results.rows.item(i).AED_stitching_price;
 								document.getElementById("SALE_AED_stitching_price").innerHTML = results.rows.item(i).SALE_AED_stitching_price;
 								//document.getElementById("AED_norm_lining_per_SQM").innerHTML = results.rows.item(i).AED_norm_lining_per_SQM;
 								//document.getElementById("SALE_AED_norm_lining_per_SQM").innerHTML = results.rows.item(i).SALE_AED_norm_lining_per_SQM;
@@ -211,7 +211,7 @@ $(document).ready(function(){
 								document.getElementById("SALE_AED_price_per_SQM1").innerHTML = results.rows.item(i).SALE_AED_price_per_SQM;
 								document.getElementById("AED_Roman_Price_per_SQM1").innerHTML = results.rows.item(i).AED_Roman_Price_per_SQM;
 								document.getElementById("SALE_AED_Roman_Price_per_SQM1").innerHTML = results.rows.item(i).SALE_AED_Roman_Price_per_SQM;
-                document.getElementById("AED_stitching_price1").innerHTML = results.rows.item(i).AED_stitching_price;
+                //document.getElementById("AED_stitching_price1").innerHTML = results.rows.item(i).AED_stitching_price;
 								document.getElementById("SALE_AED_stitching_price1").innerHTML = results.rows.item(i).SALE_AED_stitching_price;
 								//document.getElementById("AED_norm_lining_per_SQM1").innerHTML = results.rows.item(i).AED_norm_lining_per_SQM;
 								//document.getElementById("SALE_AED_norm_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_AED_norm_lining_per_SQM;

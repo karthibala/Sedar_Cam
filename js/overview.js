@@ -65,8 +65,8 @@ $(document).ready(function(){
 						var len = results.rows.length;
 						for (var i=0; i<len; i++){
                 
-								//alert(results.rows.item(i).AED_stitching_price);
-								//alert(results.rows.item(i).weight_gramsm2);
+								alert(results.rows.item(i).panelheight);
+								alert(results.rows.item(i).weight_gramsm2);
                 if (results.rows.item(0).image=="") {
                     $("#previewimage1").addClass("hide");
                     $("#href_item_image1").removeClass("fancybox-buttons1");

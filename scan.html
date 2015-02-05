@@ -138,6 +138,11 @@
 								<span>Your App Version is <span id="app_ver"></span></span>
 							</section>
 							
+							<section class="col col-xs-12">
+								<label>* Trigger Complete DB</label>
+									<button style="background-color: #EF8113" onclick="truncate_local_productlist();" class="btn btn-sm">SYNC</button>
+							</section>
+							
 						       </div>
 							    </fieldset>
 							    
@@ -181,6 +186,17 @@ function update_check() {
 	});
 	//END update check
 }
+
+function truncate_local_productlist()
+{
+		var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100 * 1024 * 1024);
+		db.transaction(function (tx){
+		tx.executeSql('DROP TABLE IF EXISTS productlist');
+		alert('Local Database Truncated. Please wait while new database sync in progress');
+		product_sync();
+	});
+}
+
 function product_sync() {
 	// sync with Product list
 	var name='guru';
@@ -405,7 +421,7 @@ if(user_name==null){
 }
 //update check
 function updatecheck(){
-	var appcode='SEDARWAVE0018';
+	var appcode='SEDARWAVE0020';
 	document.getElementById("app_ver").innerHTML = appcode;
 	$.ajax({
 		type: "POST",
@@ -416,6 +432,9 @@ function updatecheck(){
 		success: function(json) {
 			if (json.app_status=='New') {
 				$("#update_avail").removeClass("hide");
+			}
+			if (json.full_update=='Yes') {
+				truncate_local_productlist();
 			}
 		}
 	});

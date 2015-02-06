@@ -39,13 +39,13 @@ states[Connection.NONE] = 'No network connection';
         if(network_status=='No network connection'){
             if(QRcode!=''){
                 localStorage.setItem("QRcode", QRcode);
-            window.open('overview.html', '_blank', 'location=no');
+            window.open('overview.html', '_blank', 'location=yes');
             
            }
         }else{
             if(QRcode!=''){
 		localStorage.setItem("QRcode", QRcode);
-            window.open('overview.html', '_blank', 'location=no');
+            window.open('overview.html', '_blank', 'location=yes');
             //  var showroom_id=localStorage.getItem("showroom_id");
             //  var user_id=localStorage.getItem("user_id");
             //window.open('http://wave.elasticbeanstalk.com/app/overview.php?qrcode='+QRcode+'&user_id='+user_id+'&showroom_id='+showroom_id, '_blank', 'location=yes');

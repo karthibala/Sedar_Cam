@@ -81,31 +81,26 @@
 					</section>
 				</div>
 				<div id="data_update_status" class='row form-group hide'>
-				<section class="col col-xs-12">
-					<label>Synchronizing data please wait...</label>
-					
-					
-					<div class="progress" >
-					 <div id="product_sync" class="progress-bar progress-bar-success hide" role="progressbar" style="width:20%">
-      
-    </div>
-    <div id="product_sync1" class="progress-bar progress-bar-success hide" role="progressbar" style="width:20%">
-      
-    </div>
-    <div id="product_sync2" class="progress-bar progress-bar-success hide " role="progressbar" style="width:20%">
-      
-    </div>
-    <div id="product_sync3" class="progress-bar progress-bar-success  hide" role="progressbar" style="width:20%">
-      
-    </div>
-<div id="product_sync4" class="progress-bar progress-bar-success hide " role="progressbar" style="width:20%">
-      
-    </div>
-  </div>
-  
-  
-					
-				</section>
+					<section class="col col-xs-12">
+						<label>Synchronizing data please wait...<i class="fa fa-refresh fa-spin"></i></label>
+						<div class="progress">
+							<div id="product_sync" class="progress-bar progress-bar-success hide" role="progressbar" style="width:20%">
+								<span id="bar_percentage">20%</span>
+							</div>
+							<div id="product_sync1" class="progress-bar progress-bar-success hide" role="progressbar" style="width:20%">
+								<span id="bar_percentage1">40%</span>
+							</div>
+							<div id="product_sync2" class="progress-bar progress-bar-success hide " role="progressbar" style="width:20%">
+								<span id="bar_percentage2">60%</span>
+							</div>
+							<div id="product_sync3" class="progress-bar progress-bar-success  hide" role="progressbar" style="width:20%">
+								<span id="bar_percentage3">80%</span>
+							</div>
+							<div id="product_sync4" class="progress-bar progress-bar-success hide " role="progressbar" style="width:20%">
+								<span id="bar_percentage4">100%</span>
+							</div>
+						</div>
+					</section>
 				</div>
 				</header>
 				<fieldset>
@@ -248,6 +243,7 @@ function product_sync() {
 						j++;
 						if(j==ajaxlength12){
 						$("#product_sync").removeClass("hide");
+						$("#bar_percentage").removeClass("hide");
 							product_sync1();
 							//alert('Database synchronization completed! Data Count:'+ localStorage.getItem("server_item_count"));
 							//window.location.reload();
@@ -292,6 +288,8 @@ function product_sync1() {
 						if(j==ajaxlength12){
 						
 						$("#product_sync1").removeClass("hide");
+						$("#bar_percentage").addClass("hide");
+						$("#bar_percentage1").removeClass("hide");
 							product_sync2();
 							//alert('Database synchronization completed! Data Count:'+ localStorage.getItem("server_item_count"));
 							//window.location.reload();
@@ -339,6 +337,8 @@ function product_sync2() {
 						if(j==ajaxlength12){
 						
 						$("#product_sync2").removeClass("hide");
+						$("#bar_percentage1").addClass("hide");
+						$("#bar_percentage2").removeClass("hide");
 							product_sync3();
 							//alert('Database synchronization completed! Data Count:'+ localStorage.getItem("server_item_count"));
 							//window.location.reload();
@@ -388,6 +388,8 @@ function product_sync3() {
 						if(j==ajaxlength12){
 						
 						$("#product_sync3").removeClass("hide");
+						$("#bar_percentage2").addClass("hide");
+						$("#bar_percentage3").removeClass("hide");
 							product_sync4();
 							//alert('Database synchronization completed! Data Count:'+ localStorage.getItem("server_item_count"));
 							//window.location.reload();
@@ -434,8 +436,11 @@ function product_sync4() {
 						tx.executeSql('INSERT OR REPLACE INTO productlist (id, item_code, brand, catalogue_name, category, fabric_width, AED_price_per_SQM, AED_stitching_price, Roman_Price_per_SQM, AED_norm_lining_per_SQM, AED_branded_lining_per_SQM, AED_cataluna_blackout_per_SQM, AED_antartica_blackout_per_SQM, AED_bateaux_per_SQM, AED_plata_per_SQM, SALE_AED_price_per_SQM, SALE_AED_stitching_price, SALE_AED_norm_lining_per_SQM, SALE_AED_branded_lining_per_SQM, SALE_AED_cataluna_blackout_per_SQM, SALE_AED_antartica_blackout_per_SQM, SALE_AED_bateaux_per_SQM, SALE_AED_plata_per_SQM, SAR_price_per_SQM, SAR_stitching_price, SAR_norm_lining_per_SQM, SAR_branded_lining_per_SQM, SAR_cataluna_blackout_per_SQM, SAR_antartica_blackout_per_SQM, SAR_bateaux_per_SQM, SAR_plata_per_SQM, SALE_SAR_price_per_SQM, SALE_SAR_stitching_price, SALE_SAR_norm_lining_per_SQM, SALE_SAR_branded_lining_per_SQM, SALE_SAR_cataluna_blackout_per_SQM, SALE_SAR_antartica_blackout_per_SQM, SALE_SAR_bateaux_per_SQM, SALE_SAR_plata_per_SQM, QAR_price_per_SQM, QAR_stitching_price, QAR_norm_lining_per_SQM, QAR_branded_lining_per_SQM, QAR_cataluna_blackout_per_SQM, QAR_antartica_blackout_per_SQM, QAR_bateaux_per_SQM, QAR_plata_per_SQM, SALE_QAR_price_per_SQM, SALE_QAR_stitching_price, SALE_QAR_norm_lining_per_SQM, SALE_QAR_branded_lining_per_SQM, SALE_QAR_cataluna_blackout_per_SQM, SALE_QAR_antartica_blackout_per_SQM, SALE_QAR_bateaux_per_SQM, SALE_QAR_plata_per_SQM, OMR_price_per_SQM, OMR_stitching_price, OMR_norm_lining_per_SQM, OMR_branded_lining_per_SQM, OMR_cataluna_blackout_per_SQM, OMR_antartica_blackout_per_SQM, OMR_bateaux_per_SQM, OMR_plata_per_SQM, SALE_OMR_price_per_SQM, SALE_OMR_stitching_price, SALE_OMR_norm_lining_per_SQM, SALE_OMR_branded_lining_per_SQM, SALE_OMR_cataluna_blackout_per_SQM, SALE_OMR_antartica_blackout_per_SQM, SALE_OMR_bateaux_per_SQM, SALE_OMR_plata_per_SQM, BHD_price_per_SQM, BHD_stitching_price, BHD_norm_lining_per_SQM, BHD_branded_lining_per_SQM, BHD_cataluna_blackout_per_SQM, BHD_antartica_blackout_per_SQM, BHD_bateaux_per_SQM, BHD_plata_per_SQM, SALE_BHD_price_per_SQM, SALE_BHD_stitching_price, SALE_BHD_norm_lining_per_SQM, SALE_BHD_branded_lining_per_SQM, SALE_BHD_cataluna_blackout_per_SQM, SALE_BHD_antartica_blackout_per_SQM, SALE_BHD_bateaux_per_SQM, SALE_BHD_plata_per_SQM, SALE_AED_Roman_Price_per_SQM, AED_Roman_Price_per_SQM, SALE_SAR_Roman_Price_per_SQM, SAR_Roman_Price_per_SQM, SALE_QAR_Roman_Price_per_SQM, QAR_Roman_Price_per_SQM, SALE_OMR_Roman_Price_per_SQM, OMR_Roman_Price_per_SQM, SALE_BHD_Roman_Price_per_SQM, BHD_Roman_Price_per_SQM, panelheight, weight_gramsm2, additional_notes, image, image1, image2, image3, fabric, product_possible, deleted, last_mod, user_id) VALUES ("' + json.rows[i].id + '",  "' + json.rows[i].item_code + '",  "' + json.rows[i].brand + '",  "' + json.rows[i].catalogue_name + '",  "' + json.rows[i].category + '",  "' + json.rows[i].fabric_width + '",  "' + json.rows[i].AED_price_per_SQM + '",  "' + json.rows[i].AED_stitching_price + '",  "' + json.rows[i].Roman_Price_per_SQM + '",  "' + json.rows[i].AED_norm_lining_per_SQM + '",  "' + json.rows[i].AED_branded_lining_per_SQM + '",  "' + json.rows[i].AED_cataluna_blackout_per_SQM + '",  "' + json.rows[i].AED_antartica_blackout_per_SQM + '",  "' + json.rows[i].AED_bateaux_per_SQM + '",  "' + json.rows[i].AED_plata_per_SQM + '",  "' + json.rows[i].SALE_AED_price_per_SQM + '",  "' + json.rows[i].SALE_AED_stitching_price + '",  "' + json.rows[i].SALE_AED_norm_lining_per_SQM + '",  "' + json.rows[i].SALE_AED_branded_lining_per_SQM + '",  "' + json.rows[i].SALE_AED_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SALE_AED_antartica_blackout_per_SQM + '",  "' + json.rows[i].SALE_AED_bateaux_per_SQM + '",  "' + json.rows[i].SALE_AED_plata_per_SQM + '",  "' + json.rows[i].SAR_price_per_SQM + '",  "' + json.rows[i].SAR_stitching_price + '",  "' + json.rows[i].SAR_norm_lining_per_SQM + '",  "' + json.rows[i].SAR_branded_lining_per_SQM + '",  "' + json.rows[i].SAR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SAR_antartica_blackout_per_SQM + '",  "' + json.rows[i].SAR_bateaux_per_SQM + '",  "' + json.rows[i].SAR_plata_per_SQM + '",  "' + json.rows[i].SALE_SAR_price_per_SQM + '",  "' + json.rows[i].SALE_SAR_stitching_price + '",  "' + json.rows[i].SALE_SAR_norm_lining_per_SQM + '",  "' + json.rows[i].SALE_SAR_branded_lining_per_SQM + '",  "' + json.rows[i].SALE_SAR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SALE_SAR_antartica_blackout_per_SQM + '",  "' + json.rows[i].SALE_SAR_bateaux_per_SQM + '",  "' + json.rows[i].SALE_SAR_plata_per_SQM + '",  "' + json.rows[i].QAR_price_per_SQM + '",  "' + json.rows[i].QAR_stitching_price + '",  "' + json.rows[i].QAR_norm_lining_per_SQM + '",  "' + json.rows[i].QAR_branded_lining_per_SQM + '",  "' + json.rows[i].QAR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].QAR_antartica_blackout_per_SQM + '",  "' + json.rows[i].QAR_bateaux_per_SQM + '",  "' + json.rows[i].QAR_plata_per_SQM + '",  "' + json.rows[i].SALE_QAR_price_per_SQM + '",  "' + json.rows[i].SALE_QAR_stitching_price + '",  "' + json.rows[i].SALE_QAR_norm_lining_per_SQM + '",  "' + json.rows[i].SALE_QAR_branded_lining_per_SQM + '",  "' + json.rows[i].SALE_QAR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SALE_QAR_antartica_blackout_per_SQM + '",  "' + json.rows[i].SALE_QAR_bateaux_per_SQM + '",  "' + json.rows[i].SALE_QAR_plata_per_SQM + '",  "' + json.rows[i].OMR_price_per_SQM + '",  "' + json.rows[i].OMR_stitching_price + '",  "' + json.rows[i].OMR_norm_lining_per_SQM + '",  "' + json.rows[i].OMR_branded_lining_per_SQM + '",  "' + json.rows[i].OMR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].OMR_antartica_blackout_per_SQM + '",  "' + json.rows[i].OMR_bateaux_per_SQM + '",  "' + json.rows[i].OMR_plata_per_SQM + '",  "' + json.rows[i].SALE_OMR_price_per_SQM + '",  "' + json.rows[i].SALE_OMR_stitching_price + '",  "' + json.rows[i].SALE_OMR_norm_lining_per_SQM + '",  "' + json.rows[i].SALE_OMR_branded_lining_per_SQM + '",  "' + json.rows[i].SALE_OMR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SALE_OMR_antartica_blackout_per_SQM + '",  "' + json.rows[i].SALE_OMR_bateaux_per_SQM + '",  "' + json.rows[i].SALE_OMR_plata_per_SQM + '",  "' + json.rows[i].BHD_price_per_SQM + '",  "' + json.rows[i].BHD_stitching_price + '",  "' + json.rows[i].BHD_norm_lining_per_SQM + '",  "' + json.rows[i].BHD_branded_lining_per_SQM + '",  "' + json.rows[i].BHD_cataluna_blackout_per_SQM + '",  "' + json.rows[i].BHD_antartica_blackout_per_SQM + '",  "' + json.rows[i].BHD_bateaux_per_SQM + '",  "' + json.rows[i].BHD_plata_per_SQM + '",  "' + json.rows[i].SALE_BHD_price_per_SQM + '",  "' + json.rows[i].SALE_BHD_stitching_price + '",  "' + json.rows[i].SALE_BHD_norm_lining_per_SQM + '",  "' + json.rows[i].SALE_BHD_branded_lining_per_SQM + '",  "' + json.rows[i].SALE_BHD_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SALE_BHD_antartica_blackout_per_SQM + '",  "' + json.rows[i].SALE_BHD_bateaux_per_SQM + '",  "' + json.rows[i].SALE_BHD_plata_per_SQM + '",  "' + json.rows[i].SALE_AED_Roman_Price_per_SQM + '",  "' + json.rows[i].AED_Roman_Price_per_SQM + '",  "' + json.rows[i].SALE_SAR_Roman_Price_per_SQM + '",  "' + json.rows[i].SAR_Roman_Price_per_SQM + '",  "' + json.rows[i].SALE_QAR_Roman_Price_per_SQM + '",  "' + json.rows[i].QAR_Roman_Price_per_SQM + '",  "' + json.rows[i].SALE_OMR_Roman_Price_per_SQM + '",  "' + json.rows[i].OMR_Roman_Price_per_SQM + '",  "' + json.rows[i].SALE_BHD_Roman_Price_per_SQM + '",  "' + json.rows[i].BHD_Roman_Price_per_SQM + '",  "' + panelheight + '",  "' + weight_gramsm2 + '",  "' + json.rows[i].additional_notes + '",  "' + json.rows[i].image + '",  "' + json.rows[i].image1 + '",  "' + json.rows[i].image2 + '",  "' + json.rows[i].image3 + '",  "' + json.rows[i].fabric + '",  "' + json.rows[i].product_possible + '",  "' + json.rows[i].deleted + '",  "' + json.rows[i].last_mod + '",  "' + json.rows[i].user_id + '")',successID);
 						j++;
 						if(j==ajaxlength12){
-							$("#product_sync4").removeClass("hide");
+							
+							$("#bar_percentage3").addClass("hide");
+							$("#bar_percentage4").removeClass("hide");
 							alert('Database synchronization completed! Data Count:'+ localStorage.getItem("server_item_count"));
+							$("#product_sync4").removeClass("hide");
 							window.location.reload();
 						}
 					}

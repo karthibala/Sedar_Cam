@@ -177,7 +177,7 @@ function update_check() {
 			//alert('inside session'+productlist_count);
 			document.getElementById("serveritem_count").innerHTML = produc_row_count;
 			document.getElementById("localitem_count").innerHTML = productlist_count;
-			if (produc_row_count > productlist_count) {
+			if (produc_row_count != productlist_count) {
 				truncate_local_productlist();
 			}
 			//if (produc_row_count == productlist_count) {
@@ -441,7 +441,7 @@ function updatecheck(){
 			if (json.app_status=='New') {
 				$("#update_avail").removeClass("hide");
 			}
-			if (json.full_update=='Yes') {
+			if (json.full_update=='No') {
 				truncate_local_productlist();
 			}
 		}

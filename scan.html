@@ -82,9 +82,7 @@
 				</div>
 				<div id="data_update_status" class='row form-group hide'>
 				<section class="col col-xs-12">
-					<label>Synchronizing data please wait...<i class="fa fa-refresh fa-spin"></i></label>
-					<progress productlist_count="100" value="0" id="data_update_status" ></progress>
-					
+					<label>Synchronizing data please wait...<i class="fa fa-refresh fa-spin"></i></label>	
 				</section>
 				</div>
 				</header>
@@ -157,31 +155,6 @@
 
 		
 <script>
-
-$(document).ready(function(){
-    var interval = 10, //How much to increase the progressbar per frame
-        updatesPerSecond = 100000/60, //Set the nr of updates per second (fps)
-        progress =  $('progress'),
-        animator = function(){
-            progress.val(progress.val()+interval);
-            $('#val').text(progress.val());
-            if ( progress.val()+interval < progress.attr('max')){
-               setTimeout(animator, updatesPerSecond);
-            } else { 
-                $('#val').text('Done');
-                progress.val(progress.attr('max'));
-            }
-        }
-    
-    setTimeout(animator, updatesPerSecond);
-});
-
-
-
-
-
-
-
 function update_check() {
 	//update check
 	
@@ -251,7 +224,7 @@ function product_sync() {
 						if(j==ajaxlength12){
 							
 							alert('Database synchronization completed! Data Count:'+ localStorage.getItem("server_item_count"));
-							window.location.reload();
+							//window.location.reload();
 						}
 					}
 				});
@@ -467,7 +440,7 @@ function updatecheck(){
 			if (json.app_status=='New') {
 				$("#update_avail").removeClass("hide");
 			}
-			if (json.full_update=='No') {
+			if (json.full_update=='Yes') {
 				truncate_local_productlist();
 			}
 		}

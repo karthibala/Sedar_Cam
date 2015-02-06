@@ -222,7 +222,7 @@ function truncate_local_productlist()
 function product_sync() {
 	// sync with Product list
 	var name='guru';
-	//$("#data_update_status").removeClass("hide");
+	$("#data_update_status").removeClass("hide");
 	$.ajax({
 		type: "POST",
 		url: 'http://wave.elasticbeanstalk.com/app/ajax_sync_product.php',
@@ -232,7 +232,7 @@ function product_sync() {
 
 		success:function (json) {
 			
-			//$("#data_update_status").addClass("hide");
+			$("#data_update_status").addClass("hide");
 			var ajaxlength12 = json.rows.length;
 			localStorage.setItem("productlist_count", ajaxlength12);
 				var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100 * 1024 * 1024);
@@ -265,7 +265,7 @@ function product_sync() {
 function product_sync1() {
 	
 	var name='guru';
-	//$("#data_update_status").removeClass("hide");
+	$("#data_update_status").removeClass("hide");
 	$.ajax({
 		type: "POST",
 		url: 'http://wave.elasticbeanstalk.com/app/ajax_sync_product1.php',
@@ -275,7 +275,7 @@ function product_sync1() {
 
 		success:function (json) {
 			
-			//$("#data_update_status").addClass("hide");
+			$("#data_update_status").addClass("hide");
 			var ajaxlength12 = json.rows.length;
 			localStorage.setItem("productlist_count", ajaxlength12);
 				var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100 * 1024 * 1024);
@@ -312,7 +312,7 @@ function product_sync1() {
 function product_sync2() {
 	
 	var name='guru';
-	//$("#data_update_status").removeClass("hide");
+	$("#data_update_status").removeClass("hide");
 	$.ajax({
 		type: "POST",
 		url: 'http://wave.elasticbeanstalk.com/app/ajax_sync_product2.php',
@@ -322,7 +322,7 @@ function product_sync2() {
 
 		success:function (json) {
 			
-			//$("#data_update_status").addClass("hide");
+			$("#data_update_status").addClass("hide");
 			var ajaxlength12 = json.rows.length;
 			localStorage.setItem("productlist_count", ajaxlength12);
 				var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100 * 1024 * 1024);
@@ -361,7 +361,7 @@ function product_sync2() {
 function product_sync3() {
 	
 	var name='guru';
-	//$("#data_update_status").removeClass("hide");
+	$("#data_update_status").removeClass("hide");
 	$.ajax({
 		type: "POST",
 		url: 'http://wave.elasticbeanstalk.com/app/ajax_sync_product3.php',
@@ -371,7 +371,7 @@ function product_sync3() {
 
 		success:function (json) {
 			
-			//$("#data_update_status").addClass("hide");
+			$("#data_update_status").addClass("hide");
 			var ajaxlength12 = json.rows.length;
 			localStorage.setItem("productlist_count", ajaxlength12);
 				var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100 * 1024 * 1024);

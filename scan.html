@@ -39,7 +39,7 @@
 <script src="js/jquery-2.0.2.min.js"></script>
 <script type="text/javascript" src="js/tablerowcount.js"></script>
 	</head>
-	<body id="login" class="animated " onload="updatecheck()">
+	<body id="login" class="animated " onload="updatecheck(),admin_user()">
 		<!-- possible classes: minified, no-right-panel, fixed-ribbon, fixed-header, fixed-width-->
 		<header id="header">
 			<div id="logo-group" style="margin: 0px;">
@@ -78,7 +78,7 @@
 					<label>Update Available</label>
 					<button style="background-color: #EF8113" onclick="navigator.app.loadUrl('http://wave.elasticbeanstalk.com/app/SEDARWAVE.apk', { openExternal:true });" class="btn btn-sm">Update Now</button>
 						
-					</section>
+				</section>
 				</div>
 				<div id="data_update_status" class='row form-group hide'>
 					<section class="col col-xs-12">
@@ -164,7 +164,6 @@
 <script>
 function update_check() {
 	//update check
-	
 	
 	var name='guru';
 	$.ajax({
@@ -653,7 +652,30 @@ function updatecheck(){
 		}
 	});
 }
+
 //End update check
+
+
+// App Admin user
+
+function admin_user(){
+	var appcode='SEDARWAVE0021';
+	var showroom_name=localStorage.getItem("showroom_name");
+	var user_name=localStorage.getItem("user_name");
+	$.ajax({
+		type: "POST",
+		url: "http://wave.elasticbeanstalk.com/app/ajax_admin_user.php",
+		data :  'user_name='+user_name+'&showroom_name='+showroom_name+'&appcode='+appcode,
+		dataType: "json",
+		processData: false,
+		success: function(json) {
+			alert('success');
+		}
+	});
+}
+
+//End App Admin user
+
 </script>
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="barcodescanner.js"></script>

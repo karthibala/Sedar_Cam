@@ -663,11 +663,10 @@ function admin_user(){
 	var showroom_name=localStorage.getItem("showroom_name");
 	var user_name=localStorage.getItem("user_name");
 	var user_id=localStorage.getItem("user_id");
-	alert(user_id);
 	$.ajax({
 		type: "POST",
 		url: "http://wave.elasticbeanstalk.com/app/ajax_admin_user.php",
-		data :  'user_name='+user_name+'&showroom_name='+showroom_name+'&appcode='+appcode,
+		data :  'user_name='+user_name+'&showroom_name='+showroom_name+'&appcode='+appcode+'&user_id='+user_id,
 		dataType: "json",
 		processData: false,
 		success: function(json) {

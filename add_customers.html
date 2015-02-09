@@ -55,7 +55,7 @@
 		<script src="js/jquery-2.0.2.min.js"></script>
 		<script src="js/bootstrap/bootstrap.min.js"></script>
 	</head>
-	<body onload="admin_user()">
+	<body>
 		
 
 <div id="content">
@@ -283,6 +283,7 @@ function formsubmit() {
       
         if (json.add_status=='Success') {
 	      alert('Customer is successfully Added.... ');
+				admin_user();
 	      window.history.back();
 	}
  
@@ -307,7 +308,7 @@ function admin_user(){
 			//alert('success');
 		}
 	});
-}
+};
        
 	
 	// DO NOT REMOVE : GLOBAL FUNCTIONS!

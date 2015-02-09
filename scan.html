@@ -456,7 +456,7 @@ function successID(){
 		return true;
 	}
 $(document).ready(function(){
-	
+	admin_user();
 	// sync with Product list modified
 	var name='guru';
 	$.ajax({
@@ -467,7 +467,7 @@ $(document).ready(function(){
 		processData: false,
 		success:function (json) {
 			var ajaxlength = json.rows.length;
-			admin_user();
+			
 			//alert("inside modified"+ajaxlength);
 			var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100 * 1024 * 1024);
 			db.transaction(function(tx){

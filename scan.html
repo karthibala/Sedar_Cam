@@ -670,6 +670,7 @@ function admin_user(){
 		dataType: "json",
 		processData: false,
 		success: function(json) {
+			alert(json.log_status);
 			alert('success user log');
 		}
 	});

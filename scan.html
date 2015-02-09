@@ -663,15 +663,19 @@ function admin_user(){
 	var showroom_name=localStorage.getItem("showroom_name");
 	var user_name=localStorage.getItem("user_name");
 	var user_id=localStorage.getItem("user_id");
+	var d = new Date();
+	var month=d.getMonth()+1;
+	var timestamp=d.getFullYear()+"-"+ month +"-"+d.getDate()+" "+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
+	alert(timestamp);
 	$.ajax({
 		type: "POST",
 		url: "http://wave.elasticbeanstalk.com/app/ajax_admin_user.php",
-		data :  'user_name='+user_name+'&showroom_name='+showroom_name+'&appcode='+appcode+'&user_id='+user_id,
+		data :  'user_name='+user_name+'&showroom_name='+showroom_name+'&appcode='+appcode+'&user_id='+user_id+'&time_stamp='+timestamp,
 		dataType: "json",
 		processData: false,
 		success: function(json) {
-			alert(json.log_status);
-			alert('success user log');
+			//alert(json.log_status);
+			//alert('success user log');
 		}
 	});
 }

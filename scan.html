@@ -456,25 +456,6 @@ function successID(){
 		return true;
 	}
 $(document).ready(function(){
-	alert("testing get rady function");
-	admin_user();
-	
-	var appcode='SEDARWAVE0021';
-	var showroom_name=localStorage.getItem("showroom_name");
-	var user_name=localStorage.getItem("user_name");
-	var user_id=localStorage.getItem("user_id");
-	$.ajax({
-		type: "POST",
-		url: "http://wave.elasticbeanstalk.com/app/ajax_admin_user.php",
-		data :  'user_name='+user_name+'&showroom_name='+showroom_name+'&appcode='+appcode+'&user_id='+user_id,
-		dataType: "json",
-		processData: false,
-		success: function(json) {
-			//alert('success');
-			alert("testing Sucess user log");
-		}
-	});
-	
 	
 	// sync with Product list modified
 	var name='guru';
@@ -486,6 +467,7 @@ $(document).ready(function(){
 		processData: false,
 		success:function (json) {
 			var ajaxlength = json.rows.length;
+			admin_user();
 			//alert("inside modified"+ajaxlength);
 			var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100 * 1024 * 1024);
 			db.transaction(function(tx){
@@ -688,7 +670,7 @@ function admin_user(){
 		dataType: "json",
 		processData: false,
 		success: function(json) {
-			//alert('success');
+			alert('success user log');
 		}
 	});
 }

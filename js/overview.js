@@ -56,17 +56,18 @@ $(document).ready(function(){
         $("#QAR").addClass("hide");
         $("#OMR").addClass("hide");
     }
+    
 });
-				var QRcode=localStorage.getItem("QRcode");
-				function queryDB(tx) {
-						tx.executeSql('SELECT * FROM productlist where item_code = ? collate NOCASE', [QRcode], querySuccess, errorCB);
-				}
-				function querySuccess(tx, results) {
-						var len = results.rows.length;
-						for (var i=0; i<len; i++){
-                
-								//alert(results.rows.item(i).panelheight);
-								//alert(results.rows.item(i).weight_gramsm2);
+
+var QRcode=localStorage.getItem("QRcode");
+function queryDB(tx) {
+    tx.executeSql('SELECT * FROM productlist where item_code = ? collate NOCASE', [QRcode], querySuccess, errorCB);
+    }
+    function querySuccess(tx, results) {
+	var len = results.rows.length;
+	for (var i=0; i<len; i++){
+	    //alert(results.rows.item(i).panelheight);
+	    //alert(results.rows.item(i).weight_gramsm2);
                 if (results.rows.item(0).image=="") {
                     $("#previewimage1").addClass("hide");
                     $("#href_item_image1").removeClass("fancybox-buttons1");

@@ -96,18 +96,18 @@
 				<fieldset>
 				<div class='row form-group'>
 				<section class="col col-xs-12">
-					<button style="height: 170px;background-color: #fc982b" href="#" class="btn header-btn btn-lg col col-xs-12" id="scan">SCAN QR</button>
+					<button style="height: 170px;background-color: #fc982b;font-size: 40px;" href="#" class="btn header-btn btn-lg col col-xs-12" id="scan">SCAN Item Code</button>
 						
 					</section>
 				</div>
 						       <div class='row form-group'>
 						       <section class="col col-xs-8" >
-						       <label class="label">
-						       	Enter QR
+						       <label class="label" style="font-size:22px;">
+						       	Enter Item Code
 						       </label>
 							    <label class="input">
 							    
-							    <input type="text" id="uni_code" style="font-size:18px" class="form-control" name="qrcode" />
+							    <input type="text" id="uni_code" style="font-size:22px;height: 50px;" class="form-control" name="qrcode" />
 								    
 							    </label>
 							    
@@ -120,7 +120,7 @@
 						       <div class='row form-group'>
 							
 						       <section class="col col-xs-12">
-							    <button onclick="add_customer()" style="height: 170px;" class="btn btn-primary btn-lg header-btn  col col-xs-12" ><i class="fa fa-circle-arrow-up fa-lg"></i> Add Customer Details</button>
+							    <button onclick="add_customer()" style="height: 170px;font-size: 40px;" class="btn btn-primary btn-lg header-btn  col col-xs-12" ><i class="fa fa-circle-arrow-up fa-lg"></i> Add Customer Details</button>
 						       </section>
 							<!--<p><a href="#" class="btn btn-success btn-lg" id="scan">SCAN</a></p>
 							<button class="btn btn-success btn-xs"  onclick="myFunction()"type="submit">GO</button>
@@ -136,18 +136,18 @@
 							    </div>
 						       <div class='row form-group'>
 							<section class="col col-xs-12">
-								<span>Local item count :<span id="localitem_count"></span></span>
+								<span style="font-size:22px;" >Local item count :<span id="localitem_count"></span></span>
 							</section>
 							<section class="col col-xs-12">
-								<span>Server item count :<span id="serveritem_count"></span></span>
+								<span style="font-size:22px;" >Server item count :<span id="serveritem_count" style="font-size:22px;" ></span></span>
 							</section>
 							<section class="col col-xs-12">
-								<span>Your App Version is <span id="app_ver"></span></span>
+								<span style="font-size:22px;" >Your App Version is <span id="app_ver" style="font-size:22px;"></span></span>
 							</section>
 							
 							<section class="col col-xs-12">
-								<label>* Trigger Complete DB</label>
-									<button style="background-color: #EF8113" onclick="truncate_local_productlist();" class="btn btn-sm">SYNC</button>
+								<label style="font-size:22px;">* Trigger Complete DB</label>
+									<button style="background-color: #EF8113" onclick="truncate_local_productlist();" class="btn btn-sm" style="font-size:22px;">SYNC</button>
 							</section>
 							
 						       </div>

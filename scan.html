@@ -75,7 +75,7 @@
 				<header>
 				<div id="update_avail" class='row form-group hide'>
 				<section class="col col-xs-12">
-					<label style="font-size:22px;">Update Available</label>
+					<label style="font-size:24px;">Update Available</label>
 					<button style="background-color: #EF8113;font-size:24px;" onclick="navigator.app.loadUrl('http://wave.elasticbeanstalk.com/app/SEDARWAVE.apk', { openExternal:true });" class="btn btn-sm" >Update Now</button>
 						
 				</section>
@@ -648,7 +648,7 @@ if(user_name==null){
 }
 //update check
 function updatecheck(){
-	var appcode='SEDARWAVE0023';
+	var appcode='SEDARWAVE0024';
 	document.getElementById("app_ver").innerHTML = appcode;
 	$.ajax({
 		type: "POST",
@@ -673,7 +673,7 @@ function updatecheck(){
 // App Admin user
 
 function admin_user(){
-	var appcode='SEDARWAVE0023';
+	var appcode='SEDARWAVE0024';
 	var showroom_name=localStorage.getItem("showroom_name");
 	var user_name=localStorage.getItem("user_name");
 	var user_id=localStorage.getItem("user_id");

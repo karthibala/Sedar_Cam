@@ -109,12 +109,21 @@ function queryDB(tx) {
 								document.getElementById("panelheight").innerHTML = results.rows.item(i).panelheight;
 								document.getElementById("weight_gramsm2").innerHTML = results.rows.item(i).weight_gramsm2;
 								document.getElementById("additional_notes").innerHTML = results.rows.item(i).additional_notes;
+								//additional data
+								
+								document.getElementById("Minimum_Chargeable_size").innerHTML = results.rows.item(i).Minimum_Chargeable_size;
+								document.getElementById("Maximum_Width").innerHTML = results.rows.item(i).Maximum_Width;
+								document.getElementById("Maximum_Height").innerHTML = results.rows.item(i).Maximum_Height;
+								document.getElementById("Minimum_Projection").innerHTML = results.rows.item(i).Minimum_Projection;
+								document.getElementById("Maximum_Projection").innerHTML = results.rows.item(i).Maximum_Projection;
+								document.getElementById("Type").innerHTML = results.rows.item(i).Type;
+								
 								//AED
 								document.getElementById("AED_price_per_SQM").innerHTML = results.rows.item(i).AED_price_per_SQM;
 								document.getElementById("SALE_AED_price_per_SQM").innerHTML = results.rows.item(i).SALE_AED_price_per_SQM;
 								document.getElementById("AED_Roman_Price_per_SQM").innerHTML = results.rows.item(i).AED_Roman_Price_per_SQM;
 								document.getElementById("SALE_AED_Roman_Price_per_SQM").innerHTML = results.rows.item(i).SALE_AED_Roman_Price_per_SQM;
-                document.getElementById("AED_stitching_price").innerHTML = results.rows.item(i).AED_stitching_price;
+								document.getElementById("AED_stitching_price").innerHTML = results.rows.item(i).AED_stitching_price;
 								document.getElementById("SALE_AED_stitching_price").innerHTML = results.rows.item(i).SALE_AED_stitching_price;
 								document.getElementById("AED_norm_lining_per_SQM").innerHTML = results.rows.item(i).AED_norm_lining_per_SQM;
 								document.getElementById("SALE_AED_norm_lining_per_SQM").innerHTML = results.rows.item(i).SALE_AED_norm_lining_per_SQM;
@@ -206,6 +215,24 @@ function queryDB(tx) {
 								document.getElementById("BHD_plata_per_SQM").innerHTML = results.rows.item(i).BHD_plata_per_SQM;
 								document.getElementById("SALE_BHD_plata_per_SQM").innerHTML = results.rows.item(i).SALE_BHD_plata_per_SQM;
 								
+								
+								//ADDITIONAL Database
+								
+								document.getElementById("AED_Price_with_Mono_Command_Ball_Chain_System").innerHTML = results.rows.item(i).AED_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("SALE_AED_Price_with_Mono_Command_Ball_Chain_System").innerHTML = results.rows.item(i).SALE_AED_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("AED_Price_with_Guide_Rope_per_SQM").innerHTML = results.rows.item(i).AED_Price_with_Guide_Rope_per_SQM;
+								document.getElementById("SALE_AED_Price_with_Guide_Rope_per_SQM").innerHTML = results.rows.item(i).SALE_AED_Price_with_Guide_Rope_per_SQM;
+								document.getElementById("AED_Price_with_Cassete_LOUVO_per_SQM").innerHTML = results.rows.item(i).AED_Price_with_Cassete_LOUVO_per_SQM;
+								document.getElementById("SALE_AED_Price_with_Cassete_LOUVO_per_SQM").innerHTML = results.rows.item(i).SALE_AED_Price_with_Cassete_LOUVO_per_SQM;
+								document.getElementById("AED_Price_per_LMT").innerHTML = results.rows.item(i).AED_Price_per_LMT;
+								document.getElementById("SALE_AED_Price_per_LMT").innerHTML = results.rows.item(i).SALE_AED_Price_per_LMT;
+								document.getElementById("AED_Price_for_Window_Glass_per_Piece").innerHTML = results.rows.item(i).AED_Price_for_Window_Glass_per_Piece;
+								document.getElementById("SALE_AED_Price_for_Window_Glass_per_Piece").innerHTML = results.rows.item(i).SALE_AED_Price_for_Window_Glass_per_Piece;
+								document.getElementById("AED_Price_for_Decorative_Window_Glass_Film_per_Piece").innerHTML = results.rows.item(i).AED_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								document.getElementById("SALE_AED_Price_for_Decorative_Window_Glass_Film_per_Piece").innerHTML = results.rows.item(i).SALE_AED_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								
+								
+								
 								//all currency
 								
 								//AED
@@ -214,7 +241,7 @@ function queryDB(tx) {
 								document.getElementById("AED_Roman_Price_per_SQM1").innerHTML = results.rows.item(i).AED_Roman_Price_per_SQM;
 								document.getElementById("SALE_AED_Roman_Price_per_SQM1").innerHTML = results.rows.item(i).SALE_AED_Roman_Price_per_SQM;
 								document.getElementById("AED_stitching_price1").innerHTML = results.rows.item(i).AED_stitching_price;
-                document.getElementById("SALE_AED_stitching_price1").innerHTML = results.rows.item(i).SALE_AED_stitching_price;
+								document.getElementById("SALE_AED_stitching_price1").innerHTML = results.rows.item(i).SALE_AED_stitching_price;
 								document.getElementById("AED_norm_lining_per_SQM1").innerHTML = results.rows.item(i).AED_norm_lining_per_SQM;
 								document.getElementById("SALE_AED_norm_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_AED_norm_lining_per_SQM;
 								document.getElementById("AED_branded_lining_per_SQM1").innerHTML = results.rows.item(i).AED_branded_lining_per_SQM;
@@ -305,6 +332,21 @@ function queryDB(tx) {
 								document.getElementById("SALE_QAR_bateaux_per_SQM1").innerHTML = results.rows.item(i).SALE_QAR_bateaux_per_SQM;
 								document.getElementById("QAR_plata_per_SQM1").innerHTML = results.rows.item(i).QAR_plata_per_SQM;
 								document.getElementById("SALE_QAR_plata_per_SQM1").innerHTML = results.rows.item(i).SALE_QAR_plata_per_SQM;
+								
+								//ADDITIONAL Database
+								
+								document.getElementById("AED_Price_with_Mono_Command_Ball_Chain_System1").innerHTML = results.rows.item(i).AED_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("SALE_AED_Price_with_Mono_Command_Ball_Chain_System1").innerHTML = results.rows.item(i).SALE_AED_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("AED_Price_with_Guide_Rope_per_SQM1").innerHTML = results.rows.item(i).AED_Price_with_Guide_Rope_per_SQM;
+								document.getElementById("SALE_AED_Price_with_Guide_Rope_per_SQM1").innerHTML = results.rows.item(i).SALE_AED_Price_with_Guide_Rope_per_SQM;
+								document.getElementById("AED_Price_with_Cassete_LOUVO_per_SQM1").innerHTML = results.rows.item(i).AED_Price_with_Cassete_LOUVO_per_SQM;
+								document.getElementById("SALE_AED_Price_with_Cassete_LOUVO_per_SQM1").innerHTML = results.rows.item(i).SALE_AED_Price_with_Cassete_LOUVO_per_SQM;
+								document.getElementById("AED_Price_per_LMT1").innerHTML = results.rows.item(i).AED_Price_per_LMT;
+								document.getElementById("SALE_AED_Price_per_LMT1").innerHTML = results.rows.item(i).SALE_AED_Price_per_LMT;
+								document.getElementById("AED_Price_for_Window_Glass_per_Piece1").innerHTML = results.rows.item(i).AED_Price_for_Window_Glass_per_Piece;
+								document.getElementById("SALE_AED_Price_for_Window_Glass_per_Piece1").innerHTML = results.rows.item(i).SALE_AED_Price_for_Window_Glass_per_Piece;
+								document.getElementById("AED_Price_for_Decorative_Window_Glass_Film_per_Piece1").innerHTML = results.rows.item(i).AED_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								document.getElementById("SALE_AED_Price_for_Decorative_Window_Glass_Film_per_Piece1").innerHTML = results.rows.item(i).SALE_AED_Price_for_Decorative_Window_Glass_Film_per_Piece;
 						}
 				}
 				// Transaction success callback

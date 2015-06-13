@@ -39,12 +39,13 @@ states[Connection.NONE] = 'No network connection';
         if(network_status=='No network connection'){
             if(QRcode!=''){
                 localStorage.setItem("QRcode", QRcode);
-            window.open('overview.html', '_blank', 'location=yes');
+				window.open('overview.html', '_blank', 'location=yes');
             
            }
         }else{
             if(QRcode!=''){
-		localStorage.setItem("QRcode", QRcode);
+				
+			localStorage.setItem("QRcode", QRcode);
             window.open('overview.html', '_blank', 'location=yes');
             //  var showroom_id=localStorage.getItem("showroom_id");
             //  var user_id=localStorage.getItem("user_id");

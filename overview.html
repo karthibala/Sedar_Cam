@@ -79,7 +79,9 @@
 												<div class="jarviswidget-editbox">
 														
 												</div>
-												<div class="widget-body no-padding">
+												<!-- Fabric page start-->
+												
+												<div class="widget-body no-padding" id="Fabric">
 														<form action=""  enctype="multipart/form-data" method="POST" id="form-contact" name="smart-form-register" class="smart-form">
 																<div id="accordion-2" class="panel-group smart-accordion-default">
 																		<div class="panel panel-default">
@@ -103,27 +105,9 @@
 																														<label class="label" style="font-size:22px;"><b>Category: </b><span id="category"></span></label>
 																												</section>
 																										</div>
-																										<!-- additional add data-->
 																										<div class="row">
-																												<section class="col col-lg-3">
-																														<label class="label" style="font-size:22px;"><b>Minimum Chargeable size: </b><span id="Minimum_Chargeable_size"></span></label>
-																												</section>
-																												<section class="col col-lg-3">
-																														<label class="label" style="font-size:22px;"><b>Maximum Width: </b><span id="Maximum_Width"></span></label>
-																												</section>
-																												<section class="col col-lg-3">
-																														<label class="label" style="font-size:22px;"><b>Maximum Height: </b><span id="Maximum_Height"></span></label>
-																												</section>
-																												<section class="col col-lg-3">
-																														<label class="label" style="font-size:22px;"><b>Minimum Projection: </b><span id="Minimum_Projection"></span></label>
-																												</section>
-																										</div>
-																										<div class="row">
-																												<section class="col col-lg-3">
-																														<label class="label" style="font-size:22px;"><b>Maximum Projection: </b><span id="Maximum_Projection"></span></label>
-																												</section>
-																												<section class="col col-lg-3">
-																														<label class="label" style="font-size:22px;"><b>Type: </b><span id="Type"></span></label>
+																												<section class="col col-lg-3 hide">
+																														<label class="label" style="font-size:22px;"><b>Category Name: </b><span id="Category_name"></span></label>
 																												</section>
 																												<section class="col col-lg-3">
 																														<label class="label" style="font-size:22px;"><b>Fabric Width: </b><span id="fabric_width"></span></label>
@@ -131,10 +115,6 @@
 																												<section class="col col-lg-3">
 																														<label class="label" style="font-size:22px;"><b>Height/Width/Pc: </b><span id="panelheight"></span></label>
 																												</section>
-																										</div>
-																										
-																										<div class="row">
-																												
 																												<section class="col col-lg-3">
 																														<label class="label" style="font-size:22px;"><b>Weight grams/m2: </b><span id="weight_gramsm2"></span></label>
 																												</section>
@@ -142,6 +122,7 @@
 																														<label class="label" style="font-size:22px;"><b>Additional Notes: </b><span id="additional_notes"></span></label>
 																												</section>
 																										</div>
+																										
 																								</fieldset>
 																										<div class="table-responsive">
 																												<table class="table table-striped table-bordered table-hover" id="AED">
@@ -438,6 +419,65 @@
 																														</tbody>
 																												</table>
 																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="KWD">
+																														<thead>
+																																<tr>
+																																		<th style="font-size:24px;">Items</th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Fabric Price/LMT</td>
+																																		<td style="font-size:22px;"><span id="KWD_price_per_SQM"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_price_per_SQM"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">KWD stitching_price</td>
+																																		<td style="font-size:22px;"><span id="KWD_stitching_price"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_stitching_price"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Roman Price No Lining/SQM</td>
+																																		<td style="font-size:22px;"><span id="KWD_Roman_Price_per_SQM"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_Roman_Price_per_SQM"></span></td>
+																																</tr>
+																																
+																																<tr class="hide">
+																																		<td style="font-size:24px;">KWD Norm Lining/SQM</td>
+																																		<td style="font-size:22px;"><span id="KWD_norm_lining_per_SQM"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_norm_lining_per_SQM"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Branded Lining/SQM</td>
+																																		<td style="font-size:22px;"><span id="KWD_branded_lining_per_SQM"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_branded_lining_per_SQM"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Cataluna Blackout/SQM</td>
+																																		<td style="font-size:22px;"><span id="KWD_cataluna_blackout_per_SQM"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_cataluna_blackout_per_SQM"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Antartica Blackout/SQM</td>
+																																		<td style="font-size:22px;"><span id="KWD_antartica_blackout_per_SQM"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_antartica_blackout_per_SQM"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Bateaux/SQM</td>
+																																		<td style="font-size:22px;"><span id="KWD_bateaux_per_SQM"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_bateaux_per_SQM"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">KWD plata/SQM</td>
+																																		<td style="font-size:22px;"><span id="KWD_plata_per_SQM"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_plata_per_SQM"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
 																						</div>
 																				</div>
 																		</div>
@@ -479,337 +519,6 @@
 																						</div>
 																				</div>
 																		</div>
-																		
-																		<!-- additional_data starts-->
-																		
-																			<!-- Pleated Blinds starts-->
-																			
-																			<div class="panel panel-default">
-																				<div class="panel-heading">
-																						<h4 class="panel-title"><a class="collapsed" href="#collapseThree-103" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Pleated Blinds </a></h4>
-																				</div>
-																				<div class="panel-collapse collapse" id="collapseThree-103" style="height: 0px;">
-																					<div class="panel-body">
-																						<!-- items list -->
-																						<fieldset>
-																							<div class="row">
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Item Code: </b><span id="item_code"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Brand: </b><span id="brand"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Catalogue Name: </b><span id="catalogue_name"></span></label>
-																								</section>
-																							</div>
-																						<!-- additional add data-->
-																							<div class="row">
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Minimum Chargeable size: </b><span id="Minimum_Chargeable_size"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Additional Notes: </b><span id="additional_notes"></span></label>
-																								</section>
-																							</div>
-																						</fieldset>
-																						<div class="table-responsive">
-																							<table class="table table-striped table-bordered table-hover" id="dt_basic">
-																								<thead>
-																									<tr>
-																										<th></th>
-																										<th style="font-size:24px;">Retail Price</th>
-																										<th style="font-size:24px;">Dealer Price</th>
-																										
-																									</tr>
-																								</thead>
-																								<tbody>
-																									<tr>
-																										<td style="font-size:24px;">AED Price/SQM</td>
-																										<td style="font-size:22px;"><span id="AED_price_per_SQM1"></span></td>
-																										<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM1"></span></td>
-																									</tr>
-																									<tr>
-																										<td style="font-size:24px;">AED Price with Mono Command Ball Chain System</td>
-																											<td style="font-size:22px;"><span id="AED_Price_with_Mono_Command_Ball_Chain_System1"></span></td>
-																											<td style="font-size:22px;"><span id="SALE_AED_Price_with_Mono_Command_Ball_Chain_System1"></span></td>
-																									</tr>
-																									<tr>
-																										<td style="font-size:24px;">AED Price with Guide Rope/SQM</td>
-																										<td style="font-size:22px;"><span id="AED_Price_with_Guide_Rope_per_SQM1"></span></td>
-																										<td style="font-size:22px;"><span id="SALE_AED_Price_with_Guide_Rope_per_SQM1"></span></td>
-																									</tr>
-																									
-																								</tbody>
-																							</table>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																			
-																			<!-- Pleated Blinds ends-->
-																			<!--Folding door starts -->
-																		
-																			<div class="panel panel-default">
-																				<div class="panel-heading">
-																						<h4 class="panel-title"><a class="collapsed" href="#collapseThree-1" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Folding Door </a></h4>
-																				</div>
-																				<div class="panel-collapse collapse" id="collapseThree-1" style="height: 0px;">
-																					<div class="panel-body">
-																						<!-- items list -->
-																						<fieldset>
-																							<div class="row">
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Item Code: </b><span id="item_code"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Brand: </b><span id="brand"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Catalogue Name: </b><span id="catalogue_name"></span></label>
-																								</section>
-																							</div>
-																						<!-- additional add data-->
-																							<div class="row">
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Minimum Chargeable size: </b><span id="Minimum_Chargeable_size"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Maximum Height: </b><span id="Maximum_Height"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Additional Notes: </b><span id="additional_notes"></span></label>
-																								</section>
-																							</div>
-																						</fieldset>
-																						<div class="table-responsive">
-																							<table class="table table-striped table-bordered table-hover" id="dt_basic">
-																								<thead>
-																									<tr>
-																										<th></th>
-																										<th style="font-size:24px;">Retail Price</th>
-																										<th style="font-size:24px;">Dealer Price</th>
-																										
-																									</tr>
-																								</thead>
-																								<tbody>
-																									<tr>
-																										<td style="font-size:24px;">AED Price/SQM</td>
-																										<td style="font-size:22px;"><span id="AED_price_per_SQM1"></span></td>
-																										<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM1"></span></td>
-																									</tr>
-																									<tr>
-																										<td style="font-size:24px;">AED Price for Window Glass/Piece</td>
-																											<td style="font-size:22px;"><span id="AED_stitching_price1"></span></td>
-																											<td style="font-size:22px;"><span id="SALE_AED_stitching_price1"></span></td>
-																									</tr>
-																									<tr>
-																										<td style="font-size:24px;">AED Price for Decorative Window Glass Film/Piece</td>
-																										<td style="font-size:22px;"><span id="AED_Roman_Price_per_SQM1"></span></td>
-																										<td style="font-size:22px;"><span id="SALE_AED_Roman_Price_per_SQM1"></span></td>
-																									</tr>
-																									
-																								</tbody>
-																							</table>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																		
-																			<!--Folding door ends -->
-																			
-																			<!-- Wooden Roman starts -->
-																			
-																			<div class="panel panel-default">
-																				<div class="panel-heading">
-																						<h4 class="panel-title"><a class="collapsed" href="#collapseThree-100" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Wooden Roman </a></h4>
-																				</div>
-																				<div class="panel-collapse collapse" id="collapseThree-100" style="height: 0px;">
-																					<div class="panel-body">
-																						<!-- items list -->
-																						<fieldset>
-																							<div class="row">
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Item Code: </b><span id="item_code"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Brand: </b><span id="brand"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Catalogue Name: </b><span id="catalogue_name"></span></label>
-																								</section>
-																							</div>
-																						<!-- additional add data-->
-																							<div class="row">
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Minimum Chargeable size: </b><span id="Minimum_Chargeable_size"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Additional Notes: </b><span id="additional_notes"></span></label>
-																								</section>
-																							</div>
-																						</fieldset>
-																						<div class="table-responsive">
-																							<table class="table table-striped table-bordered table-hover" id="dt_basic">
-																								<thead>
-																									<tr>
-																										<th></th>
-																										<th style="font-size:24px;">Retail Price</th>
-																										<th style="font-size:24px;">Dealer Price</th>
-																										
-																									</tr>
-																								</thead>
-																								<tbody>
-																									<tr>
-																										<td style="font-size:24px;">AED Price/SQM</td>
-																										<td style="font-size:22px;"><span id="AED_price_per_SQM1"></span></td>
-																										<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM1"></span></td>
-																									</tr>
-																									
-																								</tbody>
-																							</table>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																			
-																			<!-- Wooden Roman ends -->
-																			
-																			<!-- Awning Starts -->
-																			
-																			<div class="panel panel-default">
-																				<div class="panel-heading">
-																						<h4 class="panel-title"><a class="collapsed" href="#collapseThree-101" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Awning </a></h4>
-																				</div>
-																				<div class="panel-collapse collapse" id="collapseThree-101" style="height: 0px;">
-																					<div class="panel-body">
-																						<!-- items list -->
-																						<fieldset>
-																							<div class="row">
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Item Code: </b><span id="item_code"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Brand: </b><span id="brand"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Type: </b><span id="Type"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Minimum Chargeable size: </b><span id="Minimum_Chargeable_size"></span></label>
-																								</section>
-																							</div>
-																						<!-- additional add data-->
-																							<div class="row">
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Maximum Width: </b><span id="Maximum_Width"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Maximum Projection: </b><span id="Maximum_Projection"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Minimum Projection: </b><span id="Minimum_Projection"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Additional Notes: </b><span id="additional_notes"></span></label>
-																								</section>
-																							</div>
-																						</fieldset>
-																						<div class="table-responsive">
-																							<table class="table table-striped table-bordered table-hover" id="dt_basic">
-																								<thead>
-																									<tr>
-																										<th></th>
-																										<th style="font-size:24px;">Retail Price</th>
-																										<th style="font-size:24px;">Dealer Price</th>
-																										
-																									</tr>
-																								</thead>
-																								<tbody>
-																									<tr>
-																										<td style="font-size:24px;">AED Price/SQM</td>
-																										<td style="font-size:22px;"><span id="AED_price_per_SQM1"></span></td>
-																										<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM1"></span></td>
-																									</tr>
-																									<tr>
-																										<td style="font-size:24px;">AED Price/LMT</td>
-																										<td style="font-size:22px;"><span id="AED_price_per_SQM1"></span></td>
-																										<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM1"></span></td>
-																									</tr>
-																								</tbody>
-																							</table>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																			
-																			<!-- Awning ends -->
-																			
-																			<!-- Combi Shades Starts -->
-																		
-																			<div class="panel panel-default">
-																				<div class="panel-heading">
-																						<h4 class="panel-title"><a class="collapsed" href="#collapseThree-102" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Combi Shades </a></h4>
-																				</div>
-																				<div class="panel-collapse collapse" id="collapseThree-102" style="height: 0px;">
-																					<div class="panel-body">
-																						<!-- items list -->
-																						<fieldset>
-																							<div class="row">
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Item Code: </b><span id="item_code"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Brand: </b><span id="brand"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Catalogue Name: </b><span id="catalogue_name"></span></label>
-																								</section>
-																								
-																							</div>
-																						<!-- additional add data-->
-																							<div class="row">
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Minimum Chargeable size: </b><span id="Minimum_Chargeable_size"></span></label>
-																								</section>
-																								<section class="col col-lg-3">
-																									<label class="label" style="font-size:22px;"><b>Additional Notes: </b><span id="additional_notes"></span></label>
-																								</section>
-																							</div>
-																						</fieldset>
-																						<div class="table-responsive">
-																							<table class="table table-striped table-bordered table-hover" id="dt_basic">
-																								<thead>
-																									<tr>
-																										<th></th>
-																										<th style="font-size:24px;">Retail Price</th>
-																										<th style="font-size:24px;">Dealer Price</th>
-																										
-																									</tr>
-																								</thead>
-																								<tbody>
-																									<tr>
-																										<td style="font-size:24px;">AED Price/SQM</td>
-																										<td style="font-size:22px;"><span id="AED_price_per_SQM1"></span></td>
-																										<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM1"></span></td>
-																									</tr>
-																									<tr>
-																										<td style="font-size:24px;">AED Price with Cassete LOUVO/SQM</td>
-																										<td style="font-size:22px;"><span id="AED_Price_with_Cassete_LOUVO_per_SQM1"></span></td>
-																										<td style="font-size:22px;"><span id="SALE_AED_Price_with_Cassete_LOUVO_per_SQM1"></span></td>
-																									</tr>
-																								</tbody>
-																							</table>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																		
-																			<!-- Combi Shades ends -->
-																			
-																			
-																		<!-- additional_data ends-->
-																		
 																		<div class="panel panel-default">
 																				<div class="panel-heading">
 																						<h4 class="panel-title"><a class="collapsed" href="#collapseOne-11" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Composition </a></h4>
@@ -876,9 +585,10 @@
 									<td style="font-size:24px;">AED Fabric Price/LMT</td>
 									<td style="font-size:22px;"><span id="AED_price_per_SQM1"></span></td>
 									<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM1"></span></td>
+									
 								</tr>
 								<tr>
-									<td style="font-size:24px;">AED stitching_price</td>
+										<td style="font-size:24px;">AED stitching_price</td>
 										<td style="font-size:22px;"><span id="AED_stitching_price1"></span></td>
 										<td style="font-size:22px;"><span id="SALE_AED_stitching_price1"></span></td>
 								</tr>
@@ -886,6 +596,7 @@
 									<td style="font-size:24px;">AED Roman Price No Lining/SQM</td>
 									<td style="font-size:22px;"><span id="AED_Roman_Price_per_SQM1"></span></td>
 									<td style="font-size:22px;"><span id="SALE_AED_Roman_Price_per_SQM1"></span></td>
+									
 								</tr>
 								
                                                                 
@@ -965,8 +676,8 @@
         <tbody>
             <tr>
                 <td style="font-size:24px;">SAR Fabric Price/LMT</td>
-                <td><span id="SAR_price_per_SQM1"></span></td>
-                <td><span id="SALE_SAR_price_per_SQM1"></span></td>
+                <td style="font-size:22px;"><span id="SAR_price_per_SQM1"></span></td>
+                <td style="font-size:22px;"><span id="SALE_SAR_price_per_SQM1"></span></td>
             </tr>
 						<tr>
                 <td style="font-size:24px;">SAR Stitching price</td>
@@ -1244,6 +955,80 @@
 </div>
 </div>
 </div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-1313" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>KWD </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-1313" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+ <table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">KWD Fabric Price/LMT</td>
+                <td style="font-size:22px;"><span id="KWD_price_per_SQM1"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_price_per_SQM1"></span></td>
+            </tr>
+						<tr>
+                <td style="font-size:24px;">KWD stitching price</td>
+                <td style="font-size:22px;"><span id="KWD_stitching_price1"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_stitching_price1"></span></td>
+            </tr>
+            <tr>
+                <td style="font-size:24px;">KWD Roman Price No Lining/SQM</td>
+                <td style="font-size:22px;" ><span id="KWD_Roman_Price_per_SQM1"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_Roman_Price_per_SQM1"></span></td>
+            </tr>
+            
+            <tr class="hide">
+                <td style="font-size:24px;">KWD norm lining/SQM</td>
+                <td style="font-size:22px;"><span id="KWD_norm_lining_per_SQM1"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_norm_lining_per_SQM1"></span></td>
+            </tr>
+            <tr>
+                <td style="font-size:24px;">KWD branded lining/SQM</td>
+                <td style="font-size:22px;"><span id="KWD_branded_lining_per_SQM1"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_branded_lining_per_SQM1"></span></td>
+            </tr>
+            <tr>
+                <td style="font-size:24px;">KWD cataluna blackout/SQM</td>
+                <td style="font-size:22px;"><span id="KWD_cataluna_blackout_per_SQM1"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_cataluna_blackout_per_SQM1"></span></td>
+            </tr>
+            <tr>
+                <td style="font-size:24px;">KWD antartica blackout/SQM</td>
+                <td style="font-size:22px;"><span id="KWD_antartica_blackout_per_SQM1"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_antartica_blackout_per_SQM1"></span></td>
+            </tr>
+            <tr>
+                <td style="font-size:24px;">KWD bateaux/SQM</td>
+                <td style="font-size:22px;"><span id="KWD_bateaux_per_SQM1"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_bateaux_per_SQM1"></span></td>
+            </tr>
+            <tr>
+                <td style="font-size:24px;">KWD plata/SQM</td>
+                <td style="font-size:22px;"><span id="KWD_plata_per_SQM1"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_plata_per_SQM1"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
     
     
     
@@ -1273,6 +1058,2711 @@
     </form>
                                         </div>
 	<!-- END ROW -->
+	<!-- Fabric page end-->
+	
+	<!-- Pleated Blinds page start-->
+	
+	<div class="widget-body no-padding" id="Pleated_Blinds">
+														<form action=""  enctype="multipart/form-data" method="POST" id="form-contact" name="smart-form-register" class="smart-form">
+																<div id="accordion-2" class="panel-group smart-accordion-default">
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="" href="#collapseOne-21" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Item Info </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse in" id="collapseOne-21" style="height:auto;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div class="row">
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Item Code: </b><span id="item_code21"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Brand: </b><span id="brand21"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Catalogue Name: </b><span id="catalogue_name21"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Minimum Chargeable size: </b><span id="Minimum_Chargeable21"></span></label>
+																												</section>
+																										</div>
+																										<div class="row">
+																												
+																												<section class="col col-lg-3 hide">
+																														<label class="label" style="font-size:22px;"><b>Category Name: </b><span id="Category_name21"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Additional Notes: </b><span id="additional_notes21"></span></label>
+																												</section>
+																										</div>
+																								</fieldset>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="AED">
+																														<thead>
+																																<tr>
+																																		<th style="font-size:24px;">Items</th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">AED Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="AED_price_per_SQM21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM21"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">AED Price with Mono Command Ball Chain System</td>
+																																		<td style="font-size:22px;"><span id="AED_Price_with_Mono_Command_Ball_Chain_System21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_AED_Price_with_Mono_Command_Ball_Chain_System21"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">AED Price with Guide Rope/SQM</td>
+																																		<td style="font-size:22px;"><span id="AED_Price_with_Guide_Rope_per_SQM21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_AED_Price_with_Guide_Rope_per_SQM21"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="SAR">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">SAR Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="SAR_price_per_SQM21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_SAR_price_per_SQM21"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">SAR Price with Mono Command Ball Chain System</td>
+																																		<td style="font-size:22px;"><span id="SAR_Price_with_Mono_Command_Ball_Chain_System21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_SAR_Price_with_Mono_Command_Ball_Chain_System21"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">SAR Price with Guide Rope/SQM</td>
+																																		<td style="font-size:22px;"><span id="SAR_Price_with_Guide_Rope_per_SQM21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_SAR_Price_with_Guide_Rope_per_SQM21"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="QAR">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">QAR Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="QAR_price_per_SQM21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_QAR_price_per_SQM21"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">QAR Price with Mono Command Ball Chain System</td>
+																																		<td style="font-size:22px;"><span id="QAR_Price_with_Mono_Command_Ball_Chain_System21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_QAR_Price_with_Mono_Command_Ball_Chain_System21"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">QAR Price with Guide Rope/SQM</td>
+																																		<td style="font-size:22px;"><span id="QAR_Price_with_Guide_Rope_per_SQM21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_QAR_Price_with_Guide_Rope_per_SQM21"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="OMR">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">OMR Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="OMR_price_per_SQM21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_OMR_price_per_SQM21"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">OMR Price with Mono Command Ball Chain System</td>
+																																		<td style="font-size:22px;"><span id="OMR_Price_with_Mono_Command_Ball_Chain_System21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_OMR_Price_with_Mono_Command_Ball_Chain_System21"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">OMR Price with Guide Rope/SQM</td>
+																																		<td style="font-size:22px;"><span id="OMR_Price_with_Guide_Rope_per_SQM21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_OMR_Price_with_Guide_Rope_per_SQM21"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="BHD">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">BHD Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="BHD_price_per_SQM21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_BHD_price_per_SQM21"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">BHD Price with Mono Command Ball Chain System</td>
+																																		<td style="font-size:22px;"><span id="BHD_Price_with_Mono_Command_Ball_Chain_System21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_BHD_Price_with_Mono_Command_Ball_Chain_System21"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">BHD Price with Guide Rope/SQM</td>
+																																		<td style="font-size:22px;"><span id="BHD_Price_with_Guide_Rope_per_SQM21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_BHD_Price_with_Guide_Rope_per_SQM21"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="KWD">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="KWD_price_per_SQM21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_price_per_SQM21"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Price with Mono Command Ball Chain System</td>
+																																		<td style="font-size:22px;"><span id="KWD_Price_with_Mono_Command_Ball_Chain_System21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_Price_with_Mono_Command_Ball_Chain_System21"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Price with Guide Rope/SQM</td>
+																																		<td style="font-size:22px;"><span id="KWD_Price_with_Guide_Rope_per_SQM21"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_Price_with_Guide_Rope_per_SQM21"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																						</div>
+																				</div>
+																		</div>
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="collapsed" href="#collapseOne-200" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Images </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse" id="collapseOne-200" style="height: 0px;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div class="row">
+																												<div  id="previewimage1" class="superbox-list"  style=" margin:10px;" >
+																														<a class="fancybox-buttons1" id="href_item_image1" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img alt="" class="superbox-img previewimage" id="item_image211" />
+																														</a>
+																												</div>
+																												<div  id="previewimage2" class="superbox-list" style="float:left; margin:10px;">
+																														<a class="fancybox-buttons1" id="href_item_image2" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img  alt="" class="superbox-img previewimage" id="item_image212" />
+																														</a>
+																												</div>
+																												<div  id="previewimage3" class="superbox-list" style="float:left; margin:10px;">
+																														<a class="fancybox-buttons1" id="href_item_image3" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img  alt="" class="superbox-img previewimage" id="item_image213" />
+																														</a>
+																												</div>
+																												<div  id="previewimage4" class="superbox-list" style="float:left; margin:10px;">
+																														<a class="fancybox-buttons1" id="href_item_image4" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img  alt="" class="superbox-img previewimage" id="item_image214" />
+																														</a>
+																												</div>
+																										</div>
+																										<div id="previewimage_null" class='row form-group hide'>
+																												<section class="col col-xs-12">
+																														<label style="font-size:24px;">No Images for this item...</label>
+																												</section>
+																										</div>
+																								</fieldset>
+																						</div>
+																				</div>
+																		</div>
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="collapsed" href="#collapseOne-23" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Composition </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse" id="collapseOne-23" style="height:auto;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div id="no-more-tables">
+																												<table id="fabric_add21" class="col-md-12 table-bordered table-striped table-condensed cf">
+																														<tbody>
+																																<tr></tr>
+																														</tbody>
+																												</table>
+																										</div>
+																								</fieldset>
+																						</div>
+																				</div>
+																		</div>
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="collapsed" href="#collapseOne-24" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Product Possible </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse" id="collapseOne-24" style="height:auto;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div id="no-more-tables">
+																												<table id="product_pos_add21" class="col-md-12 table-bordered table-striped table-condensed cf">
+																														<tbody>
+																																<tr></tr>
+																														</tbody>
+																												</table>
+																										</div>
+																								</fieldset>
+																						</div>
+																				</div>
+																		</div>
+																				<div class="panel panel-default" id="all_price">
+																						<div class="panel-heading">
+									<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-211" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>View Other Currency Prices</a></h4>
+								</div>
+								<div class="panel-collapse collapse" id="collapseTwo-211" style="height: 0px;">
+									<div class="panel-body">
+										<div id="accordion-1" class="panel-group smart-accordion-default">
+    
+    
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseThree-21" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>AED </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseThree-21" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+							<thead>
+								<tr>
+									<th></th>
+									<th style="font-size:24px;">Retail Price</th>
+									<th style="font-size:24px;">Dealer Price</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="font-size:24px;">AED Price/SQM</td>
+									<td style="font-size:22px;"><span id="AED_price_per_SQM211"></span></td>
+									<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM211"></span></td>
+									
+								</tr>
+								<tr>
+										<td style="font-size:24px;">AED Price with Mono Command Ball Chain System</td>
+										<td style="font-size:22px;"><span id="AED_Price_with_Mono_Command_Ball_Chain_System211"></span></td>
+										<td style="font-size:22px;"><span id="SALE_AED_Price_with_Mono_Command_Ball_Chain_System211"></span></td>
+								</tr>
+								<tr>
+									<td style="font-size:24px;">AED Price with Guide Rope/SQM</td>
+									<td style="font-size:22px;"><span id="AED_Price_with_Guide_Rope_per_SQM211"></span></td>
+									<td style="font-size:22px;"><span id="SALE_AED_Price_with_Guide_Rope_per_SQM211"></span></td>
+									
+								</tr>
+							</tbody>
+						</table>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+    
+    
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapse-22" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>SAR </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapse-22" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">SAR Price/SQM</td>
+                <td style="font-size:22px;"><span id="SAR_price_per_SQM211"></span></td>
+                <td style="font-size:22px;"><span id="SALE_SAR_price_per_SQM211"></span></td>
+            </tr>
+						<tr>
+                <td style="font-size:24px;">SAR Price with Mono Command Ball Chain System</td>
+                <td style="font-size:22px;"><span id="SAR_Price_with_Mono_Command_Ball_Chain_System211"></span></td>
+                <td style="font-size:22px;"><span id="SALE_SAR_Price_with_Mono_Command_Ball_Chain_System211"></span></td>
+            </tr>
+             <tr>
+                <td style="font-size:24px;">SAR Price with Guide Rope/SQM</td>
+                <td style="font-size:22px;"><span id="SAR_Price_with_Guide_Rope_per_SQM211"></span></td>
+                <td style="font-size:22px;"><span id="SALE_SAR_Price_with_Guide_Rope_per_SQM211"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+     
+     
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-23" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>QAR </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-23" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">QAR Price/SQM</td>
+                <td style="font-size:22px;"><span id="QAR_price_per_SQM211"></span></td>
+                <td style="font-size:22px;"><span id="SALE_QAR_price_per_SQM211"></span></td>
+            </tr>
+						<tr>
+                <td style="font-size:24px;">QAR Price with Mono Command Ball Chain System</td>
+                <td style="font-size:22px;"><span id="QAR_Price_with_Mono_Command_Ball_Chain_System211"></span></td>
+                <td style="font-size:22px;"><span id="SALE_QAR_Price_with_Mono_Command_Ball_Chain_System211"></span></td>
+            </tr>
+            <tr>
+                <td style="font-size:24px;">QAR Price with Guide Rope/SQM</td>
+                <td style="font-size:22px;"><span id="QAR_Price_with_Guide_Rope_per_SQM211"></span></td>
+                <td style="font-size:22px;"><span id="SALE_QAR_Price_with_Guide_Rope_per_SQM211"></span></td>
+            </tr>
+        </tbody>
+            
+    </table>
+</div>
+
+
+
+</div>
+</div>
+</div>
+      
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-24" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>OMR </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-24" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">OMR Price/SQM</td>
+                <td style="font-size:22px;"><span id="OMR_price_per_SQM211"></span></td>
+                <td style="font-size:22px;"><span id="SALE_OMR_price_per_SQM211"></span></td>
+            </tr>
+						<tr>
+                <td style="font-size:24px;">OMR Price with Mono Command Ball Chain System</td>
+                <td style="font-size:22px;"><span id="OMR_Price_with_Mono_Command_Ball_Chain_System211"></span></td>
+                <td style="font-size:22px;"><span id="SALE_OMR_Price_with_Mono_Command_Ball_Chain_System211"></span></td>
+            </tr>
+            <tr>
+                <td style="font-size:24px;">OMR Price with Guide Rope/SQM</td>
+                <td style="font-size:22px;"><span id="OMR_Price_with_Guide_Rope_per_SQM211"></span></td>
+                <td style="font-size:22px;"><span id="SALE_OMR_Price_with_Guide_Rope_per_SQM211"></span></td>
+            </tr>
+        </tbody>
+           
+    </table>
+
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-25" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>BHD </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-25" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+ <table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">BHD Price/SQM</td>
+                <td style="font-size:22px;"><span id="BHD_price_per_SQM211"></span></td>
+                <td style="font-size:22px;"><span id="SALE_BHD_price_per_SQM211"></span></td>
+            </tr>
+						<tr>
+                <td style="font-size:24px;">BHD Price with Mono Command Ball Chain System</td>
+                <td style="font-size:22px;"><span id="BHD_Price_with_Mono_Command_Ball_Chain_System211"></span></td>
+                <td style="font-size:22px;"><span id="SALE_BHD_Price_with_Mono_Command_Ball_Chain_System211"></span></td>
+            </tr>
+            <tr>
+                <td style="font-size:24px;">BHD Price with Guide Rope/SQM</td>
+                <td style="font-size:22px;" ><span id="BHD_Price_with_Guide_Rope_per_SQM211"></span></td>
+                <td style="font-size:22px;"><span id="SALE_BHD_Price_with_Guide_Rope_per_SQM211"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-26" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>KWD </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-26" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+ <table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">KWD Price/SQM</td>
+                <td style="font-size:22px;"><span id="KWD_price_per_SQM211"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_price_per_SQM211"></span></td>
+            </tr>
+						<tr>
+                <td style="font-size:24px;">KWD Price with Mono Command Ball Chain System</td>
+                <td style="font-size:22px;"><span id="KWD_Price_with_Mono_Command_Ball_Chain_System211"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_Price_with_Mono_Command_Ball_Chain_System211"></span></td>
+            </tr>
+            <tr>
+                <td style="font-size:24px;">KWD Price with Guide Rope/SQM</td>
+                <td style="font-size:22px;" ><span id="KWD_Price_with_Guide_Rope_per_SQM211"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_Price_with_Guide_Rope_per_SQM211"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+						
+					
+                                        
+                                                
+                                        </div>
+									
+								
+									</div>
+							</div>
+							
+                                                </div>
+		
+               						
+          
+
+	</div>
+                                               
+    </form>
+                                        </div>
+	
+	<!-- Pleated Blinds page Ends-->
+	
+	<!-- Folding Door page start-->
+	
+	<div class="widget-body no-padding" id="Folding_Door">
+														<form action=""  enctype="multipart/form-data" method="POST" id="form-contact" name="smart-form-register" class="smart-form">
+																<div id="accordion-2" class="panel-group smart-accordion-default">
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="" href="#collapseOne-31" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Item Info </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse in" id="collapseOne-31" style="height:auto;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div class="row">
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Item Code: </b><span id="item_code22"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Brand: </b><span id="brand22"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Collection Name: </b><span id="Collection_name22"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Minimum Chargeable size: </b><span id="Minimum_Chargeable22"></span></label>
+																												</section>
+																										</div>
+																										<div class="row">
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Maximum Height: </b><span id="Maximum_Height22"></span></label>
+																												</section>
+																												<section class="col col-lg-3 hide">
+																														<label class="label" style="font-size:22px;"><b>Category Name: </b><span id="Category_name22"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Additional Notes: </b><span id="additional_notes22"></span></label>
+																												</section>
+																										</div>
+																								</fieldset>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="AED">
+																														<thead>
+																																<tr>
+																																		<th style="font-size:24px;">Items</th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">AED Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="AED_price_per_SQM22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM22"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">AED Price for Window Glass/Piece</td>
+																																		<td style="font-size:22px;"><span id="AED_Price_for_Window_Glass_per_Piece22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_AED_Price_for_Window_Glass_per_Piece22"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">AED Price for Decorative Window Glass Film/Piece</td>
+																																		<td style="font-size:22px;"><span id="AED_Price_for_Decorative_Window_Glass_Film_per_Piece22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_AED_Price_for_Decorative_Window_Glass_Film_per_Piece22"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="SAR">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">SAR Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="SAR_price_per_SQM22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_SAR_price_per_SQM22"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">SAR Price for Window Glass/Piece</td>
+																																		<td style="font-size:22px;"><span id="SAR_Price_for_Window_Glass_per_Piece22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_SAR_Price_for_Window_Glass_per_Piece22"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">SAR Price for Decorative Window Glass Film/Piece</td>
+																																		<td style="font-size:22px;"><span id="SAR_Price_for_Decorative_Window_Glass_Film_per_Piece22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_SAR_Price_for_Decorative_Window_Glass_Film_per_Piece22"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="QAR">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">QAR Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="QAR_price_per_SQM22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_QAR_price_per_SQM22"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">QAR Price for Window Glass/Piece</td>
+																																		<td style="font-size:22px;"><span id="QAR_Price_for_Window_Glass_per_Piece22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_QAR_Price_for_Window_Glass_per_Piece22"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">QAR Price for Decorative Window Glass Film/Piece</td>
+																																		<td style="font-size:22px;"><span id="QAR_Price_for_Decorative_Window_Glass_Film_per_Piece22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_QAR_Price_for_Decorative_Window_Glass_Film_per_Piece22"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="OMR">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">OMR Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="OMR_price_per_SQM22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_OMR_price_per_SQM22"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">OMR Price for Window Glass/Piece</td>
+																																		<td style="font-size:22px;"><span id="OMR_Price_for_Window_Glass_per_Piece22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_OMR_Price_for_Window_Glass_per_Piece22"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">OMR Price for Decorative Window Glass Film/Piece</td>
+																																		<td style="font-size:22px;"><span id="OMR_Price_for_Decorative_Window_Glass_Film_per_Piece22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_OMR_Price_for_Decorative_Window_Glass_Film_per_Piece22"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="BHD">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">BHD Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="BHD_price_per_SQM22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_BHD_price_per_SQM22"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">BHD Price for Window Glass/Piece</td>
+																																		<td style="font-size:22px;"><span id="BHD_Price_for_Window_Glass_per_Piece22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_BHD_Price_for_Window_Glass_per_Piece22"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">BHD Price for Decorative Window Glass Film/Piece</td>
+																																		<td style="font-size:22px;"><span id="BHD_Price_for_Decorative_Window_Glass_Film_per_Piece22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_BHD_Price_for_Decorative_Window_Glass_Film_per_Piece22"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="KWD">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="KWD_price_per_SQM22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_price_per_SQM22"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Price for Window Glass/Piece</td>
+																																		<td style="font-size:22px;"><span id="KWD_Price_for_Window_Glass_per_Piece22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_Price_for_Window_Glass_per_Piece22"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Price for Decorative Window Glass Film/Piece</td>
+																																		<td style="font-size:22px;"><span id="KWD_Price_for_Decorative_Window_Glass_Film_per_Piece22"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_Price_for_Decorative_Window_Glass_Film_per_Piece22"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																						</div>
+																				</div>
+																		</div>
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="collapsed" href="#collapseOne-300" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Images </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse" id="collapseOne-300" style="height: 0px;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div class="row">
+																												<div  id="previewimage1" class="superbox-list"  style=" margin:10px;" >
+																														<a class="fancybox-buttons1" id="href_item_image1" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img alt="" class="superbox-img previewimage" id="item_image221" />
+																														</a>
+																												</div>
+																												<div  id="previewimage2" class="superbox-list" style="float:left; margin:10px;">
+																														<a class="fancybox-buttons1" id="href_item_image2" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img  alt="" class="superbox-img previewimage" id="item_image222" />
+																														</a>
+																												</div>
+																												<div  id="previewimage3" class="superbox-list" style="float:left; margin:10px;">
+																														<a class="fancybox-buttons1" id="href_item_image3" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img  alt="" class="superbox-img previewimage" id="item_image223" />
+																														</a>
+																												</div>
+																												<div  id="previewimage4" class="superbox-list" style="float:left; margin:10px;">
+																														<a class="fancybox-buttons1" id="href_item_image4" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img  alt="" class="superbox-img previewimage" id="item_image224" />
+																														</a>
+																												</div>
+																										</div>
+																										<div id="previewimage_null" class='row form-group hide'>
+																												<section class="col col-xs-12">
+																														<label style="font-size:24px;">No Images for this item...</label>
+																												</section>
+																										</div>
+																								</fieldset>
+																						</div>
+																				</div>
+																		</div>
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="collapsed" href="#collapseOne-33" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Composition </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse" id="collapseOne-33" style="height:auto;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div id="no-more-tables">
+																												<table id="fabric_add" class="col-md-12 table-bordered table-striped table-condensed cf">
+																														<tbody>
+																																<tr></tr>
+																														</tbody>
+																												</table>
+																										</div>
+																								</fieldset>
+																						</div>
+																				</div>
+																		</div>
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="collapsed" href="#collapseOne-34" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Product Possible </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse" id="collapseOne-34" style="height:auto;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div id="no-more-tables">
+																												<table id="product_pos_add" class="col-md-12 table-bordered table-striped table-condensed cf">
+																														<tbody>
+																																<tr></tr>
+																														</tbody>
+																												</table>
+																										</div>
+																								</fieldset>
+																						</div>
+																				</div>
+																		</div>
+																				<div class="panel panel-default" id="all_price">
+																						<div class="panel-heading">
+									<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-311" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>View Other Currency Prices</a></h4>
+								</div>
+								<div class="panel-collapse collapse" id="collapseTwo-311" style="height: 0px;">
+									<div class="panel-body">
+										<div id="accordion-1" class="panel-group smart-accordion-default">
+    
+    
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseThree-31" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>AED </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseThree-31" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+							<thead>
+								<tr>
+									<th></th>
+									<th style="font-size:24px;">Retail Price</th>
+									<th style="font-size:24px;">Dealer Price</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="font-size:24px;">AED Price/SQM</td>
+									<td style="font-size:22px;"><span id="AED_price_per_SQM222"></span></td>
+									<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM222"></span></td>
+									
+								</tr>
+								<tr>
+										<td style="font-size:24px;">AED Price for Window Glass/Piece</td>
+										<td style="font-size:22px;"><span id="AED_Price_for_Window_Glass_per_Piece222"></span></td>
+										<td style="font-size:22px;"><span id="SALE_AED_Price_for_Window_Glass_per_Piece222"></span></td>
+								</tr>
+								<tr>
+									<td style="font-size:24px;">AED Price for Decorative Window Glass Film/Piece</td>
+									<td style="font-size:22px;"><span id="AED_Price_for_Decorative_Window_Glass_Film_per_Piece222"></span></td>
+									<td style="font-size:22px;"><span id="SALE_AED_Price_for_Decorative_Window_Glass_Film_per_Piece222"></span></td>
+									
+								</tr>
+							</tbody>
+						</table>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+    
+    
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapse-32" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>SAR </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapse-32" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">SAR Price/SQM</td>
+                <td style="font-size:22px;"><span id="SAR_price_per_SQM222"></span></td>
+                <td style="font-size:22px;"><span id="SALE_SAR_price_per_SQM222"></span></td>
+            </tr>
+						<tr>
+                <td style="font-size:24px;">SAR Price for Window Glass/Piece</td>
+                <td style="font-size:22px;"><span id="SAR_Price_for_Window_Glass_per_Piece222"></span></td>
+                <td style="font-size:22px;"><span id="SALE_SAR_Price_for_Window_Glass_per_Piece222"></span></td>
+            </tr>
+             <tr>
+                <td style="font-size:24px;">SAR Price for Decorative Window Glass Film/Piece</td>
+                <td style="font-size:22px;"><span id="SAR_Price_for_Decorative_Window_Glass_Film_per_Piece222"></span></td>
+                <td style="font-size:22px;"><span id="SALE_SAR_Price_for_Decorative_Window_Glass_Film_per_Piece222"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+     
+     
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-33" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>QAR </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-33" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">QAR Price/SQM</td>
+                <td style="font-size:22px;"><span id="QAR_price_per_SQM222"></span></td>
+                <td style="font-size:22px;"><span id="SALE_QAR_price_per_SQM222"></span></td>
+            </tr>
+						<tr>
+                <td style="font-size:24px;">QAR Price for Window Glass/Piece</td>
+                <td style="font-size:22px;"><span id="QAR_Price_for_Window_Glass_per_Piece222"></span></td>
+                <td style="font-size:22px;"><span id="SALE_QAR_Price_for_Window_Glass_per_Piece222"></span></td>
+            </tr>
+            <tr>
+                <td style="font-size:24px;">QAR Price for Decorative Window Glass Film/Piece</td>
+                <td style="font-size:22px;"><span id="QAR_Price_for_Decorative_Window_Glass_Film_per_Piece222"></span></td>
+                <td style="font-size:22px;"><span id="SALE_QAR_Price_for_Decorative_Window_Glass_Film_per_Piece222"></span></td>
+            </tr>
+        </tbody>
+            
+    </table>
+</div>
+
+
+
+</div>
+</div>
+</div>
+      
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-34" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>OMR </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-34" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">OMR Price/SQM</td>
+                <td style="font-size:22px;"><span id="OMR_price_per_SQM222"></span></td>
+                <td style="font-size:22px;"><span id="SALE_OMR_price_per_SQM222"></span></td>
+            </tr>
+						<tr>
+                <td style="font-size:24px;">OMR Price for Window Glass/Piece</td>
+                <td style="font-size:22px;"><span id="OMR_Price_for_Window_Glass_per_Piece222"></span></td>
+                <td style="font-size:22px;"><span id="SALE_OMR_Price_for_Window_Glass_per_Piece222"></span></td>
+            </tr>
+            <tr>
+                <td style="font-size:24px;">OMR Price for Decorative Window Glass Film/Piece</td>
+                <td style="font-size:22px;"><span id="OMR_Price_for_Decorative_Window_Glass_Film_per_Piece222"></span></td>
+                <td style="font-size:22px;"><span id="SALE_OMR_Price_for_Decorative_Window_Glass_Film_per_Piece222"></span></td>
+            </tr>
+        </tbody>
+           
+    </table>
+
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-35" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>BHD </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-35" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+ <table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">BHD Price/SQM</td>
+                <td style="font-size:22px;"><span id="BHD_price_per_SQM222"></span></td>
+                <td style="font-size:22px;"><span id="SALE_BHD_price_per_SQM222"></span></td>
+            </tr>
+						<tr>
+                <td style="font-size:24px;">BHD Price for Window Glass/Piece</td>
+                <td style="font-size:22px;"><span id="BHD_Price_for_Window_Glass_per_Piece222"></span></td>
+                <td style="font-size:22px;"><span id="SALE_BHD_Price_for_Window_Glass_per_Piece222"></span></td>
+            </tr>
+            <tr>
+                <td style="font-size:24px;">BHD Price for Decorative Window Glass Film/Piece</td>
+                <td style="font-size:22px;" ><span id="BHD_Price_for_Decorative_Window_Glass_Film_per_Piece222"></span></td>
+                <td style="font-size:22px;"><span id="SALE_BHD_Price_for_Decorative_Window_Glass_Film_per_Piece222"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
+   
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-36" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>KWD </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-36" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+ <table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">KWD Price/SQM</td>
+                <td style="font-size:22px;"><span id="KWD_price_per_SQM222"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_price_per_SQM222"></span></td>
+            </tr>
+						<tr>
+                <td style="font-size:24px;">KWD Price for Window Glass/Piece</td>
+                <td style="font-size:22px;"><span id="KWD_Price_for_Window_Glass_per_Piece222"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_Price_for_Window_Glass_per_Piece222"></span></td>
+            </tr>
+            <tr>
+                <td style="font-size:24px;">KWD Price for Decorative Window Glass Film/Piece</td>
+                <td style="font-size:22px;" ><span id="KWD_Price_for_Decorative_Window_Glass_Film_per_Piece222"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_Price_for_Decorative_Window_Glass_Film_per_Piece222"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+						
+					
+                                        
+                                                
+                                        </div>
+									
+								
+									</div>
+							</div>
+							
+                                                </div>
+		
+               						
+          
+
+	</div>
+                                               
+    </form>
+                                        </div>
+	
+	<!-- Folding Door page Ends-->
+	
+	<!-- Wooden Roman page start-->
+	
+	<div class="widget-body no-padding" id="Wooden_Roman">
+														<form action=""  enctype="multipart/form-data" method="POST" id="form-contact" name="smart-form-register" class="smart-form">
+																<div id="accordion-2" class="panel-group smart-accordion-default">
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="" href="#collapseOne-41" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Item Info </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse in" id="collapseOne-41" style="height:auto;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div class="row">
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Item Code: </b><span id="item_code23"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Brand: </b><span id="brand23"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Catalogue Name: </b><span id="catalogue_name23"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Minimum Chargeable size: </b><span id="Minimum_Chargeable23"></span></label>
+																												</section>
+																										</div>
+																										<div class="row">
+																												<section class="col col-lg-3 hide">
+																														<label class="label" style="font-size:22px;"><b>Category Name: </b><span id="Category_name23"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Additional Notes: </b><span id="additional_notes23"></span></label>
+																												</section>
+																										</div>
+																								</fieldset>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="AED">
+																														<thead>
+																																<tr>
+																																		<th style="font-size:24px;">Items</th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">AED Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="AED_price_per_SQM23"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM23"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="SAR">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">SAR Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="SAR_price_per_SQM23"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_SAR_price_per_SQM23"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="QAR">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">QAR Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="QAR_price_per_SQM23"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_QAR_price_per_SQM23"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="OMR">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">OMR Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="OMR_price_per_SQM23"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_OMR_price_per_SQM23"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="BHD">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">BHD Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="BHD_price_per_SQM23"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_BHD_price_per_SQM23"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="KWD">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="KWD_price_per_SQM23"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_price_per_SQM23"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																						</div>
+																				</div>
+																		</div>
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="collapsed" href="#collapseOne-400" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Images </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse" id="collapseOne-400" style="height: 0px;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div class="row">
+																												<div  id="previewimage1" class="superbox-list"  style=" margin:10px;" >
+																														<a class="fancybox-buttons1" id="href_item_image1" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img alt="" class="superbox-img previewimage" id="item_image231" />
+																														</a>
+																												</div>
+																												<div  id="previewimage2" class="superbox-list" style="float:left; margin:10px;">
+																														<a class="fancybox-buttons1" id="href_item_image2" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img  alt="" class="superbox-img previewimage" id="item_image232" />
+																														</a>
+																												</div>
+																												<div  id="previewimage3" class="superbox-list" style="float:left; margin:10px;">
+																														<a class="fancybox-buttons1" id="href_item_image3" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img  alt="" class="superbox-img previewimage" id="item_image233" />
+																														</a>
+																												</div>
+																												<div  id="previewimage4" class="superbox-list" style="float:left; margin:10px;">
+																														<a class="fancybox-buttons1" id="href_item_image4" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img  alt="" class="superbox-img previewimage" id="item_image234" />
+																														</a>
+																												</div>
+																										</div>
+																										<div id="previewimage_null" class='row form-group hide'>
+																												<section class="col col-xs-12">
+																														<label style="font-size:24px;">No Images for this item...</label>
+																												</section>
+																										</div>
+																								</fieldset>
+																						</div>
+																				</div>
+																		</div>
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="collapsed" href="#collapseOne-43" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Composition </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse" id="collapseOne-43" style="height:auto;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div id="no-more-tables">
+																												<table id="fabric_add" class="col-md-12 table-bordered table-striped table-condensed cf">
+																														<tbody>
+																																<tr></tr>
+																														</tbody>
+																												</table>
+																										</div>
+																								</fieldset>
+																						</div>
+																				</div>
+																		</div>
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="collapsed" href="#collapseOne-44" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Product Possible </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse" id="collapseOne-44" style="height:auto;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div id="no-more-tables">
+																												<table id="product_pos_add" class="col-md-12 table-bordered table-striped table-condensed cf">
+																														<tbody>
+																																<tr></tr>
+																														</tbody>
+																												</table>
+																										</div>
+																								</fieldset>
+																						</div>
+																				</div>
+																		</div>
+																				<div class="panel panel-default" id="all_price">
+																						<div class="panel-heading">
+									<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-411" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>View Other Currency Prices</a></h4>
+								</div>
+								<div class="panel-collapse collapse" id="collapseTwo-411" style="height: 0px;">
+									<div class="panel-body">
+										<div id="accordion-1" class="panel-group smart-accordion-default">
+    
+    
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseThree-41" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>AED </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseThree-41" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+							<thead>
+								<tr>
+									<th></th>
+									<th style="font-size:24px;">Retail Price</th>
+									<th style="font-size:24px;">Dealer Price</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="font-size:24px;">AED Price/SQM</td>
+									<td style="font-size:22px;"><span id="AED_price_per_SQM233"></span></td>
+									<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM233"></span></td>
+								</tr>
+							</tbody>
+						</table>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+    
+    
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapse-42" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>SAR </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapse-42" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">SAR Price/SQM</td>
+                <td style="font-size:22px;"><span id="SAR_price_per_SQM233"></span></td>
+                <td style="font-size:22px;"><span id="SALE_SAR_price_per_SQM233"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+     
+     
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-43" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>QAR </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-43" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">QAR Price/SQM</td>
+                <td style="font-size:22px;"><span id="QAR_price_per_SQM233"></span></td>
+                <td style="font-size:22px;"><span id="SALE_QAR_price_per_SQM233"></span></td>
+            </tr>
+        </tbody>
+            
+    </table>
+</div>
+
+
+
+</div>
+</div>
+</div>
+      
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-44" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>OMR </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-44" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">OMR Price/SQM</td>
+                <td style="font-size:22px;"><span id="OMR_price_per_SQM233"></span></td>
+                <td style="font-size:22px;"><span id="SALE_OMR_price_per_SQM233"></span></td>
+            </tr>
+        </tbody>
+           
+    </table>
+
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-45" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>BHD </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-45" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+ <table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">BHD Price/SQM</td>
+                <td style="font-size:22px;"><span id="BHD_price_per_SQM233"></span></td>
+                <td style="font-size:22px;"><span id="SALE_BHD_price_per_SQM233"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-46" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>KWD </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-46" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+ <table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">KWD Price/SQM</td>
+                <td style="font-size:22px;"><span id="KWD_price_per_SQM233"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_price_per_SQM233"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+						
+					
+                                        
+                                                
+                                        </div>
+									
+								
+									</div>
+							</div>
+							
+                                                </div>
+		
+               						
+          
+
+	</div>
+                                               
+    </form>
+                                        </div>
+	
+	<!-- Wooden Roman page Ends-->
+	
+	<!-- Awning page start-->
+	
+	<div class="widget-body no-padding" id="Awning">
+														<form action=""  enctype="multipart/form-data" method="POST" id="form-contact" name="smart-form-register" class="smart-form">
+																<div id="accordion-2" class="panel-group smart-accordion-default">
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="" href="#collapseOne-51" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Item Info </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse in" id="collapseOne-51" style="height:auto;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div class="row">
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Item Code: </b><span id="item_code24"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Brand: </b><span id="brand24"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Type: </b><span id="Type24"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Minimum Chargeable size: </b><span id="Minimum_Chargeable24"></span></label>
+																												</section>
+																										</div>
+																										<div class="row">
+																												<section class="col col-lg-3 hide">
+																														<label class="label" style="font-size:22px;"><b>Category Name: </b><span id="Category_name24"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Maximum Width: </b><span id="Maximum_Width24"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Maximum Projection: </b><span id="Maximum_Projection24"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Minimum Projection: </b><span id="Minimum_Projection24"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Additional Notes: </b><span id="additional_notes24"></span></label>
+																												</section>
+																										</div>
+																								</fieldset>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="AED">
+																														<thead>
+																																<tr>
+																																		<th style="font-size:24px;">Items</th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">AED Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="AED_price_per_SQM24"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM24"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">AED Price/LMT</td>
+																																		<td style="font-size:22px;"><span id="AED_Price_per_LMT24"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_AED_Price_per_LMT24"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="SAR">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">SAR Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="SAR_price_per_SQM24"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_SAR_price_per_SQM24"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">SAR Price/LMT</td>
+																																		<td style="font-size:22px;"><span id="SAR_Price_per_LMT24"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_SAR_Price_per_LMT24"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="QAR">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">QAR Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="QAR_price_per_SQM24"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_QAR_price_per_SQM24"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">QAR Price/LMT</td>
+																																		<td style="font-size:22px;"><span id="QAR_Price_per_LMT24"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_QAR_Price_per_LMT24"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="OMR">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">OMR Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="OMR_price_per_SQM24"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_OMR_price_per_SQM24"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">OMR Price/LMT</td>
+																																		<td style="font-size:22px;"><span id="OMR_Price_per_LMT24"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_OMR_Price_per_LMT24"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="BHD">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">BHD Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="BHD_price_per_SQM24"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_BHD_price_per_SQM24"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">BHD Price/LMT</td>
+																																		<td style="font-size:22px;"><span id="BHD_Price_per_LMT24"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_BHD_Price_per_LMT24"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="KWD">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="KWD_price_per_SQM24"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_price_per_SQM24"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Price/LMT</td>
+																																		<td style="font-size:22px;"><span id="KWD_Price_per_LMT24"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_Price_per_LMT24"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																						</div>
+																				</div>
+																		</div>
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="collapsed" href="#collapseOne-500" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Images </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse" id="collapseOne-500" style="height: 0px;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div class="row">
+																												<div  id="previewimage1" class="superbox-list"  style=" margin:10px;" >
+																														<a class="fancybox-buttons1" id="href_item_image1" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img alt="" class="superbox-img previewimage" id="item_image241" />
+																														</a>
+																												</div>
+																												<div  id="previewimage2" class="superbox-list" style="float:left; margin:10px;">
+																														<a class="fancybox-buttons1" id="href_item_image2" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img  alt="" class="superbox-img previewimage" id="item_image242" />
+																														</a>
+																												</div>
+																												<div  id="previewimage3" class="superbox-list" style="float:left; margin:10px;">
+																														<a class="fancybox-buttons1" id="href_item_image3" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img  alt="" class="superbox-img previewimage" id="item_image243" />
+																														</a>
+																												</div>
+																												<div  id="previewimage4" class="superbox-list" style="float:left; margin:10px;">
+																														<a class="fancybox-buttons1" id="href_item_image4" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img  alt="" class="superbox-img previewimage" id="item_image244" />
+																														</a>
+																												</div>
+																										</div>
+																										<div id="previewimage_null" class='row form-group hide'>
+																												<section class="col col-xs-12">
+																														<label style="font-size:24px;">No Images for this item...</label>
+																												</section>
+																										</div>
+																								</fieldset>
+																						</div>
+																				</div>
+																		</div>
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="collapsed" href="#collapseOne-53" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Composition </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse" id="collapseOne-53" style="height:auto;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div id="no-more-tables">
+																												<table id="fabric_add" class="col-md-12 table-bordered table-striped table-condensed cf">
+																														<tbody>
+																																<tr></tr>
+																														</tbody>
+																												</table>
+																										</div>
+																								</fieldset>
+																						</div>
+																				</div>
+																		</div>
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="collapsed" href="#collapseOne-54" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Product Possible </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse" id="collapseOne-54" style="height:auto;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div id="no-more-tables">
+																												<table id="product_pos_add" class="col-md-12 table-bordered table-striped table-condensed cf">
+																														<tbody>
+																																<tr></tr>
+																														</tbody>
+																												</table>
+																										</div>
+																								</fieldset>
+																						</div>
+																				</div>
+																		</div>
+																				<div class="panel panel-default" id="all_price">
+																						<div class="panel-heading">
+									<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-511" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>View Other Currency Prices</a></h4>
+								</div>
+								<div class="panel-collapse collapse" id="collapseTwo-511" style="height: 0px;">
+									<div class="panel-body">
+										<div id="accordion-1" class="panel-group smart-accordion-default">
+    
+    
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseThree-51" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>AED </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseThree-51" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+							<thead>
+								<tr>
+									<th></th>
+									<th style="font-size:24px;">Retail Price</th>
+									<th style="font-size:24px;">Dealer Price</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="font-size:24px;">AED Price/SQM</td>
+									<td style="font-size:22px;"><span id="AED_price_per_SQM244"></span></td>
+									<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM244"></span></td>
+								</tr>
+								<tr>
+									<td style="font-size:24px;">AED Price/LMT</td>
+									<td style="font-size:22px;"><span id="AED_Price_per_LMT244"></span></td>
+									<td style="font-size:22px;"><span id="SALE_AED_Price_per_LMT244"></span></td>
+								</tr>
+							</tbody>
+						</table>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+    
+    
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapse-52" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>SAR </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapse-52" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">SAR Price/SQM</td>
+                <td style="font-size:22px;"><span id="SAR_price_per_SQM244"></span></td>
+                <td style="font-size:22px;"><span id="SALE_SAR_price_per_SQM244"></span></td>
+            </tr>
+			<tr>
+				<td style="font-size:24px;">SAR Price/LMT</td>
+				<td style="font-size:22px;"><span id="SAR_Price_per_LMT244"></span></td>
+				<td style="font-size:22px;"><span id="SALE_SAR_Price_per_LMT244"></span></td>
+			</tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+     
+     
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-53" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>QAR </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-53" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">QAR Price/SQM</td>
+                <td style="font-size:22px;"><span id="QAR_price_per_SQM244"></span></td>
+                <td style="font-size:22px;"><span id="SALE_QAR_price_per_SQM244"></span></td>
+            </tr>
+			<tr>
+				<td style="font-size:24px;">QAR Price/LMT</td>
+				<td style="font-size:22px;"><span id="QAR_Price_per_LMT244"></span></td>
+				<td style="font-size:22px;"><span id="SALE_QAR_Price_per_LMT244"></span></td>
+			</tr>
+        </tbody>
+            
+    </table>
+</div>
+
+
+
+</div>
+</div>
+</div>
+      
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-54" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>OMR </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-54" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">OMR Price/SQM</td>
+                <td style="font-size:22px;"><span id="OMR_price_per_SQM244"></span></td>
+                <td style="font-size:22px;"><span id="SALE_OMR_price_per_SQM244"></span></td>
+            </tr>
+			<tr>
+				<td style="font-size:24px;">OMR Price/LMT</td>
+				<td style="font-size:22px;"><span id="OMR_Price_per_LMT244"></span></td>
+				<td style="font-size:22px;"><span id="SALE_OMR_Price_per_LMT244"></span></td>
+			</tr>
+        </tbody>
+           
+    </table>
+
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-55" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>BHD </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-55" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+ <table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">BHD Price/SQM</td>
+                <td style="font-size:22px;"><span id="BHD_price_per_SQM244"></span></td>
+                <td style="font-size:22px;"><span id="SALE_BHD_price_per_SQM244"></span></td>
+            </tr>
+			<tr>
+				<td style="font-size:24px;">BHD Price/LMT</td>
+				<td style="font-size:22px;"><span id="BHD_Price_per_LMT244"></span></td>
+				<td style="font-size:22px;"><span id="SALE_BHD_Price_per_LMT244"></span></td>
+			</tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-56" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>KWD</a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-56" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+ <table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">KWD Price/SQM</td>
+                <td style="font-size:22px;"><span id="KWD_price_per_SQM244"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_price_per_SQM244"></span></td>
+            </tr>
+			<tr>
+				<td style="font-size:24px;">KWD Price/LMT</td>
+				<td style="font-size:22px;"><span id="KWD_Price_per_LMT244"></span></td>
+				<td style="font-size:22px;"><span id="SALE_KWD_Price_per_LMT244"></span></td>
+			</tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+						
+					
+                                        
+                                                
+                                        </div>
+									
+								
+									</div>
+							</div>
+							
+                                                </div>
+		
+               						
+          
+
+	</div>
+                                               
+    </form>
+                                        </div>
+	
+	<!-- Awning page Ends-->
+	
+	<!-- Combi Shades page start-->
+	
+	<div class="widget-body no-padding" id="Combi_Shades">
+														<form action=""  enctype="multipart/form-data" method="POST" id="form-contact" name="smart-form-register" class="smart-form">
+																<div id="accordion-2" class="panel-group smart-accordion-default">
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="" href="#collapseOne-61" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Item Info </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse in" id="collapseOne-61" style="height:auto;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div class="row">
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Item Code: </b><span id="item_code25"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Brand: </b><span id="brand25"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Catalogue Name: </b><span id="catalogue_name25"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Minimum Chargeable size: </b><span id="Minimum_Chargeable25"></span></label>
+																												</section>
+																										</div>
+																										<div class="row">
+																												<section class="col col-lg-3 hide">
+																														<label class="label" style="font-size:22px;"><b>Category Name: </b><span id="Category_name25"></span></label>
+																												</section>
+																												<section class="col col-lg-3">
+																														<label class="label" style="font-size:22px;"><b>Additional Notes: </b><span id="additional_notes25"></span></label>
+																												</section>
+																										</div>
+																								</fieldset>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="AED">
+																														<thead>
+																																<tr>
+																																		<th style="font-size:24px;">Items</th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">AED Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="AED_price_per_SQM25"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM25"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">AED Price with Cassete LOUVO/SQM</td>
+																																		<td style="font-size:22px;"><span id="AED_Price_with_Cassete_LOUVO_per_SQM25"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_AED_Price_with_Cassete_LOUVO_per_SQM25"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="SAR">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">SAR Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="SAR_price_per_SQM25"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_SAR_price_per_SQM25"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">SAR Price with Cassete LOUVO/SQM</td>
+																																		<td style="font-size:22px;"><span id="SAR_Price_with_Cassete_LOUVO_per_SQM25"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_SAR_Price_with_Cassete_LOUVO_per_SQM25"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="QAR">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">QAR Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="QAR_price_per_SQM25"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_QAR_price_per_SQM25"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">QAR Price with Cassete LOUVO/SQM</td>
+																																		<td style="font-size:22px;"><span id="QAR_Price_with_Cassete_LOUVO_per_SQM25"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_QAR_Price_with_Cassete_LOUVO_per_SQM25"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="OMR">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">OMR Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="OMR_price_per_SQM25"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_OMR_price_per_SQM25"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">OMR Price with Cassete LOUVO/SQM</td>
+																																		<td style="font-size:22px;"><span id="OMR_Price_with_Cassete_LOUVO_per_SQM25"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_OMR_Price_with_Cassete_LOUVO_per_SQM25"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="BHD">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">BHD Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="BHD_price_per_SQM25"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_BHD_price_per_SQM25"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">BHD Price with Cassete LOUVO/SQM</td>
+																																		<td style="font-size:22px;"><span id="BHD_Price_with_Cassete_LOUVO_per_SQM25"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_BHD_Price_with_Cassete_LOUVO_per_SQM25"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																										<div class="table-responsive">
+																												<table class="table table-striped table-bordered table-hover" id="KWD">
+																														<thead>
+																																<tr>
+																																		<th></th>
+																																		<th style="font-size:24px;">Retail Price</th>
+																																		<th style="font-size:24px;">Dealer Price</th>
+																																</tr>
+																														</thead>
+																														<tbody>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Price/SQM</td>
+																																		<td style="font-size:22px;"><span id="KWD_price_per_SQM25"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_price_per_SQM25"></span></td>
+																																</tr>
+																																<tr>
+																																		<td style="font-size:24px;">KWD Price with Cassete LOUVO/SQM</td>
+																																		<td style="font-size:22px;"><span id="KWD_Price_with_Cassete_LOUVO_per_SQM25"></span></td>
+																																		<td style="font-size:22px;"><span id="SALE_KWD_Price_with_Cassete_LOUVO_per_SQM25"></span></td>
+																																</tr>
+																														</tbody>
+																												</table>
+																										</div>
+																						</div>
+																				</div>
+																		</div>
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="collapsed" href="#collapseOne-600" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Images </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse" id="collapseOne-600" style="height: 0px;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div class="row">
+																												<div  id="previewimage1" class="superbox-list"  style=" margin:10px;" >
+																														<a class="fancybox-buttons1" id="href_item_image1" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img alt="" class="superbox-img previewimage" id="item_image251" />
+																														</a>
+																												</div>
+																												<div  id="previewimage2" class="superbox-list" style="float:left; margin:10px;">
+																														<a class="fancybox-buttons1" id="href_item_image2" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img  alt="" class="superbox-img previewimage" id="item_image252" />
+																														</a>
+																												</div>
+																												<div  id="previewimage3" class="superbox-list" style="float:left; margin:10px;">
+																														<a class="fancybox-buttons1" id="href_item_image3" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img  alt="" class="superbox-img previewimage" id="item_image253" />
+																														</a>
+																												</div>
+																												<div  id="previewimage4" class="superbox-list" style="float:left; margin:10px;">
+																														<a class="fancybox-buttons1" id="href_item_image4" data-fancybox-group="button" rel="fancybox-button1" >
+																														<img  alt="" class="superbox-img previewimage" id="item_image254" />
+																														</a>
+																												</div>
+																										</div>
+																										<div id="previewimage_null" class='row form-group hide'>
+																												<section class="col col-xs-12">
+																														<label style="font-size:24px;">No Images for this item...</label>
+																												</section>
+																										</div>
+																								</fieldset>
+																						</div>
+																				</div>
+																		</div>
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="collapsed" href="#collapseOne-63" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Composition </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse" id="collapseOne-63" style="height:auto;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div id="no-more-tables">
+																												<table id="fabric_add" class="col-md-12 table-bordered table-striped table-condensed cf">
+																														<tbody>
+																																<tr></tr>
+																														</tbody>
+																												</table>
+																										</div>
+																								</fieldset>
+																						</div>
+																				</div>
+																		</div>
+																		<div class="panel panel-default">
+																				<div class="panel-heading">
+																						<h4 class="panel-title"><a class="collapsed" href="#collapseOne-64" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i> Product Possible </a></h4>
+																				</div>
+																				<div class="panel-collapse collapse" id="collapseOne-64" style="height:auto;">
+																						<div class="panel-body">
+																								<fieldset>
+																										<div id="no-more-tables">
+																												<table id="product_pos_add" class="col-md-12 table-bordered table-striped table-condensed cf">
+																														<tbody>
+																																<tr></tr>
+																														</tbody>
+																												</table>
+																										</div>
+																								</fieldset>
+																						</div>
+																				</div>
+																		</div>
+																				<div class="panel panel-default" id="all_price">
+																						<div class="panel-heading">
+									<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-611" data-parent="#accordion-2" data-toggle="collapse" style="font-size:24px;"> <i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>View Other Currency Prices</a></h4>
+								</div>
+								<div class="panel-collapse collapse" id="collapseTwo-611" style="height: 0px;">
+									<div class="panel-body">
+										<div id="accordion-1" class="panel-group smart-accordion-default">
+    
+    
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseThree-61" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>AED </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseThree-61" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+							<thead>
+								<tr>
+									<th></th>
+									<th style="font-size:24px;">Retail Price</th>
+									<th style="font-size:24px;">Dealer Price</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="font-size:24px;">AED Price/SQM</td>
+									<td style="font-size:22px;"><span id="AED_price_per_SQM255"></span></td>
+									<td style="font-size:22px;"><span id="SALE_AED_price_per_SQM255"></span></td>
+								</tr>
+								<tr>
+									<td style="font-size:24px;">AED Price with Cassete LOUVO/SQM</td>
+									<td style="font-size:22px;"><span id="AED_Price_with_Cassete_LOUVO_per_SQM255"></span></td>
+									<td style="font-size:22px;"><span id="SALE_AED_Price_with_Cassete_LOUVO_per_SQM255"></span></td>
+								</tr>
+							</tbody>
+						</table>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+    
+    
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapse-62" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>SAR </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapse-62" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">SAR Price/SQM</td>
+                <td style="font-size:22px;"><span id="SAR_price_per_SQM255"></span></td>
+                <td style="font-size:22px;"><span id="SALE_SAR_price_per_SQM255"></span></td>
+            </tr>
+			<tr>
+				<td style="font-size:24px;">SAR Price with Cassete LOUVO/SQM</td>
+				<td style="font-size:22px;"><span id="SAR_Price_with_Cassete_LOUVO_per_SQM255"></span></td>
+				<td style="font-size:22px;"><span id="SALE_SAR_Price_with_Cassete_LOUVO_per_SQM255"></span></td>
+			</tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+     
+     
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-63" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>QAR </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-63" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">QAR Price/SQM</td>
+                <td style="font-size:22px;"><span id="QAR_price_per_SQM255"></span></td>
+                <td style="font-size:22px;"><span id="SALE_QAR_price_per_SQM255"></span></td>
+            </tr>
+			<tr>
+				<td style="font-size:24px;">QAR Price with Cassete LOUVO/SQM</td>
+				<td style="font-size:22px;"><span id="QAR_Price_with_Cassete_LOUVO_per_SQM255"></span></td>
+				<td style="font-size:22px;"><span id="SALE_QAR_Price_with_Cassete_LOUVO_per_SQM255"></span></td>
+			</tr>
+        </tbody>
+            
+    </table>
+</div>
+
+
+
+</div>
+</div>
+</div>
+      
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-64" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>OMR </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-64" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">OMR Price/SQM</td>
+                <td style="font-size:22px;"><span id="OMR_price_per_SQM255"></span></td>
+                <td style="font-size:22px;"><span id="SALE_OMR_price_per_SQM255"></span></td>
+            </tr>
+			<tr>
+				<td style="font-size:24px;">OMR Price with Cassete LOUVO/SQM</td>
+				<td style="font-size:22px;"><span id="OMR_Price_with_Cassete_LOUVO_per_SQM255"></span></td>
+				<td style="font-size:22px;"><span id="SALE_OMR_Price_with_Cassete_LOUVO_per_SQM255"></span></td>
+			</tr>
+        </tbody>
+           
+    </table>
+
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-65" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>BHD </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-65" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+ <table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">BHD Price/SQM</td>
+                <td style="font-size:22px;"><span id="BHD_price_per_SQM255"></span></td>
+                <td style="font-size:22px;"><span id="SALE_BHD_price_per_SQM255"></span></td>
+            </tr>
+			<tr>
+				<td style="font-size:24px;">BHD Price with Cassete LOUVO/SQM</td>
+				<td style="font-size:22px;"><span id="BHD_Price_with_Cassete_LOUVO_per_SQM255"></span></td>
+				<td style="font-size:22px;"><span id="SALE_BHD_Price_with_Cassete_LOUVO_per_SQM255"></span></td>
+			</tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a class="collapsed" href="#collapseTwo-66" data-parent="#accordion-1" data-toggle="collapse" style="font-size:24px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa fa-fw fa-plus-circle txt-color-black"></i> <i class="fa fa-fw fa-minus-circle txt-color-blue"></i>KWD </a></h4>
+</div>
+<div class="panel-collapse collapse" id="collapseTwo-66" style="height: 0px;">
+<div class="panel-body">
+<div class="table-responsive">
+ <table class="table table-striped table-bordered table-hover" id="dt_basic">
+        <thead>
+            <tr>
+		<th></th>
+		<th style="font-size:24px;">Retail Price</th>
+		<th style="font-size:24px;">Dealer Price</th>
+	    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-size:24px;">KWD Price/SQM</td>
+                <td style="font-size:22px;"><span id="KWD_price_per_SQM255"></span></td>
+                <td style="font-size:22px;"><span id="SALE_KWD_price_per_SQM255"></span></td>
+            </tr>
+			<tr>
+				<td style="font-size:24px;">KWD Price with Cassete LOUVO/SQM</td>
+				<td style="font-size:22px;"><span id="KWD_Price_with_Cassete_LOUVO_per_SQM255"></span></td>
+				<td style="font-size:22px;"><span id="SALE_KWD_Price_with_Cassete_LOUVO_per_SQM255"></span></td>
+			</tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+						
+					
+                                        
+                                                
+                                        </div>
+									
+								
+									</div>
+							</div>
+							
+                                                </div>
+		
+               						
+          
+
+	</div>
+                                               
+    </form>
+                                        </div>
+	
+	<!-- Combi Shades page Ends-->
+	
+	
 										</div>
                         </div>
 						</div>
@@ -1280,6 +3770,12 @@
 				</article>
 
 <script type="text/javascript">
+
+
+
+
+
+
 
 function readURL1(input) {
             if (input.files && input.files[0]) {

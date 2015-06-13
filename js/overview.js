@@ -1,5 +1,6 @@
 $(document).ready(function(){
     onDeviceReady();
+	
     var name='guru';
     $.ajax({
         type: "POST",
@@ -18,6 +19,7 @@ $(document).ready(function(){
     document.getElementById("user_name").innerHTML=user_name;
     var currency = localStorage.getItem("currency");
     var all_price = localStorage.getItem("all_price");
+	
     if (all_price=="TRUE")
     {
         $("#all_price").show();
@@ -26,48 +28,68 @@ $(document).ready(function(){
         $("#all_price").hide();
     }
     //	alert(currency);
+
     if (currency=="AED") {
-        $("#SAR").addClass("hide");
-        $("#QAR").addClass("hide");
-        $("#OMR").addClass("hide");
-        $("#BHD").addClass("hide");
+        $("*#SAR").addClass("hide");
+        $("*#QAR").addClass("hide");
+        $("*#OMR").addClass("hide");
+        $("*#BHD").addClass("hide");
+		$("*#KWD").addClass("hide");
     }
     if (currency=="SAR") {
-        $("#AED").addClass("hide");                          
-        $("#QAR").addClass("hide");
-        $("#OMR").addClass("hide");
-        $("#BHD").addClass("hide");
+        $("*#AED").addClass("hide");                          
+        $("*#QAR").addClass("hide");
+        $("*#OMR").addClass("hide");
+        $("*#BHD").addClass("hide");
+		$("*#KWD").addClass("hide");
     }
     if (currency=="QAR") {
-        $("#AED").addClass("hide");
-        $("#SAR").addClass("hide");				
-        $("#OMR").addClass("hide");
-        $("#BHD").addClass("hide");
+        $("*#AED").addClass("hide");
+        $("*#SAR").addClass("hide");				
+        $("*#OMR").addClass("hide");
+        $("*#BHD").addClass("hide");
+		$("*#KWD").addClass("hide");
     }
     if (currency=="OMR") {
-        $("#AED").addClass("hide");
-        $("#SAR").addClass("hide");
-        $("#QAR").addClass("hide");
-        $("#BHD").addClass("hide");
+        $("*#AED").addClass("hide");
+        $("*#SAR").addClass("hide");
+        $("*#QAR").addClass("hide");
+        $("*#BHD").addClass("hide");
+		$("*#KWD").addClass("hide");
     }
     if (currency=="BHD") {
-        $("#AED").addClass("hide");
-        $("#SAR").addClass("hide");
-        $("#QAR").addClass("hide");
-        $("#OMR").addClass("hide");
+        $("*#AED").addClass("hide");
+        $("*#SAR").addClass("hide");
+        $("*#QAR").addClass("hide");
+        $("*#OMR").addClass("hide");
+		$("*#KWD").addClass("hide");
     }
+	if (currency=="KWD") {
+        $("*#AED").addClass("hide");
+        $("*#SAR").addClass("hide");
+        $("*#QAR").addClass("hide");
+        $("*#OMR").addClass("hide");
+		$("*#BHD").addClass("hide");
+    }
+	
+
     
 });
 
 var QRcode=localStorage.getItem("QRcode");
+
 function queryDB(tx) {
     tx.executeSql('SELECT * FROM productlist where item_code = ? collate NOCASE', [QRcode], querySuccess, errorCB);
+	
     }
     function querySuccess(tx, results) {
+		
 	var len = results.rows.length;
+	
 	for (var i=0; i<len; i++){
 	    //alert(results.rows.item(i).panelheight);
 	    //alert(results.rows.item(i).weight_gramsm2);
+		//alert(results.rows.item(i).Minimum_Chargeable);
                 if (results.rows.item(0).image=="") {
                     $("#previewimage1").addClass("hide");
                     $("#href_item_image1").removeClass("fancybox-buttons1");
@@ -99,8 +121,65 @@ function queryDB(tx) {
                 document.getElementById("item_image1").src = image;
                 document.getElementById("item_image2").src = image1;
                 document.getElementById("item_image3").src = image2;
-                document.getElementById("item_image4").src = image3;
-                
+                document.getElementById("item_image4").src = image3; 
+ 
+				
+				var Category_name = results.rows.item(i).Category_name;
+								
+								
+								
+								if (Category_name=="") {
+									$("#Pleated_Blinds").addClass("hide");
+									$("#Folding_Door").addClass("hide");
+									$("#Wooden_Roman").addClass("hide");
+									$("#Awning").addClass("hide");
+									$("#Combi_Shades").addClass("hide");
+								}
+								 if (Category_name=="Fabric") {
+									$("#Pleated_Blinds").addClass("hide");
+									$("#Folding_Door").addClass("hide");
+									$("#Wooden_Roman").addClass("hide");
+									$("#Awning").addClass("hide");
+									$("#Combi_Shades").addClass("hide");
+								}
+								if (Category_name=="Pleated_Blinds") {
+									$("#Fabric").addClass("hide");                          
+									$("#Folding_Door").addClass("hide");
+									$("#Wooden_Roman").addClass("hide");
+									$("#Awning").addClass("hide");
+									$("#Combi_Shades").addClass("hide");
+								}
+								if (Category_name=="Folding_Door") {
+									$("#Fabric").addClass("hide"); 
+									$("#Pleated_Blinds").addClass("hide");				
+									$("#Wooden_Roman").addClass("hide");
+									$("#Awning").addClass("hide");
+									$("#Combi_Shades").addClass("hide");
+								}
+								if (Category_name=="Wooden_Roman") {
+									$("#Fabric").addClass("hide"); 
+									$("#Pleated_Blinds").addClass("hide");
+									$("#Folding_Door").addClass("hide");
+									$("#Awning").addClass("hide");
+									$("#Combi_Shades").addClass("hide");
+								}
+								if (Category_name=="Awning") {
+								   $("#Fabric").addClass("hide"); 
+								   $("#Pleated_Blinds").addClass("hide");
+								   $("#Folding_Door").addClass("hide");
+								   $("#Wooden_Roman").addClass("hide");
+								   $("#Combi_Shades").addClass("hide");
+								}
+								if (Category_name=="Combi_Shades") {
+									$("#Fabric").addClass("hide"); 
+									$("#Pleated_Blinds").addClass("hide");
+									$("#Folding_Door").addClass("hide");
+									$("#Wooden_Roman").addClass("hide");
+									$("#Awning").addClass("hide");
+								}
+								
+								/* Fabric  start */ 
+ 								
 								document.getElementById("item_code").innerHTML = results.rows.item(i).item_code;
 								document.getElementById("brand").innerHTML = results.rows.item(i).brand;
 								document.getElementById("catalogue_name").innerHTML = results.rows.item(i).catalogue_name;
@@ -109,16 +188,9 @@ function queryDB(tx) {
 								document.getElementById("panelheight").innerHTML = results.rows.item(i).panelheight;
 								document.getElementById("weight_gramsm2").innerHTML = results.rows.item(i).weight_gramsm2;
 								document.getElementById("additional_notes").innerHTML = results.rows.item(i).additional_notes;
-								//additional data
 								
-								document.getElementById("Minimum_Chargeable_size").innerHTML = results.rows.item(i).Minimum_Chargeable_size;
-								document.getElementById("Maximum_Width").innerHTML = results.rows.item(i).Maximum_Width;
-								document.getElementById("Maximum_Height").innerHTML = results.rows.item(i).Maximum_Height;
-								document.getElementById("Minimum_Projection").innerHTML = results.rows.item(i).Minimum_Projection;
-								document.getElementById("Maximum_Projection").innerHTML = results.rows.item(i).Maximum_Projection;
-								document.getElementById("Type").innerHTML = results.rows.item(i).Type;
+									//AED
 								
-								//AED
 								document.getElementById("AED_price_per_SQM").innerHTML = results.rows.item(i).AED_price_per_SQM;
 								document.getElementById("SALE_AED_price_per_SQM").innerHTML = results.rows.item(i).SALE_AED_price_per_SQM;
 								document.getElementById("AED_Roman_Price_per_SQM").innerHTML = results.rows.item(i).AED_Roman_Price_per_SQM;
@@ -137,6 +209,7 @@ function queryDB(tx) {
 								document.getElementById("SALE_AED_bateaux_per_SQM").innerHTML = results.rows.item(i).SALE_AED_bateaux_per_SQM;
 								document.getElementById("AED_plata_per_SQM").innerHTML = results.rows.item(i).AED_plata_per_SQM;
 								document.getElementById("SALE_AED_plata_per_SQM").innerHTML = results.rows.item(i).SALE_AED_plata_per_SQM;
+								
 								//SAR
 								document.getElementById("SAR_price_per_SQM").innerHTML = results.rows.item(i).SAR_price_per_SQM;
 								document.getElementById("SALE_SAR_price_per_SQM").innerHTML = results.rows.item(i).SALE_SAR_price_per_SQM;
@@ -156,6 +229,7 @@ function queryDB(tx) {
 								document.getElementById("SALE_SAR_bateaux_per_SQM").innerHTML = results.rows.item(i).SALE_SAR_bateaux_per_SQM;
 								document.getElementById("SAR_plata_per_SQM").innerHTML = results.rows.item(i).SAR_plata_per_SQM;
 								document.getElementById("SALE_SAR_plata_per_SQM").innerHTML = results.rows.item(i).SALE_SAR_plata_per_SQM;
+								
 								//QAR
 								document.getElementById("QAR_price_per_SQM").innerHTML = results.rows.item(i).QAR_price_per_SQM;
 								document.getElementById("SALE_QAR_price_per_SQM").innerHTML = results.rows.item(i).SALE_QAR_price_per_SQM;
@@ -175,6 +249,7 @@ function queryDB(tx) {
 								document.getElementById("SALE_QAR_bateaux_per_SQM").innerHTML = results.rows.item(i).SALE_QAR_bateaux_per_SQM;
 								document.getElementById("QAR_plata_per_SQM").innerHTML = results.rows.item(i).QAR_plata_per_SQM;
 								document.getElementById("SALE_QAR_plata_per_SQM").innerHTML = results.rows.item(i).SALE_QAR_plata_per_SQM;
+								
 								//OMR
 								document.getElementById("OMR_price_per_SQM").innerHTML = results.rows.item(i).OMR_price_per_SQM;
 								document.getElementById("SALE_OMR_price_per_SQM").innerHTML = results.rows.item(i).SALE_OMR_price_per_SQM;
@@ -194,6 +269,7 @@ function queryDB(tx) {
 								document.getElementById("SALE_OMR_bateaux_per_SQM").innerHTML = results.rows.item(i).SALE_OMR_bateaux_per_SQM;
 								document.getElementById("OMR_plata_per_SQM").innerHTML = results.rows.item(i).OMR_plata_per_SQM;
 								document.getElementById("SALE_OMR_plata_per_SQM").innerHTML = results.rows.item(i).SALE_OMR_plata_per_SQM;
+								
 								
 								//BHD
 								document.getElementById("BHD_price_per_SQM").innerHTML = results.rows.item(i).BHD_price_per_SQM;
@@ -216,21 +292,25 @@ function queryDB(tx) {
 								document.getElementById("SALE_BHD_plata_per_SQM").innerHTML = results.rows.item(i).SALE_BHD_plata_per_SQM;
 								
 								
-								//ADDITIONAL Database
-								
-								document.getElementById("AED_Price_with_Mono_Command_Ball_Chain_System").innerHTML = results.rows.item(i).AED_Price_with_Mono_Command_Ball_Chain_System;
-								document.getElementById("SALE_AED_Price_with_Mono_Command_Ball_Chain_System").innerHTML = results.rows.item(i).SALE_AED_Price_with_Mono_Command_Ball_Chain_System;
-								document.getElementById("AED_Price_with_Guide_Rope_per_SQM").innerHTML = results.rows.item(i).AED_Price_with_Guide_Rope_per_SQM;
-								document.getElementById("SALE_AED_Price_with_Guide_Rope_per_SQM").innerHTML = results.rows.item(i).SALE_AED_Price_with_Guide_Rope_per_SQM;
-								document.getElementById("AED_Price_with_Cassete_LOUVO_per_SQM").innerHTML = results.rows.item(i).AED_Price_with_Cassete_LOUVO_per_SQM;
-								document.getElementById("SALE_AED_Price_with_Cassete_LOUVO_per_SQM").innerHTML = results.rows.item(i).SALE_AED_Price_with_Cassete_LOUVO_per_SQM;
-								document.getElementById("AED_Price_per_LMT").innerHTML = results.rows.item(i).AED_Price_per_LMT;
-								document.getElementById("SALE_AED_Price_per_LMT").innerHTML = results.rows.item(i).SALE_AED_Price_per_LMT;
-								document.getElementById("AED_Price_for_Window_Glass_per_Piece").innerHTML = results.rows.item(i).AED_Price_for_Window_Glass_per_Piece;
-								document.getElementById("SALE_AED_Price_for_Window_Glass_per_Piece").innerHTML = results.rows.item(i).SALE_AED_Price_for_Window_Glass_per_Piece;
-								document.getElementById("AED_Price_for_Decorative_Window_Glass_Film_per_Piece").innerHTML = results.rows.item(i).AED_Price_for_Decorative_Window_Glass_Film_per_Piece;
-								document.getElementById("SALE_AED_Price_for_Decorative_Window_Glass_Film_per_Piece").innerHTML = results.rows.item(i).SALE_AED_Price_for_Decorative_Window_Glass_Film_per_Piece;
-								
+								//KWD
+								document.getElementById("KWD_price_per_SQM").innerHTML = results.rows.item(i).KWD_price_per_SQM;
+								document.getElementById("SALE_KWD_price_per_SQM").innerHTML = results.rows.item(i).SALE_KWD_price_per_SQM;
+								document.getElementById("KWD_Roman_Price_per_SQM").innerHTML = results.rows.item(i).KWD_Roman_Price_per_SQM;
+								document.getElementById("SALE_KWD_Roman_Price_per_SQM").innerHTML = results.rows.item(i).SALE_KWD_Roman_Price_per_SQM;
+								document.getElementById("KWD_stitching_price").innerHTML = results.rows.item(i).KWD_stitching_price;
+								document.getElementById("SALE_KWD_stitching_price").innerHTML = results.rows.item(i).SALE_KWD_stitching_price;
+								document.getElementById("KWD_norm_lining_per_SQM").innerHTML = results.rows.item(i).KWD_norm_lining_per_SQM;
+								document.getElementById("SALE_KWD_norm_lining_per_SQM").innerHTML = results.rows.item(i).SALE_KWD_norm_lining_per_SQM;
+								document.getElementById("KWD_branded_lining_per_SQM").innerHTML = results.rows.item(i).KWD_branded_lining_per_SQM;
+								document.getElementById("SALE_KWD_branded_lining_per_SQM").innerHTML = results.rows.item(i).SALE_KWD_branded_lining_per_SQM;
+								document.getElementById("KWD_cataluna_blackout_per_SQM").innerHTML = results.rows.item(i).KWD_cataluna_blackout_per_SQM;
+								document.getElementById("SALE_KWD_cataluna_blackout_per_SQM").innerHTML = results.rows.item(i).SALE_KWD_cataluna_blackout_per_SQM;
+								document.getElementById("KWD_antartica_blackout_per_SQM").innerHTML = results.rows.item(i).KWD_antartica_blackout_per_SQM;
+								document.getElementById("SALE_KWD_antartica_blackout_per_SQM").innerHTML = results.rows.item(i).SALE_KWD_antartica_blackout_per_SQM;
+								document.getElementById("KWD_bateaux_per_SQM").innerHTML = results.rows.item(i).KWD_bateaux_per_SQM;
+								document.getElementById("SALE_KWD_bateaux_per_SQM").innerHTML = results.rows.item(i).SALE_KWD_bateaux_per_SQM;
+								document.getElementById("KWD_plata_per_SQM").innerHTML = results.rows.item(i).KWD_plata_per_SQM;
+								document.getElementById("SALE_KWD_plata_per_SQM").innerHTML = results.rows.item(i).SALE_KWD_plata_per_SQM;
 								
 								
 								//all currency
@@ -254,6 +334,7 @@ function queryDB(tx) {
 								document.getElementById("SALE_AED_bateaux_per_SQM1").innerHTML = results.rows.item(i).SALE_AED_bateaux_per_SQM;
 								document.getElementById("AED_plata_per_SQM1").innerHTML = results.rows.item(i).AED_plata_per_SQM;
 								document.getElementById("SALE_AED_plata_per_SQM1").innerHTML = results.rows.item(i).SALE_AED_plata_per_SQM;
+								
 								//SAR
 								document.getElementById("SAR_price_per_SQM1").innerHTML = results.rows.item(i).SAR_price_per_SQM;
 								document.getElementById("SALE_SAR_price_per_SQM1").innerHTML = results.rows.item(i).SALE_SAR_price_per_SQM;
@@ -273,6 +354,7 @@ function queryDB(tx) {
 								document.getElementById("SALE_SAR_bateaux_per_SQM1").innerHTML = results.rows.item(i).SALE_SAR_bateaux_per_SQM;
 								document.getElementById("SAR_plata_per_SQM1").innerHTML = results.rows.item(i).SAR_plata_per_SQM;
 								document.getElementById("SALE_SAR_plata_per_SQM1").innerHTML = results.rows.item(i).SALE_SAR_plata_per_SQM;
+								
 								//OMR
 								document.getElementById("OMR_price_per_SQM1").innerHTML = results.rows.item(i).OMR_price_per_SQM;
 								document.getElementById("SALE_OMR_price_per_SQM1").innerHTML = results.rows.item(i).SALE_OMR_price_per_SQM;
@@ -292,6 +374,7 @@ function queryDB(tx) {
 								document.getElementById("SALE_OMR_bateaux_per_SQM1").innerHTML = results.rows.item(i).SALE_OMR_bateaux_per_SQM;
 								document.getElementById("OMR_plata_per_SQM1").innerHTML = results.rows.item(i).OMR_plata_per_SQM;
 								document.getElementById("SALE_OMR_plata_per_SQM1").innerHTML = results.rows.item(i).SALE_OMR_plata_per_SQM;
+								
 								
 								//BHD
 								document.getElementById("BHD_price_per_SQM1").innerHTML = results.rows.item(i).BHD_price_per_SQM;
@@ -313,6 +396,7 @@ function queryDB(tx) {
 								document.getElementById("BHD_plata_per_SQM1").innerHTML = results.rows.item(i).BHD_plata_per_SQM;
 								document.getElementById("SALE_BHD_plata_per_SQM1").innerHTML = results.rows.item(i).SALE_BHD_plata_per_SQM;
 								
+								
 								//QAR
 								document.getElementById("QAR_price_per_SQM1").innerHTML = results.rows.item(i).QAR_price_per_SQM;
 								document.getElementById("SALE_QAR_price_per_SQM1").innerHTML = results.rows.item(i).SALE_QAR_price_per_SQM;
@@ -333,20 +417,470 @@ function queryDB(tx) {
 								document.getElementById("QAR_plata_per_SQM1").innerHTML = results.rows.item(i).QAR_plata_per_SQM;
 								document.getElementById("SALE_QAR_plata_per_SQM1").innerHTML = results.rows.item(i).SALE_QAR_plata_per_SQM;
 								
-								//ADDITIONAL Database
 								
-								document.getElementById("AED_Price_with_Mono_Command_Ball_Chain_System1").innerHTML = results.rows.item(i).AED_Price_with_Mono_Command_Ball_Chain_System;
-								document.getElementById("SALE_AED_Price_with_Mono_Command_Ball_Chain_System1").innerHTML = results.rows.item(i).SALE_AED_Price_with_Mono_Command_Ball_Chain_System;
-								document.getElementById("AED_Price_with_Guide_Rope_per_SQM1").innerHTML = results.rows.item(i).AED_Price_with_Guide_Rope_per_SQM;
-								document.getElementById("SALE_AED_Price_with_Guide_Rope_per_SQM1").innerHTML = results.rows.item(i).SALE_AED_Price_with_Guide_Rope_per_SQM;
-								document.getElementById("AED_Price_with_Cassete_LOUVO_per_SQM1").innerHTML = results.rows.item(i).AED_Price_with_Cassete_LOUVO_per_SQM;
-								document.getElementById("SALE_AED_Price_with_Cassete_LOUVO_per_SQM1").innerHTML = results.rows.item(i).SALE_AED_Price_with_Cassete_LOUVO_per_SQM;
-								document.getElementById("AED_Price_per_LMT1").innerHTML = results.rows.item(i).AED_Price_per_LMT;
-								document.getElementById("SALE_AED_Price_per_LMT1").innerHTML = results.rows.item(i).SALE_AED_Price_per_LMT;
-								document.getElementById("AED_Price_for_Window_Glass_per_Piece1").innerHTML = results.rows.item(i).AED_Price_for_Window_Glass_per_Piece;
-								document.getElementById("SALE_AED_Price_for_Window_Glass_per_Piece1").innerHTML = results.rows.item(i).SALE_AED_Price_for_Window_Glass_per_Piece;
-								document.getElementById("AED_Price_for_Decorative_Window_Glass_Film_per_Piece1").innerHTML = results.rows.item(i).AED_Price_for_Decorative_Window_Glass_Film_per_Piece;
-								document.getElementById("SALE_AED_Price_for_Decorative_Window_Glass_Film_per_Piece1").innerHTML = results.rows.item(i).SALE_AED_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								//KWD
+								document.getElementById("KWD_price_per_SQM1").innerHTML = results.rows.item(i).KWD_price_per_SQM;
+								document.getElementById("SALE_KWD_price_per_SQM1").innerHTML = results.rows.item(i).SALE_KWD_price_per_SQM;
+								document.getElementById("KWD_Roman_Price_per_SQM1").innerHTML = results.rows.item(i).KWD_Roman_Price_per_SQM;
+								document.getElementById("SALE_KWD_Roman_Price_per_SQM1").innerHTML = results.rows.item(i).SALE_KWD_Roman_Price_per_SQM;
+								document.getElementById("KWD_stitching_price1").innerHTML = results.rows.item(i).KWD_stitching_price;
+								document.getElementById("SALE_KWD_stitching_price1").innerHTML = results.rows.item(i).SALE_KWD_stitching_price;
+								document.getElementById("KWD_norm_lining_per_SQM1").innerHTML = results.rows.item(i).KWD_norm_lining_per_SQM;
+								document.getElementById("SALE_KWD_norm_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_KWD_norm_lining_per_SQM;
+								document.getElementById("KWD_branded_lining_per_SQM1").innerHTML = results.rows.item(i).KWD_branded_lining_per_SQM;
+								document.getElementById("SALE_KWD_branded_lining_per_SQM1").innerHTML = results.rows.item(i).SALE_KWD_branded_lining_per_SQM;
+								document.getElementById("KWD_cataluna_blackout_per_SQM1").innerHTML = results.rows.item(i).KWD_cataluna_blackout_per_SQM;
+								document.getElementById("SALE_KWD_cataluna_blackout_per_SQM1").innerHTML = results.rows.item(i).SALE_KWD_cataluna_blackout_per_SQM;
+								document.getElementById("KWD_antartica_blackout_per_SQM1").innerHTML = results.rows.item(i).KWD_antartica_blackout_per_SQM;
+								document.getElementById("SALE_KWD_antartica_blackout_per_SQM1").innerHTML = results.rows.item(i).SALE_KWD_antartica_blackout_per_SQM;
+								document.getElementById("KWD_bateaux_per_SQM1").innerHTML = results.rows.item(i).KWD_bateaux_per_SQM;
+								document.getElementById("SALE_KWD_bateaux_per_SQM1").innerHTML = results.rows.item(i).SALE_KWD_bateaux_per_SQM;
+								document.getElementById("KWD_plata_per_SQM1").innerHTML = results.rows.item(i).KWD_plata_per_SQM;
+								document.getElementById("SALE_KWD_plata_per_SQM1").innerHTML = results.rows.item(i).SALE_KWD_plata_per_SQM;
+								
+								/* Fabric End */
+								
+								/* Pleated_Blinds start */ 
+								
+								document.getElementById("item_code21").innerHTML = results.rows.item(i).item_code;
+								document.getElementById("brand21").innerHTML = results.rows.item(i).brand;
+								document.getElementById("catalogue_name21").innerHTML = results.rows.item(i).catalogue_name;
+								document.getElementById("Minimum_Chargeable21").innerHTML = results.rows.item(i).Minimum_Chargeable;
+								document.getElementById("additional_notes21").innerHTML = results.rows.item(i).additional_notes;
+								
+								// images
+								
+								document.getElementById("item_image211").src = image;
+								document.getElementById("item_image212").src = image1;
+								document.getElementById("item_image213").src = image2;
+								document.getElementById("item_image214").src = image3; 
+								
+								
+								//  AED
+								document.getElementById("AED_price_per_SQM21").innerHTML = results.rows.item(i).AED_price_per_SQM;
+								document.getElementById("SALE_AED_price_per_SQM21").innerHTML = results.rows.item(i).SALE_AED_price_per_SQM;
+								document.getElementById("AED_Price_with_Mono_Command_Ball_Chain_System21").innerHTML = results.rows.item(i).AED_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("SALE_AED_Price_with_Mono_Command_Ball_Chain_System21").innerHTML = results.rows.item(i).SALE_AED_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("AED_Price_with_Guide_Rope_per_SQM21").innerHTML = results.rows.item(i).AED_Price_with_Guide_Rope_per_SQM;
+								document.getElementById("SALE_AED_Price_with_Guide_Rope_per_SQM21").innerHTML = results.rows.item(i).SALE_AED_Price_with_Guide_Rope_per_SQM;
+								
+								//  SAR
+								document.getElementById("SAR_price_per_SQM21").innerHTML = results.rows.item(i).SAR_price_per_SQM;
+								document.getElementById("SALE_SAR_price_per_SQM21").innerHTML = results.rows.item(i).SALE_SAR_price_per_SQM;
+								document.getElementById("SAR_Price_with_Mono_Command_Ball_Chain_System21").innerHTML = results.rows.item(i).SAR_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("SALE_SAR_Price_with_Mono_Command_Ball_Chain_System21").innerHTML = results.rows.item(i).SALE_SAR_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("SAR_Price_with_Guide_Rope_per_SQM21").innerHTML = results.rows.item(i).SAR_Price_with_Guide_Rope_per_SQM;
+								document.getElementById("SALE_SAR_Price_with_Guide_Rope_per_SQM21").innerHTML = results.rows.item(i).SALE_SAR_Price_with_Guide_Rope_per_SQM;
+								//  QAR
+								document.getElementById("QAR_price_per_SQM21").innerHTML = results.rows.item(i).QAR_price_per_SQM;
+								document.getElementById("SALE_QAR_price_per_SQM21").innerHTML = results.rows.item(i).SALE_QAR_price_per_SQM;
+								document.getElementById("QAR_Price_with_Mono_Command_Ball_Chain_System21").innerHTML = results.rows.item(i).QAR_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("SALE_QAR_Price_with_Mono_Command_Ball_Chain_System21").innerHTML = results.rows.item(i).SALE_QAR_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("QAR_Price_with_Guide_Rope_per_SQM21").innerHTML = results.rows.item(i).QAR_Price_with_Guide_Rope_per_SQM;
+								document.getElementById("SALE_QAR_Price_with_Guide_Rope_per_SQM21").innerHTML = results.rows.item(i).SALE_QAR_Price_with_Guide_Rope_per_SQM;
+								//  OMR
+								document.getElementById("OMR_price_per_SQM21").innerHTML = results.rows.item(i).OMR_price_per_SQM;
+								document.getElementById("SALE_OMR_price_per_SQM21").innerHTML = results.rows.item(i).SALE_OMR_price_per_SQM;
+								document.getElementById("OMR_Price_with_Mono_Command_Ball_Chain_System21").innerHTML = results.rows.item(i).OMR_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("SALE_OMR_Price_with_Mono_Command_Ball_Chain_System21").innerHTML = results.rows.item(i).SALE_OMR_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("OMR_Price_with_Guide_Rope_per_SQM21").innerHTML = results.rows.item(i).OMR_Price_with_Guide_Rope_per_SQM;
+								document.getElementById("SALE_OMR_Price_with_Guide_Rope_per_SQM21").innerHTML = results.rows.item(i).SALE_OMR_Price_with_Guide_Rope_per_SQM;
+								//  BHD
+								document.getElementById("BHD_price_per_SQM21").innerHTML = results.rows.item(i).BHD_price_per_SQM;
+								document.getElementById("SALE_BHD_price_per_SQM21").innerHTML = results.rows.item(i).SALE_BHD_price_per_SQM;
+								document.getElementById("BHD_Price_with_Mono_Command_Ball_Chain_System21").innerHTML = results.rows.item(i).BHD_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("SALE_BHD_Price_with_Mono_Command_Ball_Chain_System21").innerHTML = results.rows.item(i).SALE_BHD_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("BHD_Price_with_Guide_Rope_per_SQM21").innerHTML = results.rows.item(i).BHD_Price_with_Guide_Rope_per_SQM;
+								document.getElementById("SALE_BHD_Price_with_Guide_Rope_per_SQM21").innerHTML = results.rows.item(i).SALE_BHD_Price_with_Guide_Rope_per_SQM;
+								//  KWD
+								document.getElementById("KWD_price_per_SQM21").innerHTML = results.rows.item(i).KWD_price_per_SQM;
+								document.getElementById("SALE_KWD_price_per_SQM21").innerHTML = results.rows.item(i).SALE_KWD_price_per_SQM;
+								document.getElementById("KWD_Price_with_Mono_Command_Ball_Chain_System21").innerHTML = results.rows.item(i).KWD_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("SALE_KWD_Price_with_Mono_Command_Ball_Chain_System21").innerHTML = results.rows.item(i).SALE_KWD_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("KWD_Price_with_Guide_Rope_per_SQM21").innerHTML = results.rows.item(i).KWD_Price_with_Guide_Rope_per_SQM;
+								document.getElementById("SALE_KWD_Price_with_Guide_Rope_per_SQM21").innerHTML = results.rows.item(i).SALE_KWD_Price_with_Guide_Rope_per_SQM;
+								
+								//all currency
+								
+								//  AED
+								document.getElementById("AED_price_per_SQM211").innerHTML = results.rows.item(i).AED_price_per_SQM;
+								document.getElementById("SALE_AED_price_per_SQM211").innerHTML = results.rows.item(i).SALE_AED_price_per_SQM;
+								document.getElementById("AED_Price_with_Mono_Command_Ball_Chain_System211").innerHTML = results.rows.item(i).AED_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("SALE_AED_Price_with_Mono_Command_Ball_Chain_System211").innerHTML = results.rows.item(i).SALE_AED_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("AED_Price_with_Guide_Rope_per_SQM211").innerHTML = results.rows.item(i).AED_Price_with_Guide_Rope_per_SQM;
+								document.getElementById("SALE_AED_Price_with_Guide_Rope_per_SQM211").innerHTML = results.rows.item(i).SALE_AED_Price_with_Guide_Rope_per_SQM;
+								//  SAR
+								document.getElementById("SAR_price_per_SQM211").innerHTML = results.rows.item(i).SAR_price_per_SQM;
+								document.getElementById("SALE_SAR_price_per_SQM211").innerHTML = results.rows.item(i).SALE_SAR_price_per_SQM;
+								document.getElementById("SAR_Price_with_Mono_Command_Ball_Chain_System211").innerHTML = results.rows.item(i).SAR_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("SALE_SAR_Price_with_Mono_Command_Ball_Chain_System211").innerHTML = results.rows.item(i).SALE_SAR_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("SAR_Price_with_Guide_Rope_per_SQM211").innerHTML = results.rows.item(i).SAR_Price_with_Guide_Rope_per_SQM;
+								document.getElementById("SALE_SAR_Price_with_Guide_Rope_per_SQM211").innerHTML = results.rows.item(i).SALE_SAR_Price_with_Guide_Rope_per_SQM;
+								//  QAR
+								document.getElementById("QAR_price_per_SQM211").innerHTML = results.rows.item(i).QAR_price_per_SQM;
+								document.getElementById("SALE_QAR_price_per_SQM211").innerHTML = results.rows.item(i).SALE_QAR_price_per_SQM;
+								document.getElementById("QAR_Price_with_Mono_Command_Ball_Chain_System211").innerHTML = results.rows.item(i).QAR_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("SALE_QAR_Price_with_Mono_Command_Ball_Chain_System211").innerHTML = results.rows.item(i).SALE_QAR_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("QAR_Price_with_Guide_Rope_per_SQM211").innerHTML = results.rows.item(i).QAR_Price_with_Guide_Rope_per_SQM;
+								document.getElementById("SALE_QAR_Price_with_Guide_Rope_per_SQM211").innerHTML = results.rows.item(i).SALE_QAR_Price_with_Guide_Rope_per_SQM;
+								//  OMR
+								document.getElementById("OMR_price_per_SQM211").innerHTML = results.rows.item(i).OMR_price_per_SQM;
+								document.getElementById("SALE_OMR_price_per_SQM211").innerHTML = results.rows.item(i).SALE_OMR_price_per_SQM;
+								document.getElementById("OMR_Price_with_Mono_Command_Ball_Chain_System211").innerHTML = results.rows.item(i).OMR_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("SALE_OMR_Price_with_Mono_Command_Ball_Chain_System211").innerHTML = results.rows.item(i).SALE_OMR_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("OMR_Price_with_Guide_Rope_per_SQM211").innerHTML = results.rows.item(i).OMR_Price_with_Guide_Rope_per_SQM;
+								document.getElementById("SALE_OMR_Price_with_Guide_Rope_per_SQM211").innerHTML = results.rows.item(i).SALE_OMR_Price_with_Guide_Rope_per_SQM;
+								//  BHD
+								document.getElementById("BHD_price_per_SQM211").innerHTML = results.rows.item(i).BHD_price_per_SQM;
+								document.getElementById("SALE_BHD_price_per_SQM211").innerHTML = results.rows.item(i).SALE_BHD_price_per_SQM;
+								document.getElementById("BHD_Price_with_Mono_Command_Ball_Chain_System211").innerHTML = results.rows.item(i).BHD_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("SALE_BHD_Price_with_Mono_Command_Ball_Chain_System211").innerHTML = results.rows.item(i).SALE_BHD_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("BHD_Price_with_Guide_Rope_per_SQM211").innerHTML = results.rows.item(i).BHD_Price_with_Guide_Rope_per_SQM;
+								document.getElementById("SALE_BHD_Price_with_Guide_Rope_per_SQM211").innerHTML = results.rows.item(i).SALE_BHD_Price_with_Guide_Rope_per_SQM;
+								//  KWD
+								document.getElementById("KWD_price_per_SQM211").innerHTML = results.rows.item(i).KWD_price_per_SQM;
+								document.getElementById("SALE_KWD_price_per_SQM211").innerHTML = results.rows.item(i).SALE_KWD_price_per_SQM;
+								document.getElementById("KWD_Price_with_Mono_Command_Ball_Chain_System211").innerHTML = results.rows.item(i).KWD_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("SALE_KWD_Price_with_Mono_Command_Ball_Chain_System211").innerHTML = results.rows.item(i).SALE_KWD_Price_with_Mono_Command_Ball_Chain_System;
+								document.getElementById("KWD_Price_with_Guide_Rope_per_SQM211").innerHTML = results.rows.item(i).KWD_Price_with_Guide_Rope_per_SQM;
+								document.getElementById("SALE_KWD_Price_with_Guide_Rope_per_SQM211").innerHTML = results.rows.item(i).SALE_KWD_Price_with_Guide_Rope_per_SQM;
+								
+								
+								
+								/* Pleated_Blinds End */
+								
+								
+								
+								/* Folding_Door start*/
+								
+								document.getElementById("item_code22").innerHTML = results.rows.item(i).item_code;
+								document.getElementById("brand22").innerHTML = results.rows.item(i).brand;
+								document.getElementById("Collection_name22").innerHTML = results.rows.item(i).Collection_name;
+								document.getElementById("Minimum_Chargeable22").innerHTML = results.rows.item(i).Minimum_Chargeable;
+								document.getElementById("Maximum_Height22").innerHTML = results.rows.item(i).Maximum_Height;
+								document.getElementById("additional_notes22").innerHTML = results.rows.item(i).additional_notes;
+								
+								// images
+								
+								document.getElementById("item_image221").src = image;
+								document.getElementById("item_image222").src = image1;
+								document.getElementById("item_image223").src = image2;
+								document.getElementById("item_image224").src = image3; 
+								
+								//  AED
+								document.getElementById("AED_price_per_SQM22").innerHTML = results.rows.item(i).AED_price_per_SQM;
+								document.getElementById("SALE_AED_price_per_SQM22").innerHTML = results.rows.item(i).SALE_AED_price_per_SQM;
+								document.getElementById("AED_Price_for_Window_Glass_per_Piece22").innerHTML = results.rows.item(i).AED_Price_for_Window_Glass_per_Piece;
+								document.getElementById("SALE_AED_Price_for_Window_Glass_per_Piece22").innerHTML = results.rows.item(i).SALE_AED_Price_for_Window_Glass_per_Piece;
+								document.getElementById("AED_Price_for_Decorative_Window_Glass_Film_per_Piece22").innerHTML = results.rows.item(i).AED_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								document.getElementById("SALE_AED_Price_for_Decorative_Window_Glass_Film_per_Piece22").innerHTML = results.rows.item(i).SALE_AED_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								//  SAR
+								document.getElementById("SAR_price_per_SQM22").innerHTML = results.rows.item(i).SAR_price_per_SQM;
+								document.getElementById("SALE_SAR_price_per_SQM22").innerHTML = results.rows.item(i).SALE_SAR_price_per_SQM;
+								document.getElementById("SAR_Price_for_Window_Glass_per_Piece22").innerHTML = results.rows.item(i).SAR_Price_for_Window_Glass_per_Piece;
+								document.getElementById("SALE_SAR_Price_for_Window_Glass_per_Piece22").innerHTML = results.rows.item(i).SALE_SAR_Price_for_Window_Glass_per_Piece;
+								document.getElementById("SAR_Price_for_Decorative_Window_Glass_Film_per_Piece22").innerHTML = results.rows.item(i).SAR_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								document.getElementById("SALE_SAR_Price_for_Decorative_Window_Glass_Film_per_Piece22").innerHTML = results.rows.item(i).SALE_SAR_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								//  QAR
+								document.getElementById("QAR_price_per_SQM22").innerHTML = results.rows.item(i).QAR_price_per_SQM;
+								document.getElementById("SALE_QAR_price_per_SQM22").innerHTML = results.rows.item(i).SALE_QAR_price_per_SQM;
+								document.getElementById("QAR_Price_for_Window_Glass_per_Piece22").innerHTML = results.rows.item(i).QAR_Price_for_Window_Glass_per_Piece;
+								document.getElementById("SALE_QAR_Price_for_Window_Glass_per_Piece22").innerHTML = results.rows.item(i).SALE_QAR_Price_for_Window_Glass_per_Piece;
+								document.getElementById("QAR_Price_for_Decorative_Window_Glass_Film_per_Piece22").innerHTML = results.rows.item(i).QAR_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								document.getElementById("SALE_QAR_Price_for_Decorative_Window_Glass_Film_per_Piece22").innerHTML = results.rows.item(i).SALE_QAR_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								//  OMR
+								document.getElementById("OMR_price_per_SQM22").innerHTML = results.rows.item(i).OMR_price_per_SQM;
+								document.getElementById("SALE_OMR_price_per_SQM22").innerHTML = results.rows.item(i).SALE_OMR_price_per_SQM;
+								document.getElementById("OMR_Price_for_Window_Glass_per_Piece22").innerHTML = results.rows.item(i).OMR_Price_for_Window_Glass_per_Piece;
+								document.getElementById("SALE_OMR_Price_for_Window_Glass_per_Piece22").innerHTML = results.rows.item(i).SALE_OMR_Price_for_Window_Glass_per_Piece;
+								document.getElementById("OMR_Price_for_Decorative_Window_Glass_Film_per_Piece22").innerHTML = results.rows.item(i).OMR_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								document.getElementById("SALE_OMR_Price_for_Decorative_Window_Glass_Film_per_Piece22").innerHTML = results.rows.item(i).SALE_OMR_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								//  BHD
+								document.getElementById("BHD_price_per_SQM22").innerHTML = results.rows.item(i).BHD_price_per_SQM;
+								document.getElementById("SALE_BHD_price_per_SQM22").innerHTML = results.rows.item(i).SALE_BHD_price_per_SQM;
+								document.getElementById("BHD_Price_for_Window_Glass_per_Piece22").innerHTML = results.rows.item(i).BHD_Price_for_Window_Glass_per_Piece;
+								document.getElementById("SALE_BHD_Price_for_Window_Glass_per_Piece22").innerHTML = results.rows.item(i).SALE_BHD_Price_for_Window_Glass_per_Piece;
+								document.getElementById("BHD_Price_for_Decorative_Window_Glass_Film_per_Piece22").innerHTML = results.rows.item(i).BHD_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								document.getElementById("SALE_BHD_Price_for_Decorative_Window_Glass_Film_per_Piece22").innerHTML = results.rows.item(i).SALE_BHD_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								//  KWD
+								document.getElementById("KWD_price_per_SQM22").innerHTML = results.rows.item(i).KWD_price_per_SQM;
+								document.getElementById("SALE_KWD_price_per_SQM22").innerHTML = results.rows.item(i).SALE_KWD_price_per_SQM;
+								document.getElementById("KWD_Price_for_Window_Glass_per_Piece22").innerHTML = results.rows.item(i).KWD_Price_for_Window_Glass_per_Piece;
+								document.getElementById("SALE_KWD_Price_for_Window_Glass_per_Piece22").innerHTML = results.rows.item(i).SALE_KWD_Price_for_Window_Glass_per_Piece;
+								document.getElementById("KWD_Price_for_Decorative_Window_Glass_Film_per_Piece22").innerHTML = results.rows.item(i).KWD_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								document.getElementById("SALE_KWD_Price_for_Decorative_Window_Glass_Film_per_Piece22").innerHTML = results.rows.item(i).SALE_KWD_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								
+								//all currency
+								
+								// AED
+								document.getElementById("AED_price_per_SQM222").innerHTML = results.rows.item(i).AED_price_per_SQM;
+								document.getElementById("SALE_AED_price_per_SQM222").innerHTML = results.rows.item(i).SALE_AED_price_per_SQM;
+								document.getElementById("AED_Price_for_Window_Glass_per_Piece222").innerHTML = results.rows.item(i).AED_Price_for_Window_Glass_per_Piece;
+								document.getElementById("SALE_AED_Price_for_Window_Glass_per_Piece222").innerHTML = results.rows.item(i).SALE_AED_Price_for_Window_Glass_per_Piece;
+								document.getElementById("AED_Price_for_Decorative_Window_Glass_Film_per_Piece222").innerHTML = results.rows.item(i).AED_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								document.getElementById("SALE_AED_Price_for_Decorative_Window_Glass_Film_per_Piece222").innerHTML = results.rows.item(i).SALE_AED_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								// SAR
+								document.getElementById("SAR_price_per_SQM222").innerHTML = results.rows.item(i).SAR_price_per_SQM;
+								document.getElementById("SALE_SAR_price_per_SQM222").innerHTML = results.rows.item(i).SALE_SAR_price_per_SQM;
+								document.getElementById("SAR_Price_for_Window_Glass_per_Piece222").innerHTML = results.rows.item(i).SAR_Price_for_Window_Glass_per_Piece;
+								document.getElementById("SALE_SAR_Price_for_Window_Glass_per_Piece222").innerHTML = results.rows.item(i).SALE_SAR_Price_for_Window_Glass_per_Piece;
+								document.getElementById("SAR_Price_for_Decorative_Window_Glass_Film_per_Piece222").innerHTML = results.rows.item(i).SAR_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								document.getElementById("SALE_SAR_Price_for_Decorative_Window_Glass_Film_per_Piece222").innerHTML = results.rows.item(i).SALE_SAR_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								// QAR
+								document.getElementById("QAR_price_per_SQM222").innerHTML = results.rows.item(i).QAR_price_per_SQM;
+								document.getElementById("SALE_QAR_price_per_SQM222").innerHTML = results.rows.item(i).SALE_QAR_price_per_SQM;
+								document.getElementById("QAR_Price_for_Window_Glass_per_Piece222").innerHTML = results.rows.item(i).QAR_Price_for_Window_Glass_per_Piece;
+								document.getElementById("SALE_QAR_Price_for_Window_Glass_per_Piece222").innerHTML = results.rows.item(i).SALE_QAR_Price_for_Window_Glass_per_Piece;
+								document.getElementById("QAR_Price_for_Decorative_Window_Glass_Film_per_Piece222").innerHTML = results.rows.item(i).QAR_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								document.getElementById("SALE_QAR_Price_for_Decorative_Window_Glass_Film_per_Piece222").innerHTML = results.rows.item(i).SALE_QAR_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								//  OMR
+								document.getElementById("OMR_price_per_SQM222").innerHTML = results.rows.item(i).OMR_price_per_SQM;
+								document.getElementById("SALE_OMR_price_per_SQM222").innerHTML = results.rows.item(i).SALE_OMR_price_per_SQM;
+								document.getElementById("OMR_Price_for_Window_Glass_per_Piece222").innerHTML = results.rows.item(i).OMR_Price_for_Window_Glass_per_Piece;
+								document.getElementById("SALE_OMR_Price_for_Window_Glass_per_Piece222").innerHTML = results.rows.item(i).SALE_OMR_Price_for_Window_Glass_per_Piece;
+								document.getElementById("OMR_Price_for_Decorative_Window_Glass_Film_per_Piece222").innerHTML = results.rows.item(i).OMR_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								document.getElementById("SALE_OMR_Price_for_Decorative_Window_Glass_Film_per_Piece222").innerHTML = results.rows.item(i).SALE_OMR_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								//  BHD
+								document.getElementById("BHD_price_per_SQM222").innerHTML = results.rows.item(i).BHD_price_per_SQM;
+								document.getElementById("SALE_BHD_price_per_SQM222").innerHTML = results.rows.item(i).SALE_BHD_price_per_SQM;
+								document.getElementById("BHD_Price_for_Window_Glass_per_Piece222").innerHTML = results.rows.item(i).BHD_Price_for_Window_Glass_per_Piece;
+								document.getElementById("SALE_BHD_Price_for_Window_Glass_per_Piece222").innerHTML = results.rows.item(i).SALE_BHD_Price_for_Window_Glass_per_Piece;
+								document.getElementById("BHD_Price_for_Decorative_Window_Glass_Film_per_Piece222").innerHTML = results.rows.item(i).BHD_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								document.getElementById("SALE_BHD_Price_for_Decorative_Window_Glass_Film_per_Piece222").innerHTML = results.rows.item(i).SALE_BHD_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								//  KWD
+								document.getElementById("KWD_price_per_SQM222").innerHTML = results.rows.item(i).KWD_price_per_SQM;
+								document.getElementById("SALE_KWD_price_per_SQM222").innerHTML = results.rows.item(i).SALE_KWD_price_per_SQM;
+								document.getElementById("KWD_Price_for_Window_Glass_per_Piece222").innerHTML = results.rows.item(i).KWD_Price_for_Window_Glass_per_Piece;
+								document.getElementById("SALE_KWD_Price_for_Window_Glass_per_Piece222").innerHTML = results.rows.item(i).SALE_KWD_Price_for_Window_Glass_per_Piece;
+								document.getElementById("KWD_Price_for_Decorative_Window_Glass_Film_per_Piece222").innerHTML = results.rows.item(i).KWD_Price_for_Decorative_Window_Glass_Film_per_Piece;
+								document.getElementById("SALE_KWD_Price_for_Decorative_Window_Glass_Film_per_Piece222").innerHTML = results.rows.item(i).SALE_KWD_Price_for_Decorative_Window_Glass_Film_per_Piece;
+						
+								
+								/* Wooden_Roman */
+								
+								document.getElementById("item_code23").innerHTML = results.rows.item(i).item_code;
+								document.getElementById("brand23").innerHTML = results.rows.item(i).brand;
+								document.getElementById("catalogue_name23").innerHTML = results.rows.item(i).catalogue_name;
+								document.getElementById("Minimum_Chargeable23").innerHTML = results.rows.item(i).Minimum_Chargeable;
+								document.getElementById("additional_notes23").innerHTML = results.rows.item(i).additional_notes;
+								
+								// images
+								
+								document.getElementById("item_image231").src = image;
+								document.getElementById("item_image232").src = image1;
+								document.getElementById("item_image233").src = image2;
+								document.getElementById("item_image234").src = image3; 
+								
+								//  AED
+								document.getElementById("AED_price_per_SQM23").innerHTML = results.rows.item(i).AED_price_per_SQM;
+								document.getElementById("SALE_AED_price_per_SQM23").innerHTML = results.rows.item(i).SALE_AED_price_per_SQM;
+								//  SAR
+								document.getElementById("SAR_price_per_SQM23").innerHTML = results.rows.item(i).SAR_price_per_SQM;
+								document.getElementById("SALE_SAR_price_per_SQM23").innerHTML = results.rows.item(i).SALE_SAR_price_per_SQM;
+								//  QAR
+								document.getElementById("QAR_price_per_SQM23").innerHTML = results.rows.item(i).QAR_price_per_SQM;
+								document.getElementById("SALE_QAR_price_per_SQM23").innerHTML = results.rows.item(i).SALE_QAR_price_per_SQM;
+								//  OMR
+								document.getElementById("OMR_price_per_SQM23").innerHTML = results.rows.item(i).OMR_price_per_SQM;
+								document.getElementById("SALE_OMR_price_per_SQM23").innerHTML = results.rows.item(i).SALE_OMR_price_per_SQM;
+								//  BHD
+								document.getElementById("BHD_price_per_SQM23").innerHTML = results.rows.item(i).BHD_price_per_SQM;
+								document.getElementById("SALE_BHD_price_per_SQM23").innerHTML = results.rows.item(i).SALE_BHD_price_per_SQM;
+								//  KWD
+								document.getElementById("KWD_price_per_SQM23").innerHTML = results.rows.item(i).KWD_price_per_SQM;
+								document.getElementById("SALE_KWD_price_per_SQM23").innerHTML = results.rows.item(i).SALE_KWD_price_per_SQM;
+								
+								//all currency
+								
+								//  AED
+								document.getElementById("AED_price_per_SQM233").innerHTML = results.rows.item(i).AED_price_per_SQM;
+								document.getElementById("SALE_AED_price_per_SQM233").innerHTML = results.rows.item(i).SALE_AED_price_per_SQM;
+								//  SAR
+								document.getElementById("SAR_price_per_SQM233").innerHTML = results.rows.item(i).SAR_price_per_SQM;
+								document.getElementById("SALE_SAR_price_per_SQM233").innerHTML = results.rows.item(i).SALE_SAR_price_per_SQM;
+								//  QAR
+								document.getElementById("QAR_price_per_SQM233").innerHTML = results.rows.item(i).QAR_price_per_SQM;
+								document.getElementById("SALE_QAR_price_per_SQM233").innerHTML = results.rows.item(i).SALE__price_per_SQM;
+								//  OMR
+								document.getElementById("OMR_price_per_SQM233").innerHTML = results.rows.item(i).OMR_price_per_SQM;
+								document.getElementById("SALE_OMR_price_per_SQM233").innerHTML = results.rows.item(i).SALE_OMR_price_per_SQM;
+								//  BHD
+								document.getElementById("BHD_price_per_SQM233").innerHTML = results.rows.item(i).BHD_price_per_SQM;
+								document.getElementById("SALE_BHD_price_per_SQM233").innerHTML = results.rows.item(i).SALE_BHD_price_per_SQM;
+								//  KWD
+								document.getElementById("KWD_price_per_SQM233").innerHTML = results.rows.item(i).KWD_price_per_SQM;
+								document.getElementById("SALE_KWD_price_per_SQM233").innerHTML = results.rows.item(i).SALE_KWD_price_per_SQM;
+								
+								
+								
+								/* Awning start */
+								
+								document.getElementById("item_code24").innerHTML = results.rows.item(i).item_code;
+								document.getElementById("brand24").innerHTML = results.rows.item(i).brand;
+								document.getElementById("Type24").innerHTML = results.rows.item(i).Type;
+								document.getElementById("Minimum_Chargeable24").innerHTML = results.rows.item(i).Minimum_Chargeable;
+								document.getElementById("Maximum_Width24").innerHTML = results.rows.item(i).Maximum_Width;
+								document.getElementById("Maximum_Projection24").innerHTML = results.rows.item(i).Maximum_Projection;
+								document.getElementById("Minimum_Projection24").innerHTML = results.rows.item(i).Minimum_Projection;
+								document.getElementById("additional_notes24").innerHTML = results.rows.item(i).additional_notes;
+								
+								// images
+								
+								document.getElementById("item_image241").src = image;
+								document.getElementById("item_image242").src = image1;
+								document.getElementById("item_image243").src = image2;
+								document.getElementById("item_image244").src = image3; 
+								
+								
+								//  AED
+								document.getElementById("AED_price_per_SQM24").innerHTML = results.rows.item(i).AED_price_per_SQM;
+								document.getElementById("SALE_AED_price_per_SQM24").innerHTML = results.rows.item(i).SALE_AED_price_per_SQM;
+								document.getElementById("AED_Price_per_LMT24").innerHTML = results.rows.item(i).AED_Price_per_LMT;
+								document.getElementById("SALE_AED_Price_per_LMT24").innerHTML = results.rows.item(i).SALE_AED_Price_per_LMT;
+								//  SAR
+								document.getElementById("SAR_price_per_SQM24").innerHTML = results.rows.item(i).SAR_price_per_SQM;
+								document.getElementById("SALE_SAR_price_per_SQM24").innerHTML = results.rows.item(i).SALE_SAR_price_per_SQM;
+								document.getElementById("SAR_Price_per_LMT24").innerHTML = results.rows.item(i).SAR_Price_per_LMT;
+								document.getElementById("SALE_SAR_Price_per_LMT24").innerHTML = results.rows.item(i).SALE_SAR_Price_per_LMT;
+								//  QAR
+								document.getElementById("QAR_price_per_SQM24").innerHTML = results.rows.item(i).QAR_price_per_SQM;
+								document.getElementById("SALE_QAR_price_per_SQM24").innerHTML = results.rows.item(i).SALE_QAR_price_per_SQM;
+								document.getElementById("QAR_Price_per_LMT24").innerHTML = results.rows.item(i).QAR_Price_per_LMT;
+								document.getElementById("SALE_QAR_Price_per_LMT24").innerHTML = results.rows.item(i).SALE_QAR_Price_per_LMT;
+								//  OMR
+								document.getElementById("OMR_price_per_SQM24").innerHTML = results.rows.item(i).OMR_price_per_SQM;
+								document.getElementById("SALE_OMR_price_per_SQM24").innerHTML = results.rows.item(i).SALE_OMR_price_per_SQM;
+								document.getElementById("OMR_Price_per_LMT24").innerHTML = results.rows.item(i).OMR_Price_per_LMT;
+								document.getElementById("SALE_OMR_Price_per_LMT24").innerHTML = results.rows.item(i).SALE_OMR_Price_per_LMT;
+								//  BHD
+								document.getElementById("BHD_price_per_SQM24").innerHTML = results.rows.item(i).BHD_price_per_SQM;
+								document.getElementById("SALE_BHD_price_per_SQM24").innerHTML = results.rows.item(i).SALE_BHD_price_per_SQM;
+								document.getElementById("BHD_Price_per_LMT24").innerHTML = results.rows.item(i).BHD_Price_per_LMT;
+								document.getElementById("SALE_BHD_Price_per_LMT24").innerHTML = results.rows.item(i).SALE_BHD_Price_per_LMT;
+								//  KWD
+								document.getElementById("KWD_price_per_SQM24").innerHTML = results.rows.item(i).KWD_price_per_SQM;
+								document.getElementById("SALE_KWD_price_per_SQM24").innerHTML = results.rows.item(i).SALE_KWD_price_per_SQM;
+								document.getElementById("KWD_Price_per_LMT24").innerHTML = results.rows.item(i).KWD_Price_per_LMT;
+								document.getElementById("SALE_KWD_Price_per_LMT24").innerHTML = results.rows.item(i).SALE_KWD_Price_per_LMT;
+								
+								//all currency
+								
+								//  AED
+								document.getElementById("AED_price_per_SQM244").innerHTML = results.rows.item(i).AED_price_per_SQM;
+								document.getElementById("SALE_AED_price_per_SQM244").innerHTML = results.rows.item(i).SALE_AED_price_per_SQM;
+								document.getElementById("AED_Price_per_LMT244").innerHTML = results.rows.item(i).AED_Price_per_LMT;
+								document.getElementById("SALE_AED_Price_per_LMT244").innerHTML = results.rows.item(i).SALE_AED_Price_per_LMT;
+								//  SAR
+								document.getElementById("SAR_price_per_SQM244").innerHTML = results.rows.item(i).SAR_price_per_SQM;
+								document.getElementById("SALE_SAR_price_per_SQM244").innerHTML = results.rows.item(i).SALE_SAR_price_per_SQM;
+								document.getElementById("SAR_Price_per_LMT244").innerHTML = results.rows.item(i).SAR_Price_per_LMT;
+								document.getElementById("SALE_SAR_Price_per_LMT244").innerHTML = results.rows.item(i).SALE_SAR_Price_per_LMT;
+								//  QAR
+								document.getElementById("QAR_price_per_SQM244").innerHTML = results.rows.item(i).QAR_price_per_SQM;
+								document.getElementById("SALE_QAR_price_per_SQM244").innerHTML = results.rows.item(i).SALE_QAR_price_per_SQM;
+								document.getElementById("QAR_Price_per_LMT244").innerHTML = results.rows.item(i).QAR_Price_per_LMT;
+								document.getElementById("SALE_QAR_Price_per_LMT244").innerHTML = results.rows.item(i).SALE_QAR_Price_per_LMT;
+								//  OMR
+								document.getElementById("OMR_price_per_SQM244").innerHTML = results.rows.item(i).OMR_price_per_SQM;
+								document.getElementById("SALE_OMR_price_per_SQM244").innerHTML = results.rows.item(i).SALE_OMR_price_per_SQM;
+								document.getElementById("OMR_Price_per_LMT244").innerHTML = results.rows.item(i).OMR_Price_per_LMT;
+								document.getElementById("SALE_OMR_Price_per_LMT244").innerHTML = results.rows.item(i).SALE_OMR_Price_per_LMT;
+								//  BHD
+								document.getElementById("BHD_price_per_SQM244").innerHTML = results.rows.item(i).BHD_price_per_SQM;
+								document.getElementById("SALE_BHD_price_per_SQM244").innerHTML = results.rows.item(i).SALE_BHD_price_per_SQM;
+								document.getElementById("BHD_Price_per_LMT244").innerHTML = results.rows.item(i).BHD_Price_per_LMT;
+								document.getElementById("SALE_BHD_Price_per_LMT244").innerHTML = results.rows.item(i).SALE_BHD_Price_per_LMT;
+								//  KWD
+								document.getElementById("KWD_price_per_SQM244").innerHTML = results.rows.item(i).KWD_price_per_SQM;
+								document.getElementById("SALE_KWD_price_per_SQM244").innerHTML = results.rows.item(i).SALE_KWD_price_per_SQM;
+								document.getElementById("KWD_Price_per_LMT244").innerHTML = results.rows.item(i).KWD_Price_per_LMT;
+								document.getElementById("SALE_KWD_Price_per_LMT244").innerHTML = results.rows.item(i).SALE_KWD_Price_per_LMT;
+								
+								
+								/* Combi_Shades */
+								
+								document.getElementById("item_code25").innerHTML = results.rows.item(i).item_code;
+								document.getElementById("brand25").innerHTML = results.rows.item(i).brand;
+								document.getElementById("catalogue_name25").innerHTML = results.rows.item(i).catalogue_name;
+								document.getElementById("Minimum_Chargeable25").innerHTML = results.rows.item(i).Minimum_Chargeable;
+								document.getElementById("additional_notes25").innerHTML = results.rows.item(i).additional_notes;
+								
+								// images
+								
+								document.getElementById("item_image251").src = image;
+								document.getElementById("item_image252").src = image1;
+								document.getElementById("item_image253").src = image2;
+								document.getElementById("item_image254").src = image3; 
+								
+								//  AED
+								document.getElementById("AED_price_per_SQM25").innerHTML = results.rows.item(i).AED_price_per_SQM;
+								document.getElementById("SALE_AED_price_per_SQM25").innerHTML = results.rows.item(i).SALE_AED_price_per_SQM;
+								document.getElementById("AED_Price_with_Cassete_LOUVO_per_SQM25").innerHTML = results.rows.item(i).AED_Price_with_Cassete_LOUVO_per_SQM;
+								document.getElementById("SALE_AED_Price_with_Cassete_LOUVO_per_SQM25").innerHTML = results.rows.item(i).SALE_AED_Price_with_Cassete_LOUVO_per_SQM;
+								//  SAR
+								document.getElementById("SAR_price_per_SQM25").innerHTML = results.rows.item(i).SAR_price_per_SQM;
+								document.getElementById("SALE_SAR_price_per_SQM25").innerHTML = results.rows.item(i).SALE_SAR_price_per_SQM;
+								document.getElementById("SAR_Price_with_Cassete_LOUVO_per_SQM25").innerHTML = results.rows.item(i).SAR_Price_with_Cassete_LOUVO_per_SQM;
+								document.getElementById("SALE_SAR_Price_with_Cassete_LOUVO_per_SQM25").innerHTML = results.rows.item(i).SALE_SAR_Price_with_Cassete_LOUVO_per_SQM;
+								//  QAR
+								document.getElementById("QAR_price_per_SQM25").innerHTML = results.rows.item(i).QAR_price_per_SQM;
+								document.getElementById("SALE_QAR_price_per_SQM25").innerHTML = results.rows.item(i).SALE_QAR_price_per_SQM;
+								document.getElementById("QAR_Price_with_Cassete_LOUVO_per_SQM25").innerHTML = results.rows.item(i).QAR_Price_with_Cassete_LOUVO_per_SQM;
+								document.getElementById("SALE_QAR_Price_with_Cassete_LOUVO_per_SQM25").innerHTML = results.rows.item(i).SALE_QAR_Price_with_Cassete_LOUVO_per_SQM;
+								//  OMR
+								document.getElementById("OMR_price_per_SQM25").innerHTML = results.rows.item(i).OMR_price_per_SQM;
+								document.getElementById("SALE_OMR_price_per_SQM25").innerHTML = results.rows.item(i).SALE_OMR_price_per_SQM;
+								document.getElementById("OMR_Price_with_Cassete_LOUVO_per_SQM25").innerHTML = results.rows.item(i).OMR_Price_with_Cassete_LOUVO_per_SQM;
+								document.getElementById("SALE_OMR_Price_with_Cassete_LOUVO_per_SQM25").innerHTML = results.rows.item(i).SALE_OMR_Price_with_Cassete_LOUVO_per_SQM;
+								//  BHD
+								document.getElementById("BHD_price_per_SQM25").innerHTML = results.rows.item(i).BHD_price_per_SQM;
+								document.getElementById("SALE_BHD_price_per_SQM25").innerHTML = results.rows.item(i).SALE_BHD_price_per_SQM;
+								document.getElementById("BHD_Price_with_Cassete_LOUVO_per_SQM25").innerHTML = results.rows.item(i).BHD_Price_with_Cassete_LOUVO_per_SQM;
+								document.getElementById("SALE_BHD_Price_with_Cassete_LOUVO_per_SQM25").innerHTML = results.rows.item(i).SALE_BHD_Price_with_Cassete_LOUVO_per_SQM;
+								//  KWD
+								document.getElementById("KWD_price_per_SQM25").innerHTML = results.rows.item(i).KWD_price_per_SQM;
+								document.getElementById("SALE_KWD_price_per_SQM25").innerHTML = results.rows.item(i).SALE_KWD_price_per_SQM;
+								document.getElementById("KWD_Price_with_Cassete_LOUVO_per_SQM25").innerHTML = results.rows.item(i).KWD_Price_with_Cassete_LOUVO_per_SQM;
+								document.getElementById("SALE_KWD_Price_with_Cassete_LOUVO_per_SQM25").innerHTML = results.rows.item(i).SALE_KWD_Price_with_Cassete_LOUVO_per_SQM;
+								
+								//all currency
+								
+								//  AED
+								document.getElementById("AED_price_per_SQM255").innerHTML = results.rows.item(i).KWD_price_per_SQM;
+								document.getElementById("SALE_AED_price_per_SQM255").innerHTML = results.rows.item(i).SALE_AED_price_per_SQM;
+								document.getElementById("AED_Price_with_Cassete_LOUVO_per_SQM255").innerHTML = results.rows.item(i).AED_Price_with_Cassete_LOUVO_per_SQM;
+								document.getElementById("SALE_AED_Price_with_Cassete_LOUVO_per_SQM255").innerHTML = results.rows.item(i).SALE_AED_Price_with_Cassete_LOUVO_per_SQM;
+								//  SAR
+								document.getElementById("SAR_price_per_SQM255").innerHTML = results.rows.item(i).SAR_price_per_SQM;
+								document.getElementById("SALE_SAR_price_per_SQM255").innerHTML = results.rows.item(i).SALE_SAR_price_per_SQM;
+								document.getElementById("SAR_Price_with_Cassete_LOUVO_per_SQM255").innerHTML = results.rows.item(i).SAR_Price_with_Cassete_LOUVO_per_SQM;
+								document.getElementById("SALE_SAR_Price_with_Cassete_LOUVO_per_SQM255").innerHTML = results.rows.item(i).SALE_SAR_Price_with_Cassete_LOUVO_per_SQM;
+								//  QAR
+								document.getElementById("QAR_price_per_SQM255").innerHTML = results.rows.item(i).QAR_price_per_SQM;
+								document.getElementById("SALE_QAR_price_per_SQM255").innerHTML = results.rows.item(i).SALE_QAR_price_per_SQM;
+								document.getElementById("QAR_Price_with_Cassete_LOUVO_per_SQM255").innerHTML = results.rows.item(i).QAR_Price_with_Cassete_LOUVO_per_SQM;
+								document.getElementById("SALE_QAR_Price_with_Cassete_LOUVO_per_SQM255").innerHTML = results.rows.item(i).SALE_QAR_Price_with_Cassete_LOUVO_per_SQM;
+								//  OMR
+								document.getElementById("OMR_price_per_SQM255").innerHTML = results.rows.item(i).OMR_price_per_SQM;
+								document.getElementById("SALE_OMR_price_per_SQM255").innerHTML = results.rows.item(i).SALE_OMR_price_per_SQM;
+								document.getElementById("OMR_Price_with_Cassete_LOUVO_per_SQM255").innerHTML = results.rows.item(i).OMR_Price_with_Cassete_LOUVO_per_SQM;
+								document.getElementById("SALE_OMR_Price_with_Cassete_LOUVO_per_SQM255").innerHTML = results.rows.item(i).SALE_OMR_Price_with_Cassete_LOUVO_per_SQM;
+								//  BHD
+								document.getElementById("BHD_price_per_SQM255").innerHTML = results.rows.item(i).BHD_price_per_SQM;
+								document.getElementById("SALE_BHD_price_per_SQM255").innerHTML = results.rows.item(i).SALE_BHD_price_per_SQM;
+								document.getElementById("BHD_Price_with_Cassete_LOUVO_per_SQM255").innerHTML = results.rows.item(i).BHD_Price_with_Cassete_LOUVO_per_SQM;
+								document.getElementById("SALE_BHD_Price_with_Cassete_LOUVO_per_SQM255").innerHTML = results.rows.item(i).SALE_BHD_Price_with_Cassete_LOUVO_per_SQM;
+								//  KWD
+								document.getElementById("KWD_price_per_SQM255").innerHTML = results.rows.item(i).KWD_price_per_SQM;
+								document.getElementById("SALE_KWD_price_per_SQM255").innerHTML = results.rows.item(i).SALE_KWD_price_per_SQM;
+								document.getElementById("KWD_Price_with_Cassete_LOUVO_per_SQM255").innerHTML = results.rows.item(i).KWD_Price_with_Cassete_LOUVO_per_SQM;
+								document.getElementById("SALE_KWD_Price_with_Cassete_LOUVO_per_SQM255").innerHTML = results.rows.item(i).SALE_KWD_Price_with_Cassete_LOUVO_per_SQM;
+								
+						/*End additional_data */		
+								
+								
+								
+							
 						}
 				}
 				// Transaction success callback
@@ -404,3 +938,4 @@ function queryDB(tx) {
 								}
 						});
 				});
+				

@@ -76,14 +76,14 @@ $(document).ready(function(){
 });
 
 var QRcode=localStorage.getItem("QRcode");
-//alert(QRcode);
+alert(QRcode);
 function queryDB(tx) {
     tx.executeSql('SELECT * FROM productlist where item_code = ? collate NOCASE', [QRcode], querySuccess, errorCB);
 	
     }
     function querySuccess(tx, results) {
 		var len = results.rows.length;
-	//	alert("length-"+len);
+		alert("length-"+len);
 		for (var i=0; i<len; i++){
 			if (results.rows.item(0).image=="") {
 					$("#previewimage1").addClass("hide");

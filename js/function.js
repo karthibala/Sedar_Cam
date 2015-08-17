@@ -21,8 +21,27 @@ function add_customer() {
     var user_id=localStorage.getItem("user_id");
      window.open('add_customers.html', '_blank','location=no');
 }
+
+function Local_item() {
+	var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 65535);
+	db.transaction(function (tx){
+		var QRcode = document.getElementById("QRcode").value;
+		tx.executeSql('SELECT * FROM productlist where item_code = ? collate NOCASE', [QRcode],function (tx, results) {
+			var fetch_len = results.rows.length;
+			if (fetch_len==1) {
+				localStorage.setItem("QRcode", QRcode);
+				window.open('overview.html', '_blank','location=no');
+			}
+			else
+			{
+				alert("Item Code Does Not Exist");
+			}
+		});
+	});
+}
+
 function myFunction() {
-    var QRcode=document.getElementById("uni_code").value;
+    var QRcode=document.getElementById("QRcode").value;
      var networkState = navigator.network.connection.type;
 var states = {};
 states[Connection.UNKNOWN] = 'Unknown connection';
@@ -36,7 +55,33 @@ states[Connection.NONE] = 'No network connection';
         
         var network_status = states[networkState];
         //alert(network_status);
+
         if(network_status=='No network connection'){
+		
+		Local_item();
+		
+		}else{
+		
+		$.ajax({
+				type: "POST",
+				url: "http://wave.elasticbeanstalk.com/app/ajax_itemcode.php",
+				data :  'QRcode='+QRcode,
+				dataType: "json",
+				processData: true,
+				success: function(json) {
+					alert(json.item_status);
+					if (json.item_status=='Success') {
+
+						localStorage.setItem("QRcode", QRcode);
+						window.open('overview.html', '_blank', 'location=yes');						
+					}
+				}
+			}); 
+		}
+
+
+        
+       /* if(network_status=='No network connection'){
             if(QRcode!=''){
                 localStorage.setItem("QRcode", QRcode);
 				window.open('overview.html', '_blank', 'location=yes');
@@ -51,7 +96,7 @@ states[Connection.NONE] = 'No network connection';
             //  var user_id=localStorage.getItem("user_id");
             //window.open('http://wave.elasticbeanstalk.com/app/overview.php?qrcode='+QRcode+'&user_id='+user_id+'&showroom_id='+showroom_id, '_blank', 'location=yes');
            }
-        }
+        }*/
 }
 
             app.initialize();
@@ -60,7 +105,7 @@ states[Connection.NONE] = 'No network connection';
 	    
 
 function onDeviceReady() {
-	var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100 * 1024 * 1024);
+	var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 65535);
 	db.transaction(function (tx){
 		var name = document.getElementById("uname").value;
 		tx.executeSql("select * FROM show_room,users WHERE show_room.showroom_id=users.showroom_id and username = ? and password = ? ", [name,md5pwd], function (tx, results) {

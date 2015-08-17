@@ -89,7 +89,47 @@ states[Connection.NONE] = 'No network connection';
         
         var network_status = states[networkState];
         //alert(network_status);
+
         if(network_status=='No network connection'){
+        
+            var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100 * 1024 * 1024);
+            db.transaction(function (tx){
+                var QRcode = result.text;
+                tx.executeSql('SELECT * FROM productlist where item_code = ? collate NOCASE', [QRcode],function (tx, results) {
+                    var fetch_len = results.rows.length;
+                    if (fetch_len==1) {
+                        localStorage.setItem("QRcode", QRcode);
+                        window.open('overview.html', '_blank','location=no');
+                    }
+                    else
+                    {
+                        alert("Item Code Does Not Exist");
+                    }
+                });
+             });
+        
+        }else{
+        
+        $.ajax({
+                type: "POST",
+                url: "http://wave.elasticbeanstalk.com/app/ajax_itemcode.php",
+                data :  'QRcode='+QRcode,
+                dataType: "json",
+                processData: true,
+                success: function(json) {
+                    alert(json.item_status);
+                    if (json.item_status=='Success') {
+
+                        localStorage.setItem("QRcode", QRcode);
+                        window.open('overview.html', '_blank', 'location=yes');                     
+                    }
+                }
+            }); 
+        }
+
+
+
+      /*  if(network_status=='No network connection'){
             if(QRcode!=''){
                 localStorage.setItem("QRcode", QRcode);
             window.open('overview.html', '_blank', 'location=yes');
@@ -103,7 +143,7 @@ states[Connection.NONE] = 'No network connection';
             //  var user_id=localStorage.getItem("user_id");
             //window.open('http://wave.elasticbeanstalk.com/app/overview.php?qrcode='+QRcode+'&user_id='+user_id+'&showroom_id='+showroom_id, '_blank', 'location=yes');
            }
-        }
+        }*/
             //alert(QRcode);
            // alert('test');
            

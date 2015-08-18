@@ -176,7 +176,7 @@
 <script>
  function update_check() {
 	//update check
-//	alert("update");
+	alert("update");
 	admin_user();
 	var name='wave';
 	$.ajax({
@@ -195,10 +195,10 @@
 			document.getElementById("serveritem_count").innerHTML = produc_row_count;
 			document.getElementById("localitem_count").innerHTML = productlist_count;
 		
-		
-			if (produc_row_count != productlist_count) {
-				truncate_local_productlist();
-			}
+		totalitem_count();
+		//	if (produc_row_count != productlist_count) {
+		//		truncate_local_productlist();
+		//	}
 			//if (produc_row_count == productlist_count) {
 			//	modified_product_sync();
 			//}
@@ -478,7 +478,7 @@ function product_sync5() {
 						if(j==ajaxlength12){
 						//	product_sync6();
 							$("#product_sync3").addClass("hide");
-							
+							totalitem_count();
 							alert('Database synchronization completed! Data Count:'+ localStorage.getItem("server_item_count"));
 							$("#product_sync4").removeClass("hide");
 							window.location.reload();
@@ -634,6 +634,7 @@ function totalitem_count() {
 		//	alert("inside local count");
 			
 			//alert('inside'+produc_row_count);
+			show_db_count();
 		});
 	});
 }
@@ -644,8 +645,9 @@ $(document).ready(function(){
 
 	admin_user();
 	update_check();
-	totalitem_count();
-	show_db_count();
+//	totalitem_count();
+//	show_db_count();
+
 	// sync with Product list modified
 //	alert("modified fn");
 	var name='wave';
@@ -804,17 +806,17 @@ $(document).ready(function(){
 	
 	function show_db_count()
 	{
-	//	alert("show_db_count");
+		alert("show_db_count");
 		var localitem_count = localStorage.getItem("productlist_count");
 		var serveritem_count = localStorage.getItem("server_item_count");
-	//	alert("show local db count-"+localitem_count);
-	//	alert("show server db count-"+serveritem_count);
+		alert("show local db count-"+localitem_count);
+		alert("show server db count-"+serveritem_count);
 		document.getElementById("localitem_count").innerHTML = localitem_count;
 		document.getElementById("serveritem_count").innerHTML = serveritem_count;
 		
-	/*	if (serveritem_count != localitem_count) {
+		if (serveritem_count != localitem_count) {
 				truncate_local_productlist();
-			} */
+			} 
 		
 	}
 	

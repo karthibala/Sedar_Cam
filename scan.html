@@ -19,7 +19,7 @@
 		<!-- Basic Styles -->
 		<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">	
 		
-<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
 		<!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
 		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.css">
 
@@ -190,8 +190,8 @@
 			var produc_row_count = json.product_count;
 		//	var produc_row_count = '1000';
 			var productlist_count = localStorage.getItem("productlist_count");
-		//	alert('server count'+produc_row_count);
-		//	alert('local Count'+productlist_count);
+			alert('server count'+produc_row_count);
+			alert('local Count'+productlist_count);
 			localStorage.setItem("server_item_count", produc_row_count);
 			document.getElementById("serveritem_count").innerHTML = produc_row_count;
 			document.getElementById("localitem_count").innerHTML = productlist_count;

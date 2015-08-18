@@ -176,9 +176,8 @@
 <script>
  function update_check() {
 	//update check
-	alert("update");
+//	alert("update");
 	admin_user();
-	alert("cont to ajax");
 	var name='wave';
 	$.ajax({
 		type: "POST",
@@ -189,14 +188,15 @@
 		success:function (json) {
 			
 			var produc_row_count = json.product_count;
+		//	var produc_row_count = '1000';
 			var productlist_count = localStorage.getItem("productlist_count");
-			alert('server count'+produc_row_count);
-			alert('local Count'+productlist_count);
+		//	alert('server count'+produc_row_count);
+		//	alert('local Count'+productlist_count);
 			localStorage.setItem("server_item_count", produc_row_count);
 			document.getElementById("serveritem_count").innerHTML = produc_row_count;
 			document.getElementById("localitem_count").innerHTML = productlist_count;
 		
-		totalitem_count();
+		
 		//	if (produc_row_count != productlist_count) {
 		//		truncate_local_productlist();
 		//	}
@@ -479,7 +479,7 @@ function product_sync5() {
 						if(j==ajaxlength12){
 						//	product_sync6();
 							$("#product_sync3").addClass("hide");
-							totalitem_count();
+							
 							alert('Database synchronization completed! Data Count:'+ localStorage.getItem("server_item_count"));
 							$("#product_sync4").removeClass("hide");
 							window.location.reload();
@@ -619,7 +619,7 @@ function product_sync8() {
 
 */
 function totalitem_count() {
-alert("inside local select");
+//alert("inside local select");
 	var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 65535);
 	db.transaction(function (tx){
 		tx.executeSql('SELECT * FROM productlist', [], function (tx, results) {
@@ -632,10 +632,9 @@ alert("inside local select");
 			document.getElementById("serveritem_count").innerHTML = produc_row_count;
 			document.getElementById("localitem_count").innerHTML = productlist_count;
 			//window.open('scan.html', '_blank','location=no');
-			alert("inside local count");
-		
-			alert('inside'+produc_row_count);
-			show_db_count();
+		//	alert("inside local count");
+			
+			//alert('inside'+produc_row_count);
 		});
 	});
 }
@@ -646,9 +645,8 @@ $(document).ready(function(){
 
 	admin_user();
 	update_check();
-//	totalitem_count();
-//	show_db_count();
-
+	totalitem_count();
+	show_db_count();
 	// sync with Product list modified
 //	alert("modified fn");
 	var name='wave';
@@ -807,17 +805,17 @@ $(document).ready(function(){
 	
 	function show_db_count()
 	{
-		alert("show_db_count");
+	//	alert("show_db_count");
 		var localitem_count = localStorage.getItem("productlist_count");
 		var serveritem_count = localStorage.getItem("server_item_count");
-		alert("show local db count-"+localitem_count);
-		alert("show server db count-"+serveritem_count);
+	//	alert("show local db count-"+localitem_count);
+	//	alert("show server db count-"+serveritem_count);
 		document.getElementById("localitem_count").innerHTML = localitem_count;
 		document.getElementById("serveritem_count").innerHTML = serveritem_count;
 		
-		if (serveritem_count != localitem_count) {
+	/*	if (serveritem_count != localitem_count) {
 				truncate_local_productlist();
-			} 
+			} */
 		
 	}
 	

@@ -619,7 +619,7 @@ function product_sync8() {
 
 */
 function totalitem_count() {
-//alert("inside local select");
+alert("inside local select");
 	var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 65535);
 	db.transaction(function (tx){
 		tx.executeSql('SELECT * FROM productlist', [], function (tx, results) {
@@ -632,9 +632,9 @@ function totalitem_count() {
 			document.getElementById("serveritem_count").innerHTML = produc_row_count;
 			document.getElementById("localitem_count").innerHTML = productlist_count;
 			//window.open('scan.html', '_blank','location=no');
-		//	alert("inside local count");
-			
-			//alert('inside'+produc_row_count);
+			alert("inside local count");
+		
+			alert('inside'+produc_row_count);
 			show_db_count();
 		});
 	});

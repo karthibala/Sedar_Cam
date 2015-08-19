@@ -193,9 +193,10 @@
 			alert('server count'+produc_row_count);
 			alert('local Count'+productlist_count);
 			localStorage.setItem("server_item_count", produc_row_count);
-			document.getElementById("serveritem_count").innerHTML = produc_row_count;
 			document.getElementById("localitem_count").innerHTML = productlist_count;
-		
+			document.getElementById("serveritem_count").innerHTML = produc_row_count;
+			
+			totalitem_count();
 		
 			if (produc_row_count != productlist_count) {
 				truncate_local_productlist();

@@ -1628,12 +1628,12 @@ function queryDB(tx) {
 			}
 				// Transaction success callback
 				function successCB() {
-						var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 65535);
+						var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
 						db.transaction(queryDB, errorCB);
 				}
 				// PhoneGap is ready
 				function onDeviceReady() {
-						var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 65535);
+						var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
 						db.transaction(successCB, errorCB);
 				}
 				function errorCB(err) {
@@ -1641,7 +1641,7 @@ function queryDB(tx) {
 				 //   alert("Error processing SQL: "+err.code);
 				}
 				//fabric seperation
-				var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 65535);
+				var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
 				db.transaction(function (tx){
 						tx.executeSql('SELECT * FROM productlist where item_code = ? collate NOCASE', [QRcode], function (tx, results) {
 								var len = results.rows.length;

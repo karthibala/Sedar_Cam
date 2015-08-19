@@ -23,7 +23,7 @@ function add_customer() {
 }
 
 function Local_item() {
-	var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 65535);
+	var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
 	db.transaction(function (tx){
 		var QRcode = document.getElementById("QRcode").value;
 		tx.executeSql('SELECT * FROM productlist where item_code = ? collate NOCASE', [QRcode],function (tx, results) {
@@ -110,7 +110,7 @@ states[Connection.NONE] = 'No network connection';
 	    
 
 function onDeviceReady() {
-	var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 65535);
+	var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
 	db.transaction(function (tx){
 		var name = document.getElementById("uname").value;
 		tx.executeSql("select * FROM show_room,users WHERE show_room.showroom_id=users.showroom_id and username = ? and password = ? ", [name,md5pwd], function (tx, results) {

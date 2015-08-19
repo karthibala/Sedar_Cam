@@ -34,7 +34,7 @@ function Local_item() {
 			}
 			else
 			{
-				alert("Item Code Does Not Exist");
+				alert("Please check the item code and try again");
 			}
 		});
 	});
@@ -69,11 +69,16 @@ states[Connection.NONE] = 'No network connection';
 				dataType: "json",
 				processData: true,
 				success: function(json) {
-					alert(json.item_status);
+				//	alert(json.item_status);
 					if (json.item_status=='Success') {
 
 						localStorage.setItem("QRcode", QRcode);
 						window.open('overview.html', '_blank', 'location=yes');						
+					}
+					else{
+						
+						alert("Please check the item code and try again");
+						
 					}
 				}
 			}); 

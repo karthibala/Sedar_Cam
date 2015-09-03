@@ -19,7 +19,7 @@
 		<!-- Basic Styles -->
 		<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">	
 		
-		<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
 		<!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
 		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.css">
 
@@ -76,7 +76,7 @@
 				<div id="update_avail" class='row form-group hide'>
 				<section class="col col-xs-12">
 					<label style="font-size:24px;">Update Available</label>
-					<button style="background-color: #EF8113;font-size:24px;" onclick="navigator.app.loadUrl('http://wave2dev.elasticbeanstalk.com/app/SEDARWAVE.apk', { openExternal:true });" class="btn btn-sm" >Update Now</button>
+					<button style="background-color: #EF8113;font-size:24px;" onclick="navigator.app.loadUrl('http://wave2dev.azurewebsites.net/app/SEDARWAVE.apk', { openExternal:true });" class="btn btn-sm" >Update Now</button>
 						
 				</section>
 				</div>
@@ -88,7 +88,7 @@
 							<div id="product_sync1" class="progress-bar progress-bar-success hide" role="progressbar" style="width:40%">40%</div>
 							<div id="product_sync2" class="progress-bar progress-bar-success hide " role="progressbar" style="width:60%">60%</div>
 							<div id="product_sync3" class="progress-bar progress-bar-success hide " role="progressbar" style="width:80%">80%</div>
-							<div id="product_sync4" class="progress-bar progress-bar-success hide" role="progressbar" style="width:98%">All Most Done</div>
+							<div id="product_sync4" class="progress-bar progress-bar-success hide" role="progressbar" style="width:95%">All Most Done</div>
 							<div id="product_sync5" class="progress-bar progress-bar-success hide " role="progressbar" style="width:100%">100%</div>
 						</div>
 					</section>
@@ -101,7 +101,6 @@
 						
 					</section>
 				</div>
-						
 						       
 						       <div class='row form-group'>
 						       <section class="col col-xs-8" >
@@ -121,10 +120,9 @@
 						       
 						       <div class='row form-group'>
 							
-						       <section class="col col-xs-12">
-							    <button onclick="add_customer()" style="height: 170px;font-size: 40px;color: #252525" class="btn btn-primary btn-lg header-btn  col col-xs-12" ><i class="fa fa-circle-arrow-up fa-lg"></i> Add Customer Details</button>
-						       </section>
-							
+								   <section class="col col-xs-12">
+									<button onclick="add_customer()" style="height: 170px;font-size: 40px;color: #252525" class="btn btn-primary btn-lg header-btn  col col-xs-12" ><i class="fa fa-circle-arrow-up fa-lg"></i> Add Customer Details</button>
+								   </section>
 							    </div>
 						       <div class='row form-group'>
 							<section class="col col-xs-12">
@@ -158,25 +156,26 @@
 	//update check
 //	alert("update");
 	admin_user();
+	totalitem_count();
 	var name='wave';
 	$.ajax({
 		type: "POST",
-		url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_product_count.php',
+		url: 'http://wave2dev.azurewebsites.net/app/ajax_sync_product_count.php',
 		data : 'uname='+name ,
 		dataType:"json",
+		async: false,
 		processData: false,
 		success:function (json) {
 			
 			var produc_row_count = json.product_count;
 		//	var produc_row_count = '1000';
 			var productlist_count = localStorage.getItem("productlist_count");
-			//alert('server count'+produc_row_count);
-			//alert('local Count'+productlist_count);
+		//	alert('server count'+produc_row_count);
+		//	alert('local Count'+productlist_count);
 			localStorage.setItem("server_item_count", produc_row_count);
-			document.getElementById("localitem_count").innerHTML = productlist_count;
 			document.getElementById("serveritem_count").innerHTML = produc_row_count;
-			
-			totalitem_count();
+			document.getElementById("localitem_count").innerHTML = productlist_count;
+		
 		
 			if (produc_row_count != productlist_count) {
 				truncate_local_productlist();
@@ -202,9 +201,9 @@ function product_sync() {
 	//alert("sync product1");
 	var name='wave';
 	$("#data_update_status").removeClass("hide");
-	$.ajax({ 
+	$.ajax({
 		type: "POST",
-		url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_product.php',
+		url: 'http://wave2dev.azurewebsites.net/app/ajax_sync_product.php',
 		data : 'uname='+name ,
 		dataType:"json",
 		processData: false,
@@ -248,7 +247,7 @@ function product_sync1() {
 	$("#data_update_status").removeClass("hide");
 	$.ajax({
 		type: "POST",
-		url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_product1.php',
+		url: 'http://wave2dev.azurewebsites.net/app/ajax_sync_product1.php',
 		data : 'uname='+name ,
 		dataType:"json",
 		processData: false,
@@ -294,7 +293,7 @@ function product_sync2() {
 	$("#data_update_status").removeClass("hide");
 	$.ajax({
 		type: "POST",
-		url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_product2.php',
+		url: 'http://wave2dev.azurewebsites.net/app/ajax_sync_product2.php',
 		data : 'uname='+name ,
 		dataType:"json",
 		processData: false,
@@ -335,12 +334,12 @@ function product_sync2() {
 //END sync with Product list2
 // sync with Product list3
 function product_sync3() {
-//	alert("sync product4");
+	//alert("sync product3");
 	var name='wave';
 	$("#data_update_status").removeClass("hide");
 	$.ajax({
 		type: "POST",
-		url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_product3.php',
+		url: 'http://wave2dev.azurewebsites.net/app/ajax_sync_product3.php',
 		data : 'uname='+name ,
 		dataType:"json",
 		processData: false,
@@ -348,7 +347,7 @@ function product_sync3() {
 			
 			$("#data_update_status").addClass("hide");
 			var ajaxlength12 = json.rows.length;
-		//	alert("product4--"+ajaxlength12);
+			//alert("product3--"+ajaxlength12);
 		//	localStorage.setItem("productlist_count", ajaxlength12);
 				var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
 				db.transaction(function(tx){
@@ -381,20 +380,21 @@ function product_sync3() {
 //END sync with Product list3
 // sync with Product list4
 function product_sync4() {
-	alert("sync product5");
+	//alert("sync product4");
 	var name='wave';
 	$("#data_update_status").removeClass("hide");
 	$.ajax({
 		type: "POST",
-		url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_product4.php',
+		url: 'http://wave2dev.azurewebsites.net/app/ajax_sync_product4.php',
 		data : 'uname='+name ,
 		dataType:"json",
 		processData: false,
 		success:function (json) {
 			
-			$("#data_update_status").addClass("hide");
+			
 			var ajaxlength12 = json.rows.length;
-			alert("product5--"+ajaxlength12);
+			//alert("product4--"+ajaxlength12);
+			$("#data_update_status").addClass("hide");
 		//	localStorage.setItem("productlist_count", ajaxlength12);
 				var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
 				db.transaction(function(tx){
@@ -404,14 +404,14 @@ function product_sync4() {
 					for (var i = 0; i < ajaxlength12; i++) {
 						weight_gramsm2=json.rows[i].weight_grams_m2;
 						panelheight=json.rows[i].panelheight;
-					
-					
+
 						tx.executeSql('INSERT OR REPLACE INTO productlist (id, item_code, brand, catalogue_name, category, fabric_width, AED_price_per_SQM, AED_stitching_price, Roman_Price_per_SQM, AED_norm_lining_per_SQM, AED_branded_lining_per_SQM, AED_cataluna_blackout_per_SQM, AED_antartica_blackout_per_SQM, AED_bateaux_per_SQM, AED_plata_per_SQM, SALE_AED_price_per_SQM, SALE_AED_stitching_price, SALE_AED_norm_lining_per_SQM, SALE_AED_branded_lining_per_SQM, SALE_AED_cataluna_blackout_per_SQM, SALE_AED_antartica_blackout_per_SQM, SALE_AED_bateaux_per_SQM, SALE_AED_plata_per_SQM, SAR_price_per_SQM, SAR_stitching_price, SAR_norm_lining_per_SQM, SAR_branded_lining_per_SQM, SAR_cataluna_blackout_per_SQM, SAR_antartica_blackout_per_SQM, SAR_bateaux_per_SQM, SAR_plata_per_SQM, SALE_SAR_price_per_SQM, SALE_SAR_stitching_price, SALE_SAR_norm_lining_per_SQM, SALE_SAR_branded_lining_per_SQM, SALE_SAR_cataluna_blackout_per_SQM, SALE_SAR_antartica_blackout_per_SQM, SALE_SAR_bateaux_per_SQM, SALE_SAR_plata_per_SQM, QAR_price_per_SQM, QAR_stitching_price, QAR_norm_lining_per_SQM, QAR_branded_lining_per_SQM, QAR_cataluna_blackout_per_SQM, QAR_antartica_blackout_per_SQM, QAR_bateaux_per_SQM, QAR_plata_per_SQM, SALE_QAR_price_per_SQM, SALE_QAR_stitching_price, SALE_QAR_norm_lining_per_SQM, SALE_QAR_branded_lining_per_SQM, SALE_QAR_cataluna_blackout_per_SQM, SALE_QAR_antartica_blackout_per_SQM, SALE_QAR_bateaux_per_SQM, SALE_QAR_plata_per_SQM, OMR_price_per_SQM, OMR_stitching_price, OMR_norm_lining_per_SQM, OMR_branded_lining_per_SQM, OMR_cataluna_blackout_per_SQM, OMR_antartica_blackout_per_SQM, OMR_bateaux_per_SQM, OMR_plata_per_SQM, SALE_OMR_price_per_SQM, SALE_OMR_stitching_price, SALE_OMR_norm_lining_per_SQM, SALE_OMR_branded_lining_per_SQM, SALE_OMR_cataluna_blackout_per_SQM, SALE_OMR_antartica_blackout_per_SQM, SALE_OMR_bateaux_per_SQM, SALE_OMR_plata_per_SQM, BHD_price_per_SQM, BHD_stitching_price, BHD_norm_lining_per_SQM, BHD_branded_lining_per_SQM, BHD_cataluna_blackout_per_SQM, BHD_antartica_blackout_per_SQM, BHD_bateaux_per_SQM, BHD_plata_per_SQM, SALE_BHD_price_per_SQM, SALE_BHD_stitching_price, SALE_BHD_norm_lining_per_SQM, SALE_BHD_branded_lining_per_SQM, SALE_BHD_cataluna_blackout_per_SQM, SALE_BHD_antartica_blackout_per_SQM, SALE_BHD_bateaux_per_SQM, SALE_BHD_plata_per_SQM, SALE_AED_Roman_Price_per_SQM, AED_Roman_Price_per_SQM, SALE_SAR_Roman_Price_per_SQM, SAR_Roman_Price_per_SQM, SALE_QAR_Roman_Price_per_SQM, QAR_Roman_Price_per_SQM, SALE_OMR_Roman_Price_per_SQM, OMR_Roman_Price_per_SQM, SALE_BHD_Roman_Price_per_SQM, BHD_Roman_Price_per_SQM, KWD_price_per_SQM, KWD_stitching_price, KWD_Roman_Price_per_SQM, KWD_norm_lining_per_SQM, KWD_branded_lining_per_SQM, KWD_cataluna_blackout_per_SQM, KWD_antartica_blackout_per_SQM, KWD_bateaux_per_SQM, KWD_plata_per_SQM, SALE_KWD_price_per_SQM, SALE_KWD_stitching_price, SALE_KWD_norm_lining_per_SQM, SALE_KWD_branded_lining_per_SQM, SALE_KWD_cataluna_blackout_per_SQM, SALE_KWD_antartica_blackout_per_SQM, SALE_KWD_bateaux_per_SQM, SALE_KWD_plata_per_SQM, AED_Price_with_Mono_Command_Ball_Chain_System, SALE_AED_Price_with_Mono_Command_Ball_Chain_System, AED_Price_with_Guide_Rope_per_SQM, SALE_AED_Price_with_Guide_Rope_per_SQM, AED_Price_with_Cassete_LOUVO_per_SQM, SALE_AED_Price_with_Cassete_LOUVO_per_SQM, AED_Price_per_LMT, SALE_AED_Price_per_LMT, AED_Price_for_Window_Glass_per_Piece, SALE_AED_Price_for_Window_Glass_per_Piece, AED_Price_for_Decorative_Window_Glass_Film_per_Piece, SALE_AED_Price_for_Decorative_Window_Glass_Film_per_Piece, SAR_Price_with_Mono_Command_Ball_Chain_System, SALE_SAR_Price_with_Mono_Command_Ball_Chain_System, SAR_Price_with_Guide_Rope_per_SQM, SALE_SAR_Price_with_Guide_Rope_per_SQM, SAR_Price_with_Cassete_LOUVO_per_SQM, SALE_SAR_Price_with_Cassete_LOUVO_per_SQM, SAR_Price_per_LMT, SALE_SAR_Price_per_LMT, SAR_Price_for_Window_Glass_per_Piece, SALE_SAR_Price_for_Window_Glass_per_Piece, SAR_Price_for_Decorative_Window_Glass_Film_per_Piece, SALE_SAR_Price_for_Decorative_Window_Glass_Film_per_Piece, OMR_Price_with_Mono_Command_Ball_Chain_System, SALE_OMR_Price_with_Mono_Command_Ball_Chain_System, OMR_Price_with_Guide_Rope_per_SQM, SALE_OMR_Price_with_Guide_Rope_per_SQM, OMR_Price_with_Cassete_LOUVO_per_SQM, SALE_OMR_Price_with_Cassete_LOUVO_per_SQM, OMR_Price_per_LMT, SALE_OMR_Price_per_LMT, OMR_Price_for_Window_Glass_per_Piece, SALE_OMR_Price_for_Window_Glass_per_Piece, OMR_Price_for_Decorative_Window_Glass_Film_per_Piece, SALE_OMR_Price_for_Decorative_Window_Glass_Film_per_Piece, QAR_Price_with_Mono_Command_Ball_Chain_System, SALE_QAR_Price_with_Mono_Command_Ball_Chain_System, QAR_Price_with_Guide_Rope_per_SQM, SALE_QAR_Price_with_Guide_Rope_per_SQM, QAR_Price_with_Cassete_LOUVO_per_SQM, SALE_QAR_Price_with_Cassete_LOUVO_per_SQM, QAR_Price_per_LMT, SALE_QAR_Price_per_LMT, QAR_Price_for_Window_Glass_per_Piece, SALE_QAR_Price_for_Window_Glass_per_Piece, QAR_Price_for_Decorative_Window_Glass_Film_per_Piece, SALE_QAR_Price_for_Decorative_Window_Glass_Film_per_Piece, BHD_Price_with_Mono_Command_Ball_Chain_System, SALE_BHD_Price_with_Mono_Command_Ball_Chain_System, BHD_Price_with_Guide_Rope_per_SQM, SALE_BHD_Price_with_Guide_Rope_per_SQM, BHD_Price_with_Cassete_LOUVO_per_SQM, SALE_BHD_Price_with_Cassete_LOUVO_per_SQM, BHD_Price_per_LMT, SALE_BHD_Price_per_LMT, BHD_Price_for_Window_Glass_per_Piece, SALE_BHD_Price_for_Window_Glass_per_Piece, BHD_Price_for_Decorative_Window_Glass_Film_per_Piece, SALE_BHD_Price_for_Decorative_Window_Glass_Film_per_Piece, KWD_Price_with_Mono_Command_Ball_Chain_System, SALE_KWD_Price_with_Mono_Command_Ball_Chain_System, KWD_Price_with_Guide_Rope_per_SQM, SALE_KWD_Price_with_Guide_Rope_per_SQM, KWD_Price_with_Cassete_LOUVO_per_SQM, SALE_KWD_Price_with_Cassete_LOUVO_per_SQM, KWD_Price_per_LMT, SALE_KWD_Price_per_LMT, KWD_Price_for_Window_Glass_per_Piece, SALE_KWD_Price_for_Window_Glass_per_Piece, KWD_Price_for_Decorative_Window_Glass_Film_per_Piece, SALE_KWD_Price_for_Decorative_Window_Glass_Film_per_Piece, AED_Price_per_Roll, SALE_AED_Price_per_Roll, AED_Price_per_Set, SALE_AED_Price_per_Set, AED_Price_for_fixing_charge, SALE_AED_Price_for_fixing_charge, SAR_Price_per_Roll, SALE_SAR_Price_per_Roll, SAR_Price_per_Set, SALE_SAR_Price_per_Set, SAR_Price_for_fixing_charge, SALE_SAR_Price_for_fixing_charge, QAR_Price_per_Roll, SALE_QAR_Price_per_Roll, QAR_Price_per_Set, SALE_QAR_Price_per_Set, QAR_Price_for_fixing_charge, SALE_QAR_Price_for_fixing_charge, OMR_Price_per_Roll, SALE_OMR_Price_per_Roll, OMR_Price_per_Set, SALE_OMR_Price_per_Set, OMR_Price_for_fixing_charge, SALE_OMR_Price_for_fixing_charge, BHD_Price_per_Roll, SALE_BHD_Price_per_Roll, BHD_Price_per_Set, SALE_BHD_Price_per_Set, BHD_Price_for_fixing_charge, SALE_BHD_Price_for_fixing_charge, KWD_Price_per_Roll, SALE_KWD_Price_per_Roll, KWD_Price_per_Set, SALE_KWD_Price_per_Set, KWD_Price_for_fixing_charge, SALE_KWD_Price_for_fixing_charge, AED_Price_for_Canopy_per_LMT, AED_Price_for_Levante_per_SQM, AED_Price_for_Arm_Type_per_SQM, AED_Price_for_Arm_Type_Cassette_type_per_SQM, AED_Price_for_Winter_Garden_per_SQM, AED_Price_for_Sky_Light_per_SQM, SALE_AED_Price_for_Canopy_per_LMT, SALE_AED_Price_for_Levante_per_SQM, SALE_AED_Price_for_Arm_Type_per_SQM, SALE_AED_Price_for_Arm_Type_Cassette_type_per_SQM,SALE_AED_Price_for_Winter_Garden_per_SQM, SALE_AED_Price_for_Sky_Light_per_SQM, SAR_Price_for_Canopy_per_LMT, SAR_Price_for_Levante_per_SQM, SAR_Price_for_Arm_Type_per_SQM, SAR_Price_for_Arm_Type_Cassette_type_per_SQM, SAR_Price_for_Winter_Garden_per_SQM, SAR_Price_for_Sky_Light_per_SQM, SALE_SAR_Price_for_Canopy_per_LMT, SALE_SAR_Price_for_Levante_per_SQM, SALE_SAR_Price_for_Arm_Type_per_SQM, SALE_SAR_Price_for_Arm_Type_Cassette_type_per_SQM,SALE_SAR_Price_for_Winter_Garden_per_SQM, SALE_SAR_Price_for_Sky_Light_per_SQM,QAR_Price_for_Canopy_per_LMT, QAR_Price_for_Levante_per_SQM, QAR_Price_for_Arm_Type_per_SQM, QAR_Price_for_Arm_Type_Cassette_type_per_SQM, QAR_Price_for_Winter_Garden_per_SQM, QAR_Price_for_Sky_Light_per_SQM, SALE_QAR_Price_for_Canopy_per_LMT, SALE_QAR_Price_for_Levante_per_SQM, SALE_QAR_Price_for_Arm_Type_per_SQM, SALE_QAR_Price_for_Arm_Type_Cassette_type_per_SQM,SALE_QAR_Price_for_Winter_Garden_per_SQM, SALE_QAR_Price_for_Sky_Light_per_SQM,OMR_Price_for_Canopy_per_LMT, OMR_Price_for_Levante_per_SQM, OMR_Price_for_Arm_Type_per_SQM, OMR_Price_for_Arm_Type_Cassette_type_per_SQM, OMR_Price_for_Winter_Garden_per_SQM, OMR_Price_for_Sky_Light_per_SQM, SALE_OMR_Price_for_Canopy_per_LMT, SALE_OMR_Price_for_Levante_per_SQM, SALE_OMR_Price_for_Arm_Type_per_SQM, SALE_OMR_Price_for_Arm_Type_Cassette_type_per_SQM,SALE_OMR_Price_for_Winter_Garden_per_SQM, SALE_OMR_Price_for_Sky_Light_per_SQM,BHD_Price_for_Canopy_per_LMT, BHD_Price_for_Levante_per_SQM, BHD_Price_for_Arm_Type_per_SQM, BHD_Price_for_Arm_Type_Cassette_type_per_SQM, BHD_Price_for_Winter_Garden_per_SQM, BHD_Price_for_Sky_Light_per_SQM, SALE_BHD_Price_for_Canopy_per_LMT, SALE_BHD_Price_for_Levante_per_SQM, SALE_BHD_Price_for_Arm_Type_per_SQM, SALE_BHD_Price_for_Arm_Type_Cassette_type_per_SQM,SALE_BHD_Price_for_Winter_Garden_per_SQM, SALE_BHD_Price_for_Sky_Light_per_SQM,KWD_Price_for_Canopy_per_LMT, KWD_Price_for_Levante_per_SQM, KWD_Price_for_Arm_Type_per_SQM, KWD_Price_for_Arm_Type_Cassette_type_per_SQM, KWD_Price_for_Winter_Garden_per_SQM, KWD_Price_for_Sky_Light_per_SQM, SALE_KWD_Price_for_Canopy_per_LMT, SALE_KWD_Price_for_Levante_per_SQM, SALE_KWD_Price_for_Arm_Type_per_SQM, SALE_KWD_Price_for_Arm_Type_Cassette_type_per_SQM,SALE_KWD_Price_for_Winter_Garden_per_SQM, SALE_KWD_Price_for_Sky_Light_per_SQM,AED_price_with_Border_per_SQM, AED_price_with_Fabric_Lining_per_SQM, AED_price_with_Vensy_Rail_per_SQM, AED_price_with_Vensy_Rail_and_Border_per_SQM, AED_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM, SALE_AED_price_with_Border_per_SQM, SALE_AED_price_with_Fabric_Lining_per_SQM, SALE_AED_price_with_Vensy_Rail_per_SQM, SALE_AED_price_with_Vensy_Rail_and_Border_per_SQM,SALE_AED_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM,SAR_price_with_Border_per_SQM, SAR_price_with_Fabric_Lining_per_SQM, SAR_price_with_Vensy_Rail_per_SQM, SAR_price_with_Vensy_Rail_and_Border_per_SQM, SAR_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM, SALE_SAR_price_with_Border_per_SQM, SALE_SAR_price_with_Fabric_Lining_per_SQM, SALE_SAR_price_with_Vensy_Rail_per_SQM, SALE_SAR_price_with_Vensy_Rail_and_Border_per_SQM, SALE_SAR_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM,QAR_price_with_Border_per_SQM, QAR_price_with_Fabric_Lining_per_SQM, QAR_price_with_Vensy_Rail_per_SQM, QAR_price_with_Vensy_Rail_and_Border_per_SQM, QAR_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM, SALE_QAR_price_with_Border_per_SQM, SALE_QAR_price_with_Fabric_Lining_per_SQM, SALE_QAR_price_with_Vensy_Rail_per_SQM, SALE_QAR_price_with_Vensy_Rail_and_Border_per_SQM, SALE_QAR_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM,OMR_price_with_Border_per_SQM, OMR_price_with_Fabric_Lining_per_SQM, OMR_price_with_Vensy_Rail_per_SQM, OMR_price_with_Vensy_Rail_and_Border_per_SQM, OMR_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM, SALE_OMR_price_with_Border_per_SQM, SALE_OMR_price_with_Fabric_Lining_per_SQM, SALE_OMR_price_with_Vensy_Rail_per_SQM, SALE_OMR_price_with_Vensy_Rail_and_Border_per_SQM, SALE_OMR_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM,BHD_price_with_Border_per_SQM, BHD_price_with_Fabric_Lining_per_SQM, BHD_price_with_Vensy_Rail_per_SQM, BHD_price_with_Vensy_Rail_and_Border_per_SQM, BHD_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM, SALE_BHD_price_with_Border_per_SQM, SALE_BHD_price_with_Fabric_Lining_per_SQM, SALE_BHD_price_with_Vensy_Rail_per_SQM, SALE_BHD_price_with_Vensy_Rail_and_Border_per_SQM, SALE_BHD_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM,KWD_price_with_Border_per_SQM, KWD_price_with_Fabric_Lining_per_SQM, KWD_price_with_Vensy_Rail_per_SQM, KWD_price_with_Vensy_Rail_and_Border_per_SQM, KWD_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM, SALE_KWD_price_with_Border_per_SQM, SALE_KWD_price_with_Fabric_Lining_per_SQM, SALE_KWD_price_with_Vensy_Rail_per_SQM, SALE_KWD_price_with_Vensy_Rail_and_Border_per_SQM, SALE_KWD_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM,AED_Premium_Price_per_SQM, AED_Classic_Price_per_SQM, AED_Premium_Dealer_Price_per_SQM, AED_Classic_Dealer_Price_per_SQM, SALE_AED_Premium_Price_per_SQM, SALE_AED_Classic_Price_per_SQM, SALE_AED_Premium_Dealer_Price_per_SQM, SALE_AED_Classic_Dealer_Price_per_SQM,SAR_Premium_Price_per_SQM, SAR_Classic_Price_per_SQM, SAR_Premium_Dealer_Price_per_SQM, SAR_Classic_Dealer_Price_per_SQM, SALE_SAR_Premium_Price_per_SQM, SALE_SAR_Classic_Price_per_SQM, SALE_SAR_Premium_Dealer_Price_per_SQM, SALE_SAR_Classic_Dealer_Price_per_SQM,QAR_Premium_Price_per_SQM, QAR_Classic_Price_per_SQM, QAR_Premium_Dealer_Price_per_SQM, QAR_Classic_Dealer_Price_per_SQM, SALE_QAR_Premium_Price_per_SQM, SALE_QAR_Classic_Price_per_SQM, SALE_QAR_Premium_Dealer_Price_per_SQM, SALE_QAR_Classic_Dealer_Price_per_SQM,OMR_Premium_Price_per_SQM, OMR_Classic_Price_per_SQM, OMR_Premium_Dealer_Price_per_SQM, OMR_Classic_Dealer_Price_per_SQM, SALE_OMR_Premium_Price_per_SQM, SALE_OMR_Classic_Price_per_SQM, SALE_OMR_Premium_Dealer_Price_per_SQM, SALE_OMR_Classic_Dealer_Price_per_SQM,BHD_Premium_Price_per_SQM, BHD_Classic_Price_per_SQM, BHD_Premium_Dealer_Price_per_SQM, BHD_Classic_Dealer_Price_per_SQM, SALE_BHD_Premium_Price_per_SQM, SALE_BHD_Classic_Price_per_SQM, SALE_BHD_Premium_Dealer_Price_per_SQM, SALE_BHD_Classic_Dealer_Price_per_SQM,KWD_Premium_Price_per_SQM, KWD_Classic_Price_per_SQM, KWD_Premium_Dealer_Price_per_SQM, KWD_Classic_Dealer_Price_per_SQM, SALE_KWD_Premium_Price_per_SQM, SALE_KWD_Classic_Price_per_SQM, SALE_KWD_Premium_Dealer_Price_per_SQM, SALE_KWD_Classic_Dealer_Price_per_SQM,Category_name,Collection_name,Minimum_Chargeable,Maximum_Width ,Maximum_Height ,Minimum_Projection ,Maximum_Projection ,Type, Roll_width, Roll_height,Repeat, panelheight, weight_gramsm2, Width, additional_notes, image, image1, image2, image3, fabric, product_possible, deleted, last_mod, user_id) VALUES ("' + json.rows[i].id + '",  "' + json.rows[i].item_code + '",  "' + json.rows[i].brand + '",  "' + json.rows[i].catalogue_name + '",  "' + json.rows[i].category + '",  "' + json.rows[i].fabric_width + '",  "' + json.rows[i].AED_price_per_SQM + '",  "' + json.rows[i].AED_stitching_price + '",  "' + json.rows[i].Roman_Price_per_SQM + '",  "' + json.rows[i].AED_norm_lining_per_SQM + '",  "' + json.rows[i].AED_branded_lining_per_SQM + '",  "' + json.rows[i].AED_cataluna_blackout_per_SQM + '",  "' + json.rows[i].AED_antartica_blackout_per_SQM + '",  "' + json.rows[i].AED_bateaux_per_SQM + '",  "' + json.rows[i].AED_plata_per_SQM + '",  "' + json.rows[i].SALE_AED_price_per_SQM + '",  "' + json.rows[i].SALE_AED_stitching_price + '",  "' + json.rows[i].SALE_AED_norm_lining_per_SQM + '",  "' + json.rows[i].SALE_AED_branded_lining_per_SQM + '",  "' + json.rows[i].SALE_AED_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SALE_AED_antartica_blackout_per_SQM + '",  "' + json.rows[i].SALE_AED_bateaux_per_SQM + '",  "' + json.rows[i].SALE_AED_plata_per_SQM + '",  "' + json.rows[i].SAR_price_per_SQM + '",  "' + json.rows[i].SAR_stitching_price + '",  "' + json.rows[i].SAR_norm_lining_per_SQM + '",  "' + json.rows[i].SAR_branded_lining_per_SQM + '",  "' + json.rows[i].SAR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SAR_antartica_blackout_per_SQM + '",  "' + json.rows[i].SAR_bateaux_per_SQM + '",  "' + json.rows[i].SAR_plata_per_SQM + '",  "' + json.rows[i].SALE_SAR_price_per_SQM + '",  "' + json.rows[i].SALE_SAR_stitching_price + '",  "' + json.rows[i].SALE_SAR_norm_lining_per_SQM + '",  "' + json.rows[i].SALE_SAR_branded_lining_per_SQM + '",  "' + json.rows[i].SALE_SAR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SALE_SAR_antartica_blackout_per_SQM + '",  "' + json.rows[i].SALE_SAR_bateaux_per_SQM + '",  "' + json.rows[i].SALE_SAR_plata_per_SQM + '",  "' + json.rows[i].QAR_price_per_SQM + '",  "' + json.rows[i].QAR_stitching_price + '",  "' + json.rows[i].QAR_norm_lining_per_SQM + '",  "' + json.rows[i].QAR_branded_lining_per_SQM + '",  "' + json.rows[i].QAR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].QAR_antartica_blackout_per_SQM + '",  "' + json.rows[i].QAR_bateaux_per_SQM + '",  "' + json.rows[i].QAR_plata_per_SQM + '",  "' + json.rows[i].SALE_QAR_price_per_SQM + '",  "' + json.rows[i].SALE_QAR_stitching_price + '",  "' + json.rows[i].SALE_QAR_norm_lining_per_SQM + '",  "' + json.rows[i].SALE_QAR_branded_lining_per_SQM + '",  "' + json.rows[i].SALE_QAR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SALE_QAR_antartica_blackout_per_SQM + '",  "' + json.rows[i].SALE_QAR_bateaux_per_SQM + '",  "' + json.rows[i].SALE_QAR_plata_per_SQM + '",  "' + json.rows[i].OMR_price_per_SQM + '",  "' + json.rows[i].OMR_stitching_price + '",  "' + json.rows[i].OMR_norm_lining_per_SQM + '",  "' + json.rows[i].OMR_branded_lining_per_SQM + '",  "' + json.rows[i].OMR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].OMR_antartica_blackout_per_SQM + '",  "' + json.rows[i].OMR_bateaux_per_SQM + '",  "' + json.rows[i].OMR_plata_per_SQM + '",  "' + json.rows[i].SALE_OMR_price_per_SQM + '",  "' + json.rows[i].SALE_OMR_stitching_price + '",  "' + json.rows[i].SALE_OMR_norm_lining_per_SQM + '",  "' + json.rows[i].SALE_OMR_branded_lining_per_SQM + '",  "' + json.rows[i].SALE_OMR_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SALE_OMR_antartica_blackout_per_SQM + '",  "' + json.rows[i].SALE_OMR_bateaux_per_SQM + '",  "' + json.rows[i].SALE_OMR_plata_per_SQM + '",  "' + json.rows[i].BHD_price_per_SQM + '",  "' + json.rows[i].BHD_stitching_price + '",  "' + json.rows[i].BHD_norm_lining_per_SQM + '",  "' + json.rows[i].BHD_branded_lining_per_SQM + '",  "' + json.rows[i].BHD_cataluna_blackout_per_SQM + '",  "' + json.rows[i].BHD_antartica_blackout_per_SQM + '",  "' + json.rows[i].BHD_bateaux_per_SQM + '",  "' + json.rows[i].BHD_plata_per_SQM + '",  "' + json.rows[i].SALE_BHD_price_per_SQM + '",  "' + json.rows[i].SALE_BHD_stitching_price + '",  "' + json.rows[i].SALE_BHD_norm_lining_per_SQM + '",  "' + json.rows[i].SALE_BHD_branded_lining_per_SQM + '",  "' + json.rows[i].SALE_BHD_cataluna_blackout_per_SQM + '",  "' + json.rows[i].SALE_BHD_antartica_blackout_per_SQM + '",  "' + json.rows[i].SALE_BHD_bateaux_per_SQM + '",  "' + json.rows[i].SALE_BHD_plata_per_SQM + '",  "' + json.rows[i].SALE_AED_Roman_Price_per_SQM + '",  "' + json.rows[i].AED_Roman_Price_per_SQM + '",  "' + json.rows[i].SALE_SAR_Roman_Price_per_SQM + '",  "' + json.rows[i].SAR_Roman_Price_per_SQM + '",  "' + json.rows[i].SALE_QAR_Roman_Price_per_SQM + '",  "' + json.rows[i].QAR_Roman_Price_per_SQM + '",  "' + json.rows[i].SALE_OMR_Roman_Price_per_SQM + '",  "' + json.rows[i].OMR_Roman_Price_per_SQM + '",  "' + json.rows[i].SALE_BHD_Roman_Price_per_SQM + '",  "' + json.rows[i].BHD_Roman_Price_per_SQM + '", "' + json.rows[i].KWD_price_per_SQM + '" ,"' + json.rows[i].KWD_stitching_price  + '" ,"' + json.rows[i].KWD_Roman_Price_per_SQM  + '" ,"' + json.rows[i].KWD_norm_lining_per_SQM  + '" ,"' + json.rows[i].KWD_branded_lining_per_SQM  + '" ,"' + json.rows[i].KWD_cataluna_blackout_per_SQM  + '" ,"' + json.rows[i].KWD_antartica_blackout_per_SQM  + '" ,"' + json.rows[i].KWD_bateaux_per_SQM  +
 						'" ,"' + json.rows[i].KWD_plata_per_SQM  + '" ,"' + json.rows[i].SALE_KWD_price_per_SQM  + '" ,"' + json.rows[i].SALE_KWD_stitching_price  + '" ,"' + json.rows[i].SALE_KWD_norm_lining_per_SQM  + '" ,"' + json.rows[i].SALE_KWD_branded_lining_per_SQM  + '" ,"' + json.rows[i].SALE_KWD_cataluna_blackout_per_SQM  + '" ,"' + json.rows[i].SALE_KWD_antartica_blackout_per_SQM  + '" ,"' + json.rows[i].SALE_KWD_bateaux_per_SQM  + '" ,"' + json.rows[i].SALE_KWD_plata_per_SQM  + '" , "' + json.rows[i].AED_Price_with_Mono_Command_Ball_Chain_System + '", "' + json.rows[i].SALE_AED_Price_with_Mono_Command_Ball_Chain_System + '", "' + json.rows[i].AED_Price_with_Guide_Rope_per_SQM + '", "' + json.rows[i].SALE_AED_Price_with_Guide_Rope_per_SQM + '", "' + json.rows[i].AED_Price_with_Cassete_LOUVO_per_SQM + '", "' + json.rows[i].SALE_AED_Price_with_Cassete_LOUVO_per_SQM + '", "' + json.rows[i].AED_Price_per_LMT + '", "' + json.rows[i].SALE_AED_Price_per_LMT + '", "' + json.rows[i].AED_Price_for_Window_Glass_per_Piece + '", "' + json.rows[i].SALE_AED_Price_for_Window_Glass_per_Piece + '", "' + json.rows[i].AED_Price_for_Decorative_Window_Glass_Film_per_Piece + '", "' + json.rows[i].SALE_AED_Price_for_Decorative_Window_Glass_Film_per_Piece + '", "' + json.rows[i].SAR_Price_with_Mono_Command_Ball_Chain_System + '", "' + json.rows[i].SALE_SAR_Price_with_Mono_Command_Ball_Chain_System + '", "' + json.rows[i].SAR_Price_with_Guide_Rope_per_SQM + '", "' + json.rows[i].SALE_SAR_Price_with_Guide_Rope_per_SQM + '", "' + json.rows[i].SAR_Price_with_Cassete_LOUVO_per_SQM + '", "' + json.rows[i].SALE_SAR_Price_with_Cassete_LOUVO_per_SQM + '", "' + json.rows[i].SAR_Price_per_LMT + '", "' + json.rows[i].SALE_SAR_Price_per_LMT + '", "' + json.rows[i].SAR_Price_for_Window_Glass_per_Piece + '", "' + json.rows[i].SALE_SAR_Price_for_Window_Glass_per_Piece + '", "' + json.rows[i].SAR_Price_for_Decorative_Window_Glass_Film_per_Piece + '", "' + json.rows[i].SALE_SAR_Price_for_Decorative_Window_Glass_Film_per_Piece + '", "' + json.rows[i].OMR_Price_with_Mono_Command_Ball_Chain_System + '", "' + json.rows[i].SALE_OMR_Price_with_Mono_Command_Ball_Chain_System + '", "' + json.rows[i].OMR_Price_with_Guide_Rope_per_SQM + '", "' + json.rows[i].SALE_OMR_Price_with_Guide_Rope_per_SQM + '", "' + json.rows[i].OMR_Price_with_Cassete_LOUVO_per_SQM + '", "' + json.rows[i].SALE_OMR_Price_with_Cassete_LOUVO_per_SQM + '", "' + json.rows[i].OMR_Price_per_LMT + '", "' + json.rows[i].SALE_OMR_Price_per_LMT + '", "' + json.rows[i].OMR_Price_for_Window_Glass_per_Piece + '", "' + json.rows[i].SALE_OMR_Price_for_Window_Glass_per_Piece + '", "' + json.rows[i].OMR_Price_for_Decorative_Window_Glass_Film_per_Piece + '", "' + json.rows[i].SALE_OMR_Price_for_Decorative_Window_Glass_Film_per_Piece + '", "' + json.rows[i].QAR_Price_with_Mono_Command_Ball_Chain_System + '", "' + json.rows[i].SALE_QAR_Price_with_Mono_Command_Ball_Chain_System + '", "' + json.rows[i].QAR_Price_with_Guide_Rope_per_SQM + '", "' + json.rows[i].SALE_QAR_Price_with_Guide_Rope_per_SQM + '", "' + json.rows[i].QAR_Price_with_Cassete_LOUVO_per_SQM + '", "' + json.rows[i].SALE_QAR_Price_with_Cassete_LOUVO_per_SQM + '", "' + json.rows[i].QAR_Price_per_LMT + '", "' + json.rows[i].SALE_QAR_Price_per_LMT + '", "' + json.rows[i].QAR_Price_for_Window_Glass_per_Piece + '", "' + json.rows[i].SALE_QAR_Price_for_Window_Glass_per_Piece + '", "' + json.rows[i].QAR_Price_for_Decorative_Window_Glass_Film_per_Piece + '", "' + json.rows[i].SALE_QAR_Price_for_Decorative_Window_Glass_Film_per_Piece + '", "' + json.rows[i].BHD_Price_with_Mono_Command_Ball_Chain_System + '", "' + json.rows[i].SALE_BHD_Price_with_Mono_Command_Ball_Chain_System + '", "' + json.rows[i].BHD_Price_with_Guide_Rope_per_SQM + '", "' + json.rows[i].SALE_BHD_Price_with_Guide_Rope_per_SQM + '", "' + json.rows[i].BHD_Price_with_Cassete_LOUVO_per_SQM + '", "' + json.rows[i].SALE_BHD_Price_with_Cassete_LOUVO_per_SQM + '", "' + json.rows[i].BHD_Price_per_LMT + '", "' + json.rows[i].SALE_BHD_Price_per_LMT + '", "' + json.rows[i].BHD_Price_for_Window_Glass_per_Piece + '", "' + json.rows[i].SALE_BHD_Price_for_Window_Glass_per_Piece + '", "' + json.rows[i].BHD_Price_for_Decorative_Window_Glass_Film_per_Piece + '", "' + json.rows[i].SALE_BHD_Price_for_Decorative_Window_Glass_Film_per_Piece + '", "' + json.rows[i].KWD_Price_with_Mono_Command_Ball_Chain_System + '", "' + json.rows[i].SALE_KWD_Price_with_Mono_Command_Ball_Chain_System + '", "' + json.rows[i].KWD_Price_with_Guide_Rope_per_SQM + '", "' + json.rows[i].SALE_KWD_Price_with_Guide_Rope_per_SQM + '", "' + json.rows[i].KWD_Price_with_Cassete_LOUVO_per_SQM + '", "' + json.rows[i].SALE_KWD_Price_with_Cassete_LOUVO_per_SQM + '", "' + json.rows[i].KWD_Price_per_LMT + '", "' + json.rows[i].SALE_KWD_Price_per_LMT + '", "' + json.rows[i].KWD_Price_for_Window_Glass_per_Piece + '", "' + json.rows[i].SALE_KWD_Price_for_Window_Glass_per_Piece + '", "' + json.rows[i].KWD_Price_for_Decorative_Window_Glass_Film_per_Piece + '", "' + json.rows[i].SALE_KWD_Price_for_Decorative_Window_Glass_Film_per_Piece + '", "' + json.rows[i].AED_Price_per_Roll + '", "' + json.rows[i].SALE_AED_Price_per_Roll + '", "' + json.rows[i].AED_Price_per_Set + '", "' + json.rows[i].SALE_AED_Price_per_Set + '", "' + json.rows[i].AED_Price_for_fixing_charge + '", "' + json.rows[i].SALE_AED_Price_for_fixing_charge + '", "' + json.rows[i].SAR_Price_per_Roll + '", "' + json.rows[i].SALE_SAR_Price_per_Roll + '", "' + json.rows[i].SAR_Price_per_Set + '", "' + json.rows[i].SALE_SAR_Price_per_Set + '", "' + json.rows[i].SAR_Price_for_fixing_charge + '", "' + json.rows[i].SALE_SAR_Price_for_fixing_charge + '", "' + json.rows[i].QAR_Price_per_Roll + '", "' + json.rows[i].SALE_QAR_Price_per_Roll + '", "' + json.rows[i].QAR_Price_per_Set + '", "' + json.rows[i].SALE_QAR_Price_per_Set + '", "' + json.rows[i].QAR_Price_for_fixing_charge + '", "' + json.rows[i].SALE_QAR_Price_for_fixing_charge + '", "' + json.rows[i].OMR_Price_per_Roll + '", "' + json.rows[i].SALE_OMR_Price_per_Roll + '", "' + json.rows[i].OMR_Price_per_Set + '", "' + json.rows[i].SALE_OMR_Price_per_Set + '", "' + json.rows[i].OMR_Price_for_fixing_charge + '", "' + json.rows[i].SALE_OMR_Price_for_fixing_charge + '", "' +
 						json.rows[i].BHD_Price_per_Roll + '", "' + json.rows[i].SALE_BHD_Price_per_Roll + '", "' + json.rows[i].BHD_Price_per_Set + '", "' + json.rows[i].SALE_BHD_Price_per_Set + '", "' + json.rows[i].BHD_Price_for_fixing_charge + '", "' + json.rows[i].SALE_BHD_Price_for_fixing_charge + '", "' + json.rows[i].KWD_Price_per_Roll + '", "' + json.rows[i].SALE_KWD_Price_per_Roll + '", "' + json.rows[i].KWD_Price_per_Set + '", "' + json.rows[i].SALE_KWD_Price_per_Set + '", "' + json.rows[i].KWD_Price_for_fixing_charge + '", "' + json.rows[i].SALE_KWD_Price_for_fixing_charge + '","'+ json.rows[i].AED_Price_for_Canopy_per_LMT +'","'+ json.rows[i].AED_Price_for_Levante_per_SQM +'","'+ json.rows[i].AED_Price_for_Arm_Type_per_SQM +'","'+ json.rows[i].AED_Price_for_Arm_Type_Cassette_type_per_SQM +'","'+ json.rows[i].AED_Price_for_Winter_Garden_per_SQM +'","'+ json.rows[i].AED_Price_for_Sky_Light_per_SQM +'","'+ json.rows[i].SALE_AED_Price_for_Canopy_per_LMT +'","'+ json.rows[i].SALE_AED_Price_for_Levante_per_SQM +'","'+ json.rows[i].SALE_AED_Price_for_Arm_Type_per_SQM +'","'+ json.rows[i].SALE_AED_Price_for_Arm_Type_Cassette_type_per_SQM +'","'+ json.rows[i].SALE_AED_Price_for_Winter_Garden_per_SQM +'","'+ json.rows[i].SALE_AED_Price_for_Sky_Light_per_SQM +'", "'+ json.rows[i].SAR_Price_for_Canopy_per_LMT +'","'+ json.rows[i].SAR_Price_for_Levante_per_SQM +'","'+ json.rows[i].SAR_Price_for_Arm_Type_per_SQM +'","'+ json.rows[i].SAR_Price_for_Arm_Type_Cassette_type_per_SQM +'","'+ json.rows[i].SAR_Price_for_Winter_Garden_per_SQM +'","'+ json.rows[i].SAR_Price_for_Sky_Light_per_SQM +'","'+ json.rows[i].SALE_SAR_Price_for_Canopy_per_LMT +'","'+ json.rows[i].SALE_SAR_Price_for_Levante_per_SQM +'","'+ json.rows[i].SALE_SAR_Price_for_Arm_Type_per_SQM +'","'+ json.rows[i].SALE_SAR_Price_for_Arm_Type_Cassette_type_per_SQM +'","'+ json.rows[i].SALE_SAR_Price_for_Winter_Garden_per_SQM +'","'+ json.rows[i].SALE_SAR_Price_for_Sky_Light_per_SQM +'", "'+ json.rows[i].QAR_Price_for_Canopy_per_LMT +'","'+ json.rows[i].QAR_Price_for_Levante_per_SQM +'","'+ json.rows[i].QAR_Price_for_Arm_Type_per_SQM +'","'+ json.rows[i].QAR_Price_for_Arm_Type_Cassette_type_per_SQM +'","'+ json.rows[i].QAR_Price_for_Winter_Garden_per_SQM +'","'+ json.rows[i].QAR_Price_for_Sky_Light_per_SQM +'","'+ json.rows[i].SALE_QAR_Price_for_Canopy_per_LMT +'","'+ json.rows[i].SALE_QAR_Price_for_Levante_per_SQM +'","'+ json.rows[i].SALE_QAR_Price_for_Arm_Type_per_SQM +'","'+ json.rows[i].SALE_QAR_Price_for_Arm_Type_Cassette_type_per_SQM +'","'+ json.rows[i].SALE_QAR_Price_for_Winter_Garden_per_SQM +'","'+ json.rows[i].SALE_QAR_Price_for_Sky_Light_per_SQM +'","'+ json.rows[i].OMR_Price_for_Canopy_per_LMT +'","'+ json.rows[i].OMR_Price_for_Levante_per_SQM +'","'+ json.rows[i].OMR_Price_for_Arm_Type_per_SQM +'","'+ json.rows[i].OMR_Price_for_Arm_Type_Cassette_type_per_SQM +'","'+ json.rows[i].OMR_Price_for_Winter_Garden_per_SQM +'","'+ json.rows[i].OMR_Price_for_Sky_Light_per_SQM +'","'+ json.rows[i].SALE_OMR_Price_for_Canopy_per_LMT +'","'+ json.rows[i].SALE_OMR_Price_for_Levante_per_SQM +'","'+ json.rows[i].SALE_OMR_Price_for_Arm_Type_per_SQM +'","'+ json.rows[i].SALE_OMR_Price_for_Arm_Type_Cassette_type_per_SQM +'","'+ json.rows[i].SALE_OMR_Price_for_Winter_Garden_per_SQM +'","'+ json.rows[i].SALE_OMR_Price_for_Sky_Light_per_SQM +'","'+ json.rows[i].BHD_Price_for_Canopy_per_LMT +'","'+ json.rows[i].BHD_Price_for_Levante_per_SQM +'","'+ json.rows[i].BHD_Price_for_Arm_Type_per_SQM +'","'+ json.rows[i].BHD_Price_for_Arm_Type_Cassette_type_per_SQM +'","'+ json.rows[i].BHD_Price_for_Winter_Garden_per_SQM +'","'+ json.rows[i].BHD_Price_for_Sky_Light_per_SQM +'","'+ json.rows[i].SALE_BHD_Price_for_Canopy_per_LMT +'","'+ json.rows[i].SALE_BHD_Price_for_Levante_per_SQM +'","'+ json.rows[i].SALE_BHD_Price_for_Arm_Type_per_SQM +'","'+ json.rows[i].SALE_BHD_Price_for_Arm_Type_Cassette_type_per_SQM +'","'+ json.rows[i].SALE_BHD_Price_for_Winter_Garden_per_SQM +'","'+ json.rows[i].SALE_BHD_Price_for_Sky_Light_per_SQM +'","'+ json.rows[i].KWD_Price_for_Canopy_per_LMT +'","'+ json.rows[i].KWD_Price_for_Levante_per_SQM +'","'+ json.rows[i].KWD_Price_for_Arm_Type_per_SQM +'","'+ json.rows[i].KWD_Price_for_Arm_Type_Cassette_type_per_SQM +'","'+ json.rows[i].KWD_Price_for_Winter_Garden_per_SQM +'","'+ json.rows[i].KWD_Price_for_Sky_Light_per_SQM +'","'+ json.rows[i].SALE_KWD_Price_for_Canopy_per_LMT +'","'+ json.rows[i].SALE_KWD_Price_for_Levante_per_SQM +'","'+ json.rows[i].SALE_KWD_Price_for_Arm_Type_per_SQM +'","'+ json.rows[i].SALE_KWD_Price_for_Arm_Type_Cassette_type_per_SQM +'","'+ json.rows[i].SALE_KWD_Price_for_Winter_Garden_per_SQM +'","'+ json.rows[i].SALE_KWD_Price_for_Sky_Light_per_SQM +'","'+ json.rows[i].AED_price_with_Border_per_SQM +'","'+ json.rows[i].AED_price_with_Fabric_Lining_per_SQM +'","'+ json.rows[i].AED_price_with_Vensy_Rail_per_SQM +'","'+ json.rows[i].AED_price_with_Vensy_Rail_and_Border_per_SQM +'","'+ json.rows[i].AED_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM +'","'+ json.rows[i].SALE_AED_price_with_Border_per_SQM +'","'+ json.rows[i].SALE_AED_price_with_Fabric_Lining_per_SQM +'","'+ json.rows[i].SALE_AED_price_with_Vensy_Rail_per_SQM +'","'+ json.rows[i].SALE_AED_price_with_Vensy_Rail_and_Border_per_SQM +'","'+ json.rows[i].SALE_AED_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM +'","'+ json.rows[i].SAR_price_with_Border_per_SQM +'","'+ json.rows[i].SAR_price_with_Fabric_Lining_per_SQM +'","'+ json.rows[i].SAR_price_with_Vensy_Rail_per_SQM +'","'+ json.rows[i].SAR_price_with_Vensy_Rail_and_Border_per_SQM +'","'+ json.rows[i].SAR_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM +'","'+ json.rows[i].SALE_SAR_price_with_Border_per_SQM +'","'+ json.rows[i].SALE_SAR_price_with_Fabric_Lining_per_SQM +'","'+ json.rows[i].SALE_SAR_price_with_Vensy_Rail_per_SQM +'","'+ json.rows[i].SALE_SAR_price_with_Vensy_Rail_and_Border_per_SQM +'","'+ json.rows[i].SALE_SAR_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM +'","'+ json.rows[i].QAR_price_with_Border_per_SQM +'","'+ json.rows[i].QAR_price_with_Fabric_Lining_per_SQM +'","'+ json.rows[i].QAR_price_with_Vensy_Rail_per_SQM +'","'+ json.rows[i].QAR_price_with_Vensy_Rail_and_Border_per_SQM +'","'+ json.rows[i].QAR_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM +'","'+ json.rows[i].SALE_QAR_price_with_Border_per_SQM +'","'+ json.rows[i].SALE_QAR_price_with_Fabric_Lining_per_SQM +'","'+ json.rows[i].SALE_QAR_price_with_Vensy_Rail_per_SQM +'","'+ json.rows[i].SALE_QAR_price_with_Vensy_Rail_and_Border_per_SQM +'","'+ json.rows[i].SALE_QAR_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM +'","'+ json.rows[i].OMR_price_with_Border_per_SQM +'","'+ json.rows[i].OMR_price_with_Fabric_Lining_per_SQM +'","'+ json.rows[i].OMR_price_with_Vensy_Rail_per_SQM +'","'+ json.rows[i].OMR_price_with_Vensy_Rail_and_Border_per_SQM +'","'+ json.rows[i].OMR_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM +'","'+ json.rows[i].SALE_OMR_price_with_Border_per_SQM +'","'+ json.rows[i].SALE_OMR_price_with_Fabric_Lining_per_SQM +'","'+ json.rows[i].SALE_OMR_price_with_Vensy_Rail_per_SQM +'","'+ json.rows[i].SALE_OMR_price_with_Vensy_Rail_and_Border_per_SQM +'","'+ json.rows[i].SALE_OMR_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM +'","'+ json.rows[i].BHD_price_with_Border_per_SQM +'","'+ json.rows[i].BHD_price_with_Fabric_Lining_per_SQM +'","'+ json.rows[i].BHD_price_with_Vensy_Rail_per_SQM +'","'+ json.rows[i].BHD_price_with_Vensy_Rail_and_Border_per_SQM +'","'+ json.rows[i].BHD_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM +'","'+ json.rows[i].SALE_BHD_price_with_Border_per_SQM +'","'+ json.rows[i].SALE_BHD_price_with_Fabric_Lining_per_SQM +'","'+ json.rows[i].SALE_BHD_price_with_Vensy_Rail_per_SQM +'","'+ json.rows[i].SALE_BHD_price_with_Vensy_Rail_and_Border_per_SQM +'","'+ json.rows[i].SALE_BHD_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM +'","'+ json.rows[i].KWD_price_with_Border_per_SQM +'","'+ json.rows[i].KWD_price_with_Fabric_Lining_per_SQM +'","'+ json.rows[i].KWD_price_with_Vensy_Rail_per_SQM +'","'+ json.rows[i].KWD_price_with_Vensy_Rail_and_Border_per_SQM +'","'+ json.rows[i].KWD_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM +'","'+ json.rows[i].SALE_KWD_price_with_Border_per_SQM +'","'+ json.rows[i].SALE_KWD_price_with_Fabric_Lining_per_SQM +'","'+ json.rows[i].SALE_KWD_price_with_Vensy_Rail_per_SQM +'","'+ json.rows[i].SALE_KWD_price_with_Vensy_Rail_and_Border_per_SQM +'","'+ json.rows[i].SALE_KWD_price_with_Vensy_Rail_and_Fabric_Lining_per_SQM +'","'+ json.rows[i].AED_Premium_Price_per_SQM +'","'+ json.rows[i].AED_Classic_Price_per_SQM +'","'+ json.rows[i].AED_Premium_Dealer_Price_per_SQM +'","'+ json.rows[i].AED_Classic_Dealer_Price_per_SQM +'","'+ json.rows[i].SALE_AED_Premium_Price_per_SQM +'","'+ json.rows[i].SALE_AED_Classic_Price_per_SQM +'","'+ json.rows[i].SALE_AED_Premium_Dealer_Price_per_SQM +'","'+ json.rows[i].SALE_AED_Classic_Dealer_Price_per_SQM +'","'+ json.rows[i].SAR_Premium_Price_per_SQM +'","'+ json.rows[i].SAR_Classic_Price_per_SQM +'","'+ json.rows[i].SAR_Premium_Dealer_Price_per_SQM +'","'+ json.rows[i].SAR_Classic_Dealer_Price_per_SQM +'","'+ json.rows[i].SALE_SAR_Premium_Price_per_SQM +'","'+ json.rows[i].SALE_SAR_Classic_Price_per_SQM +'","'+ json.rows[i].SALE_SAR_Premium_Dealer_Price_per_SQM +'","'+ json.rows[i].SALE_SAR_Classic_Dealer_Price_per_SQM +'","'+ json.rows[i].QAR_Premium_Price_per_SQM +'","'+ json.rows[i].QAR_Classic_Price_per_SQM +'","'+ json.rows[i].QAR_Premium_Dealer_Price_per_SQM +'","'+ json.rows[i].QAR_Classic_Dealer_Price_per_SQM +'","'+ json.rows[i].SALE_QAR_Premium_Price_per_SQM +'","'+ json.rows[i].SALE_QAR_Classic_Price_per_SQM +'","'+ json.rows[i].SALE_QAR_Premium_Dealer_Price_per_SQM +'","'+ json.rows[i].SALE_QAR_Classic_Dealer_Price_per_SQM +'","'+ json.rows[i].OMR_Premium_Price_per_SQM +'","'+ json.rows[i].OMR_Classic_Price_per_SQM +'","'+ json.rows[i].OMR_Premium_Dealer_Price_per_SQM +'","'+ json.rows[i].OMR_Classic_Dealer_Price_per_SQM +'","'+ json.rows[i].SALE_OMR_Premium_Price_per_SQM +'","'+ json.rows[i].SALE_OMR_Classic_Price_per_SQM +'","'+ json.rows[i].SALE_OMR_Premium_Dealer_Price_per_SQM +'","'+ json.rows[i].SALE_OMR_Classic_Dealer_Price_per_SQM +'","'+ json.rows[i].BHD_Premium_Price_per_SQM +'","'+ json.rows[i].BHD_Classic_Price_per_SQM +'","'+ json.rows[i].BHD_Premium_Dealer_Price_per_SQM +'","'+ json.rows[i].BHD_Classic_Dealer_Price_per_SQM +'","'+ json.rows[i].SALE_BHD_Premium_Price_per_SQM +'","'+ json.rows[i].SALE_BHD_Classic_Price_per_SQM +'","'+ json.rows[i].SALE_BHD_Premium_Dealer_Price_per_SQM +'","'+ json.rows[i].SALE_BHD_Classic_Dealer_Price_per_SQM +'","'+ json.rows[i].KWD_Premium_Price_per_SQM +'","'+ json.rows[i].KWD_Classic_Price_per_SQM +'","'+ json.rows[i].KWD_Premium_Dealer_Price_per_SQM +'","'+ json.rows[i].KWD_Classic_Dealer_Price_per_SQM +'","'+ json.rows[i].SALE_KWD_Premium_Price_per_SQM +'","'+ json.rows[i].SALE_KWD_Classic_Price_per_SQM +'","'+ json.rows[i].SALE_KWD_Premium_Dealer_Price_per_SQM +'","'+ json.rows[i].SALE_KWD_Classic_Dealer_Price_per_SQM +'","'+ json.rows[i].Category_name +'", "'+ json.rows[i].Collection_name +'", "' + json.rows[i].Minimum_Chargeable + '", "' + json.rows[i].Maximum_Width + '", "' + json.rows[i].Maximum_Height + '", "' + json.rows[i].Minimum_Projection + '", "' + json.rows[i].Maximum_Projection + '", "' + json.rows[i].Type + '", "' + json.rows[i].Roll_width + '", "' + json.rows[i].Roll_height + '","' + json.rows[i].Repeat + '", "' + panelheight + '",  "' + weight_gramsm2 + '",  "' + json.rows[i].Width + '","' + json.rows[i].additional_notes + '",  "' + json.rows[i].image + '",  "' + json.rows[i].image1 + '",  "' + json.rows[i].image2 + '",  "' + json.rows[i].image3 + '",  "' + json.rows[i].fabric + '",  "' + json.rows[i].product_possible + '",  "' + json.rows[i].deleted + '",  "' + json.rows[i].last_mod + '",  "' + json.rows[i].user_id + '")',successID);
 						j++;
 						if(j==ajaxlength12){
 							$("#product_sync3").addClass("hide");
+							//alert("data success");
 							$("#product_sync4").removeClass("hide");
 							product_sync5();
 							
@@ -427,14 +427,14 @@ function product_sync4() {
 
 
 
-
+// sync with Product list5
 function product_sync5() {
-	//alert("sync product6");
+	//alert("sync product5");
 	var name='wave';
 	$("#data_update_status").removeClass("hide");
 	$.ajax({
 		type: "POST",
-		url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_product5.php',
+		url: 'http://wave2dev.azurewebsites.net/app/ajax_sync_product5.php',
 		data : 'uname='+name ,
 		dataType:"json",
 		processData: false,
@@ -442,7 +442,7 @@ function product_sync5() {
 			
 			$("#data_update_status").addClass("hide");
 			var ajaxlength12 = json.rows.length;
-			alert("product6--"+ajaxlength12);
+			//alert("product5--"+ajaxlength12);
 		//	localStorage.setItem("productlist_count", ajaxlength12);
 				var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
 				db.transaction(function(tx){
@@ -461,6 +461,7 @@ function product_sync5() {
 						if(j==ajaxlength12){
 						//	product_sync6();
 							$("#product_sync4").addClass("hide");
+							
 							alert('Database synchronization completed! Data Count:'+ localStorage.getItem("server_item_count"));
 							$("#product_sync5").removeClass("hide");
 							window.location.reload();
@@ -473,6 +474,9 @@ function product_sync5() {
 	});
 	
 }
+
+//END sync with Product list5
+
 /*
 function product_sync6() {
 	
@@ -480,7 +484,7 @@ function product_sync6() {
 	$("#data_update_status").removeClass("hide");
 	$.ajax({
 		type: "POST",
-		url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_product6.php',
+		url: 'http://wave2dev.azurewebsites.net/app/ajax_sync_product6.php',
 		data : 'uname='+name ,
 		dataType:"json",
 		processData: false,
@@ -520,7 +524,7 @@ function product_sync7() {
 	$("#data_update_status").removeClass("hide");
 	$.ajax({
 		type: "POST",
-		url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_product7.php',
+		url: 'http://wave2dev.azurewebsites.net/app/ajax_sync_product7.php',
 		data : 'uname='+name ,
 		dataType:"json",
 		processData: false,
@@ -560,7 +564,7 @@ function product_sync8() {
 	$("#data_update_status").removeClass("hide");
 	$.ajax({
 		type: "POST",
-		url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_product8.php',
+		url: 'http://wave2dev.azurewebsites.net/app/ajax_sync_product8.php',
 		data : 'uname='+name ,
 		dataType:"json",
 		processData: false,
@@ -633,7 +637,7 @@ $(document).ready(function(){
 	var name='wave';
 	$.ajax({
 		type: "POST",
-		url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_modified_product.php',
+		url: 'http://wave2dev.azurewebsites.net/app/ajax_sync_modified_product.php',
 		data : 'uname='+name ,
 		dataType:"json",
 		processData: false,
@@ -677,7 +681,7 @@ $(document).ready(function(){
 	var name='wave';
 	$.ajax({
 		type: "POST",
-		url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_user.php',
+		url: 'http://wave2dev.azurewebsites.net/app/ajax_sync_user.php',
 		data : 'uname='+name ,
 		dataType:"json",
 		processData: false,
@@ -704,7 +708,7 @@ $(document).ready(function(){
 	var name='wave';
 	$.ajax({
 		type: "POST",
-		url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_fabric.php',
+		url: 'http://wave2dev.azurewebsites.net/app/ajax_sync_fabric.php',
 		 data : 'uname='+name ,
 		dataType:"json",
 		processData: false,
@@ -729,7 +733,7 @@ $(document).ready(function(){
 	var name='wave';
 	$.ajax({
 		type: "POST",
-		url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_product_possible.php',
+		url: 'http://wave2dev.azurewebsites.net/app/ajax_sync_product_possible.php',
 		 data : 'uname='+name ,
 		dataType:"json",
 		processData: false,
@@ -754,7 +758,7 @@ $(document).ready(function(){
 	var name='wave';
 	$.ajax({
 		type: "POST",
-		url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_showroom.php',
+		url: 'http://wave2dev.azurewebsites.net/app/ajax_sync_showroom.php',
 		 data : 'uname='+name ,
 		dataType:"json",
 		processData: false,
@@ -813,7 +817,7 @@ function updatecheck(){
 	document.getElementById("app_ver").innerHTML = appcode;
 	$.ajax({
 		type: "POST",
-		url: "http://wave2dev.elasticbeanstalk.com/app/ajax_update.php",
+		url: "http://wave2dev.azurewebsites.net/app/ajax_update.php",
 		data :  'appcode='+appcode,
 		dataType: "json",
 		processData: false,
@@ -840,7 +844,7 @@ function admin_user(){
 	//alert(timestamp);
 	$.ajax({
 		type: "POST",
-		url: "http://wave2dev.elasticbeanstalk.com/app/ajax_admin_user.php",
+		url: "http://wave2dev.azurewebsites.net/app/ajax_admin_user.php",
 		data :  'user_name='+user_name+'&showroom_name='+showroom_name+'&appcode='+appcode+'&user_id='+user_id+'&time_stamp='+timestamp,
 		dataType: "json",
 		processData: false,
@@ -854,11 +858,9 @@ function admin_user(){
 </script>
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="barcodescanner.js"></script>
-<script type="text/javascript" src="js/function.js"></script>
-<!--
-<script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
--->
+<script type="text/javascript" src="js/function.js"></script>
+<!--<script type="text/javascript" src="js/main.js"></script>-->
 
 	</body>
 </html>

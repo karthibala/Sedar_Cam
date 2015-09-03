@@ -230,7 +230,9 @@ alert("user_name--"+user_name);
 alert("showroom_name--"+showroom_name);
 var user_id=localStorage.getItem("user_id");
 var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
-db.transaction(function (tx){
+db.transaction(Showroom, errorCB);   
+
+function Showroom (tx){
 	tx.executeSql('SELECT * FROM show_room where showroom_id = ?', [showroom_id], function (tx, results) {
        var len = results.rows.length;
        var showroom_name = results.rows.item(0).showroom_name;
@@ -249,8 +251,11 @@ db.transaction(function (tx){
        document.getElementById("user_id").value = user_id;
        
     });
-});
-
+}
+function errorCB(tx, err) {
+	alert("Error");
+	alert("Error processing SQL: "+err);
+} 
 
 function formsubmit() {
   var f_name = document.getElementById("f_name").value;

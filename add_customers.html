@@ -230,6 +230,7 @@ alert("user_name--"+user_name);
 alert("showroom_name--"+showroom_name);
 var user_id=localStorage.getItem("user_id");
 db.transaction(function (tx){
+	alert("enter select");
 	//tx.executeSql('SELECT * FROM show_room where showroom_id = ?', [showroom_id], function (tx, results) {
     tx.executeSql('SELECT * FROM show_room ', [], function (tx, results) {
        var len = results.rows.length;

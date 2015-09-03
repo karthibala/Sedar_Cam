@@ -62,8 +62,26 @@ states[Connection.NONE] = 'No network connection';
 		
 		}else{
 		
-		Local_item();
-		
+		$.ajax({
+				type: "POST",
+				url: "http://wave.elasticbeanstalk.com/app/ajax_itemcode.php",
+				data :  'QRcode='+QRcode,
+				dataType: "json",
+				processData: true,
+				success: function(json) {
+				//	alert(json.item_status);
+					if (json.item_status=='Success') {
+
+						localStorage.setItem("QRcode", QRcode);
+						window.open('overview.html', '_blank', 'location=yes');						
+					}
+					else{
+						
+						alert("Please check the item code and try again");
+						
+					}
+				}
+			}); 
 		}
 
 
@@ -81,7 +99,7 @@ states[Connection.NONE] = 'No network connection';
             window.open('overview.html', '_blank', 'location=yes');
             //  var showroom_id=localStorage.getItem("showroom_id");
             //  var user_id=localStorage.getItem("user_id");
-            //window.open('http://wave2dev.elasticbeanstalk.com/app/overview.php?qrcode='+QRcode+'&user_id='+user_id+'&showroom_id='+showroom_id, '_blank', 'location=yes');
+            //window.open('http://wave.elasticbeanstalk.com/app/overview.php?qrcode='+QRcode+'&user_id='+user_id+'&showroom_id='+showroom_id, '_blank', 'location=yes');
            }
         }*/
 }
@@ -163,11 +181,12 @@ function formsubmit() {
 			// AJAX code to submit form.
 			$.ajax({
 				type: "POST",
-				url: "http://wave2dev.elasticbeanstalk.com/app/ajax_execution.php",
+				url: "http://wave.elasticbeanstalk.com/app/ajax_execution.php",
 				data :  'uname='+name+'&password='+password ,
 				dataType: "json",
 				processData: false,
 				success: function(json) {
+					alert(json.login_status);
 					if (json.login_status=='Success') {
 						window.open('scan.html', '_blank','location=no');
 						

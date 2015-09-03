@@ -112,12 +112,11 @@ states[Connection.NONE] = 'No network connection';
         
         $.ajax({
                 type: "POST",
-                url: "http://wave.elasticbeanstalk.com/app/ajax_itemcode.php",
+                url: "http://wave2dev.elasticbeanstalk.com/app/ajax_itemcode.php",
                 data :  'QRcode='+QRcode,
                 dataType: "json",
                 processData: true,
                 success: function(json) {
-                    alert(json.item_status);
                     if (json.item_status=='Success') {
 
                         localStorage.setItem("QRcode", QRcode);
@@ -129,24 +128,6 @@ states[Connection.NONE] = 'No network connection';
 
 
 
-      /*  if(network_status=='No network connection'){
-            if(QRcode!=''){
-                localStorage.setItem("QRcode", QRcode);
-            window.open('overview.html', '_blank', 'location=yes');
-            
-           }
-        }else{
-            if(QRcode!=''){
-                localStorage.setItem("QRcode", QRcode);
-            window.open('overview.html', '_blank', 'location=yes');
-            //  var showroom_id=localStorage.getItem("showroom_id");
-            //  var user_id=localStorage.getItem("user_id");
-            //window.open('http://wave.elasticbeanstalk.com/app/overview.php?qrcode='+QRcode+'&user_id='+user_id+'&showroom_id='+showroom_id, '_blank', 'location=yes');
-           }
-        }*/
-            //alert(QRcode);
-           // alert('test');
-           
            console.log("Scanner result: \n" +
                 "text: " + result.text + "\n" +
                 "format: " + result.format + "\n" +
@@ -154,27 +135,12 @@ states[Connection.NONE] = 'No network connection';
             document.getElementById("info").innerHTML = result.text;
             
             console.log(result);
-            /*
-            if (args.format == "QR_CODE") {
-                window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
-            }
-            */
 
         }, function (error) { 
             console.log("Scanning failed: ", error); 
         } );
     },
 
-    encode: function() {
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-
-        scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
-            alert("encode success: " + success);
-          }, function(fail) {
-            alert("encoding failed: " + fail);
-          }
-        );
-
-    }
+   
 
 };

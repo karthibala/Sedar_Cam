@@ -146,7 +146,6 @@
 		url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_product_count.php',
 		data : 'uname='+name ,
 		dataType:"json",
-		async: false,
 		processData: false,
 		success:function (json) { 
 			
@@ -768,6 +767,7 @@ if(user_name==null){
 		processData: false,
 		success:function (json) {
 			var ajaxlength = json.rows.length;
+			alert("showroom length--"+ajaxlength);
 			var j=0;
 			var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
 			db.transaction(function(tx){
@@ -778,7 +778,7 @@ if(user_name==null){
 					tx.executeSql('INSERT OR REPLACE INTO show_room (showroom_id, showroom_name, city, country, currency ,manager)VALUES ("' + json.rows[i].showroom_id + '",  "' + json.rows[i].showroom_name + '",  "' + json.rows[i].city + '",  "' + json.rows[i].country + '",  "' + json.rows[i].currency + '",  "' + json.rows[i].manager + '")',successID);
 					j++;
 					if(j==ajaxlength){
-						//alert('All showroom datas are updated');
+						alert('All showroom datas are updated');
 					}
 				}
 			});

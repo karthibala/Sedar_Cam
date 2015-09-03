@@ -18,7 +18,17 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.css">
 		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.css">
 
-	<!-- FAVICONS -->
+		<!-- SmartAdmin RTL Support is under construction
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.css"> -->
+
+		<!-- We recommend you use "your_style.css" to override SmartAdmin
+		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
+		<link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
+
+		<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
+		<!--<link rel="stylesheet" type="text/css" media="screen" href="css/demo.css">
+
+	-->	<!-- FAVICONS -->
 		<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
 
@@ -218,33 +228,22 @@
 </div>
 
 <script type="text/javascript">
-onDeviceReady();
 var showroom_name=localStorage.getItem("showroom_name");
 var user_name=localStorage.getItem("user_name");
 var showroom_id=localStorage.getItem("showroom_id");
 document.getElementById("showroom_name_header").innerHTML=showroom_name;
 document.getElementById("user_name").innerHTML=user_name;
-
+var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100 * 1024 * 1024);
 var showroom_id=localStorage.getItem("showroom_id");
-alert("showroom_id--"+showroom_id);
-alert("user_name--"+user_name);
-alert("showroom_name--"+showroom_name);
 var user_id=localStorage.getItem("user_id");
-var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
-db.transaction(Showroom, errorCB);   
-alert(db);
-function Showroom (tx){
-	tx.executeSql('SELECT * FROM show_room where showroom_id = ?', [showroom_id], function (tx, results) {
+db.transaction(function (tx){
+    tx.executeSql('SELECT * FROM show_room where showroom_id = ?', [showroom_id], function (tx, results) {
        var len = results.rows.length;
        var showroom_name = results.rows.item(0).showroom_name;
        var city = results.rows.item(0).city;
        var country = results.rows.item(0).country;
-       alert("len--"+len);
-       alert("city--"+city);
-       alert("showroom_name--"+showroom_name);
-       alert("country--"+country);
-       alert("showroom_id--"+showroom_id);
-       alert("user_id--"+user_id);
+       
+       
        document.getElementById("city").value = city;
        document.getElementById("country").value = country;
        document.getElementById("showroom_name").value = showroom_name;
@@ -252,48 +251,7 @@ function Showroom (tx){
        document.getElementById("user_id").value = user_id;
        
     });
-}
-function errorCB(tx, err) {
-	alert("Error");
-	alert("Error processing SQL: "+err);
-} 
-
-
-
-
-
-/*function onDeviceReady() {
-	alert("on device ready");
-	var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
-	db.transaction(successCB, errorCB);
-}
-
-function successCB() {
-	alert("success");
-	var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
-	db.transaction(queryDB, errorCB);
-}
-				
-var showroom_id=localStorage.getItem("showroom_id");
-function queryDB(tx) {
-	alert("success query showroom_id--"+showroom_id);
-    tx.executeSql('SELECT * FROM show_room where showroom_id = ? collate NOCASE', [showroom_id], querySuccess, errorCB);
-	
-}
-
-function querySuccess(tx, results) {
-	var len = results.rows.length;
-	alert("length--"len);
-}
-
-function errorCB(err) {
-//	alert('errror');
-//  alert("Error processing SQL: "+err.code);
-}*/
-
-
-
-
+});
 
 
 function formsubmit() {
@@ -315,7 +273,7 @@ function formsubmit() {
   $.ajax({
 
        type: 'POST',
-    url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_add_customer.php',
+    url: 'http://wave.elasticbeanstalk.com/app/ajax_add_customer.php',
     
     
     data :  'f_name='+f_name+'&l_name='+l_name+'&email='+email+'&mobile='+mobile+'&address='+address+'&city='+city+'&country='+country+'&showroom_name='+showroom_name+'&showroom_id='+showroom_id+'&user_id='+user_id+'&gender='+gender ,
@@ -345,7 +303,7 @@ function admin_user(){
 	var timestamp=d.getFullYear()+"-"+ month +"-"+d.getDate()+" "+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
 	$.ajax({
 		type: "POST",
-		url: "http://wave2dev.elasticbeanstalk.com/app/ajax_admin_user.php",
+		url: "http://wave.elasticbeanstalk.com/app/ajax_admin_user.php",
 		data :  'user_name='+user_name+'&showroom_name='+showroom_name+'&appcode='+appcode+'&user_id='+user_id+'&time_stamp='+timestamp,
 		dataType: "json",
 		processData: false,

@@ -228,7 +228,8 @@ var showroom_id=localStorage.getItem("showroom_id");
 alert("showroom_id--"+showroom_id);
 var user_id=localStorage.getItem("user_id");
 db.transaction(function (tx){
-    tx.executeSql('SELECT * FROM show_room where showroom_id = ?', [showroom_id], function (tx, results) {
+	//tx.executeSql('SELECT * FROM show_room where showroom_id = ?', [showroom_id], function (tx, results) {
+    tx.executeSql('SELECT * FROM show_room ', [], function (tx, results) {
        var len = results.rows.length;
        var showroom_name = results.rows.item(0).showroom_name;
        var city = results.rows.item(0).city;

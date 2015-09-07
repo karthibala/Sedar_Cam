@@ -667,6 +667,7 @@ if(user_name==null){
 			var ajaxlength = json.rows.length;
 			
 			alert("inside modified"+ajaxlength);
+			alert("table");
 			var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
 			db.transaction(function(tx){
 				var j=0;

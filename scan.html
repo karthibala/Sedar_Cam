@@ -157,7 +157,7 @@
 	//update check
 //	alert("update");
 	admin_user();
-	totalitem_count();
+	//totalitem_count();
 	var name='wave';
 	$.ajax({
 		type: "POST",
@@ -653,7 +653,7 @@ if(user_name==null){
 
 	admin_user();
 	update_check();
-	totalitem_count();
+	//totalitem_count();
 	// sync with Product list modified
 //	alert("modified fn");
 	var name='wave';
@@ -666,7 +666,7 @@ if(user_name==null){
 		success:function (json) {
 			var ajaxlength = json.rows.length;
 			
-		//	alert("inside modified"+ajaxlength);
+			alert("inside modified"+ajaxlength);
 			var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
 			db.transaction(function(tx){
 				var j=0;

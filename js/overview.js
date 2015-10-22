@@ -3,7 +3,7 @@ $(document).ready(function(){
     var name='wave';
     $.ajax({
         type: "POST",
-        url: 'http://wave.elasticbeanstalk.com/app/ajax_sync_product_count.php',
+        url: 'http://wave2dev.elasticbeanstalk.com/app/ajax_sync_product_count.php',
         data : 'uname='+name ,
         dataType:"json",
         processData: false,

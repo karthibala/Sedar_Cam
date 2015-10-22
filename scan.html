@@ -85,10 +85,10 @@
 					<section class="col col-xs-12">
 						<label style="font-size:22px;" >Synchronizing data please wait...<i class="fa fa-refresh fa-spin"></i></label>
 						<div class="progress">
-							<div id="product_sync" class="progress-bar progress-bar-success hide" role="progressbar" style="width:20%">20%</div>
-							<div id="product_sync1" class="progress-bar progress-bar-success hide" role="progressbar" style="width:40%">40%</div>
-							<div id="product_sync2" class="progress-bar progress-bar-success hide " role="progressbar" style="width:60%">60%</div>
-							<div id="product_sync3" class="progress-bar progress-bar-success hide " role="progressbar" style="width:80%">80%</div>
+							<div id="product_sync" class="progress-bar progress-bar-success hide" role="progressbar" style="width:30%">20%</div>
+							<div id="product_sync1" class="progress-bar progress-bar-success hide" role="progressbar" style="width:60%">40%</div>
+							<div id="product_sync2" class="progress-bar progress-bar-success hide " role="progressbar" style="width:80%">60%</div>
+							<div id="product_sync3" class="progress-bar progress-bar-success hide " role="progressbar" style="width:95%">All Most Done</div>
 							<div id="product_sync4" class="progress-bar progress-bar-success hide" role="progressbar" style="width:95%">All Most Done</div>
 							<div id="product_sync5" class="progress-bar progress-bar-success hide " role="progressbar" style="width:100%">100%</div>
 						</div>
@@ -368,8 +368,9 @@ function product_sync3() {
 						if(j==ajaxlength12){
 						$("#product_sync2").addClass("hide");
 						$("#product_sync3").removeClass("hide");
-							product_sync4();
-							//alert('Database synchronization completed! Data Count:'+ localStorage.getItem("server_item_count"));
+						count_data();
+							//product_sync4();
+							alert('Database synchronization completed! Data Count:'+ localStorage.getItem("server_item_count"));
 							//window.location.reload();
 						}
 					}

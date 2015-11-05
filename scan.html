@@ -847,7 +847,7 @@ if(user_name==null){
 
 //update check
 function updatecheck(){
-	var appcode='SEDARWAVE0026';
+	var appcode='SEDARWAVE0026.5';
 	document.getElementById("app_ver").innerHTML = appcode;
 	$.ajax({
 		type: "POST",
@@ -868,7 +868,7 @@ function updatecheck(){
 //End update check
 // App Admin user
 function admin_user(){
-	var appcode='SEDARWAVE0026'; 
+	var appcode='SEDARWAVE0026.5'; 
 	var showroom_name=localStorage.getItem("showroom_name");
 	var user_name=localStorage.getItem("user_name");
 	var user_id=localStorage.getItem("user_id");

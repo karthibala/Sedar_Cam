@@ -630,7 +630,7 @@ alert("inside local select");
 	db.transaction(function (tx){
 		tx.executeSql('SELECT * FROM productlist', [], function (tx, results) {
 			var productlist_count = results.rows.length;
-			//alert("Local data-"+productlist_count);
+			alert("Local data-"+productlist_count);
 			localStorage.setItem("productlist_count", productlist_count);
 		//	var productlist_count = localStorage.getItem("productlist_count");
 		//	document.getElementById("localitem_count").innerHTML = productlist_count;
@@ -638,8 +638,13 @@ alert("inside local select");
 			document.getElementById("serveritem_count").innerHTML = produc_row_count;
 			document.getElementById("localitem_count").innerHTML = productlist_count;
 			alert("inside local select ends");
-			
+			if(productlist_count=null){
+			alert("null");
+			}else{
+				alert("not null");
+			}
 		});
+		
 		
 	});
 }

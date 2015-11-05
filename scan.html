@@ -155,7 +155,7 @@
 <script>
  function update_check() {
 	//update check
-	alert("update1");
+	//alert("update1");
 	admin_user();
 	//totalitem_count();
 	var name='wave';
@@ -175,10 +175,10 @@
 			localStorage.setItem("server_item_count", produc_row_count);
 			document.getElementById("serveritem_count").innerHTML = produc_row_count;
 			document.getElementById("localitem_count").innerHTML = productlist_count;
-			alert("update ends");
+			//alert("update ends");
 		
 			if (produc_row_count != productlist_count) {
-				truncate_local_productlist();
+				truncate_local_productlist(); 
 			} 
 			
 			
@@ -630,7 +630,7 @@ function totalitem_count() {
 	db.transaction(function (tx){
 		tx.executeSql('SELECT * FROM productlist', [], function (tx, results) {
 			var productlist_count = results.rows.length;
-			alert("Local data-"+productlist_count);
+		//	alert("Local data-"+productlist_count);
 			localStorage.setItem("productlist_count", productlist_count);
 		//	var productlist_count = localStorage.getItem("productlist_count");
 		//	document.getElementById("localitem_count").innerHTML = productlist_count;

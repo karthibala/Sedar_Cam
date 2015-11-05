@@ -639,7 +639,7 @@ alert("inside local select");
 			document.getElementById("localitem_count").innerHTML = productlist_count;
 			alert("inside local select ends");
 			if(productlist_count=null){
-			alert("null");
+				update_check();
 			}else{
 				alert("not null");
 			}
@@ -697,7 +697,7 @@ if(user_name==null){
 					if(j==ajaxlength){
 							
 							totalitem_count();
-							update_check();
+							
 							
 						}
 				} 

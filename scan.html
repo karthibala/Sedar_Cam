@@ -169,7 +169,7 @@
 		success:function (json) { 
 			
 			var produc_row_count = json.product_count;
-			var productlist_count = localStorage.getItem("local_count");
+			var productlist_count = localStorage.getItem("productlist_count");
 			//alert('ajax server count'+produc_row_count);
 			//alert('ajax local Count'+productlist_count);
 			localStorage.setItem("server_item_count", produc_row_count);

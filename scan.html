@@ -20,7 +20,7 @@
 		<!-- Basic Styles -->
 		<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">	
 		
-<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
 		<!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
 		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.css">
 
@@ -84,13 +84,20 @@
 				<div id="data_update_status" class='row form-group hide'>
 					<section class="col col-xs-12">
 						<label style="font-size:22px;" >Synchronizing data please wait...<i class="fa fa-refresh fa-spin"></i></label>
-						<div class="progress">
+						<!--<div class="progress">
 							<div id="product_sync" class="progress-bar progress-bar-success hide" role="progressbar" style="width:30%">20%</div>
 							<div id="product_sync1" class="progress-bar progress-bar-success hide" role="progressbar" style="width:60%">40%</div>
 							<div id="product_sync2" class="progress-bar progress-bar-success hide " role="progressbar" style="width:80%">60%</div> 
 							<div id="product_sync3" class="progress-bar progress-bar-success hide " role="progressbar" style="width:90%">80%</div>
 							<div id="product_sync4" class="progress-bar progress-bar-success hide" role="progressbar" style="width:99%">All Most Done</div>
 							<div id="product_sync5" class="progress-bar progress-bar-success hide " role="progressbar" style="width:100%">100%</div>
+						</div> -->
+						<div class="progress">
+							<div id="product_sync" class="progress-bar progress-bar-success hide" role="progressbar" style="width:20%">30%</div>
+							<div id="product_sync1" class="progress-bar progress-bar-success hide" role="progressbar" style="width:60%">60%</div>
+							<div id="product_sync2" class="progress-bar progress-bar-success hide " role="progressbar" style="width:85%">80%</div> 
+							<div id="product_sync3" class="progress-bar progress-bar-success hide " role="progressbar" style="width:95%">All Most Done</div>
+							<div id="product_sync4" class="progress-bar progress-bar-success hide " role="progressbar" style="width:100%">100%</div>
 						</div>
 					</section>
 				</div>
@@ -133,7 +140,7 @@
 								<span style="font-size:22px;" >Server item count :<span id="serveritem_count" style="font-size:22px;" ></span></span>
 							</section>
 							<section class="col col-xs-12">
-								<span style="font-size:22px;" >Your App Version is <span id="app_ver" style="font-size:22px;"></span></span>
+								<span style="font-size:22px;" >Your App Version is : WAVE2DEV</span></span>
 							</section>
 							
 							<section class="col col-xs-12">
@@ -155,7 +162,7 @@
 <script>
  function update_check() {
 	//update check
-	//alert("update1");
+//	alert("update");
 	admin_user();
 	//totalitem_count();
 	var name='wave';
@@ -166,19 +173,19 @@
 		dataType:"json",
 		async: false,
 		processData: false,
-		success:function (json) { 
+		success:function (json) {  
 			
 			var produc_row_count = json.product_count;
-			var productlist_count = localStorage.getItem("productlist_count");
+			var productlist_count = localStorage.getItem("local_count");
 			//alert('ajax server count'+produc_row_count);
 			//alert('ajax local Count'+productlist_count);
 			localStorage.setItem("server_item_count", produc_row_count);
 			document.getElementById("serveritem_count").innerHTML = produc_row_count;
 			document.getElementById("localitem_count").innerHTML = productlist_count;
-			//alert("update ends");
+			
 		
 			if (produc_row_count != productlist_count) {
-				truncate_local_productlist(); 
+				truncate_local_productlist();
 			} 
 			
 			
@@ -195,6 +202,7 @@ function truncate_local_productlist()
 		db.transaction(function (tx){
 		tx.executeSql('DROP TABLE IF EXISTS productlist');
 		alert('Local Database Truncated. Please wait while new database sync in progress');
+		localStorage.removeItem("local_count");
 		product_sync();
 	});
 }
@@ -369,6 +377,7 @@ function product_sync3() {
 						product_sync4();
 						$("#product_sync3").removeClass("hide");
 						//count_data();
+						
 							
 							//alert('Database synchronization completed! Data Count:'+ localStorage.getItem("server_item_count"));
 							//window.location.reload();
@@ -491,7 +500,7 @@ var product_sync3 = localStorage.getItem("product_sync3");
 var product_sync4 = localStorage.getItem("product_sync4");
 var product_sync5 = localStorage.getItem("product_sync5");
 
-var count = Number(product_sync) + Number(product_sync1) + Number(product_sync2) + Number(product_sync3) + Number(product_sync4);
+var count = Number(product_sync) + Number(product_sync1) + Number(product_sync2) + Number(product_sync3)+ Number(product_sync4);
 
 //alert("count--"+count);
 localStorage.setItem("local_count", count);
@@ -630,22 +639,15 @@ function totalitem_count() {
 	db.transaction(function (tx){
 		tx.executeSql('SELECT * FROM productlist', [], function (tx, results) {
 			var productlist_count = results.rows.length;
-		//	alert("Local data-"+productlist_count);
+			//alert("Local data-"+productlist_count);
 			localStorage.setItem("productlist_count", productlist_count);
 		//	var productlist_count = localStorage.getItem("productlist_count");
 		//	document.getElementById("localitem_count").innerHTML = productlist_count;
 			var produc_row_count = localStorage.getItem("server_item_count");
 			document.getElementById("serveritem_count").innerHTML = produc_row_count;
 			document.getElementById("localitem_count").innerHTML = productlist_count;
-			//alert("inside local select ends");
-			if(productlist_count=null){
-				update_check();
-			}else{
-				//alert("not null");
-				update_check();
-			}
+			
 		});
-		
 		
 	});
 }
@@ -664,7 +666,7 @@ if(user_name==null){
 
 
 	admin_user();
-	
+	update_check();
 	//totalitem_count();
 	// sync with Product list modified
 //	alert("modified fn");
@@ -698,7 +700,6 @@ if(user_name==null){
 					if(j==ajaxlength){
 							
 							totalitem_count();
-							
 							
 						}
 				} 
@@ -846,8 +847,10 @@ if(user_name==null){
 //get ready doc end
 
 //update check
+
+
 function updatecheck(){
-	var appcode='SEDARWAVE0026.5';
+	var appcode='SEDARWAVE0027';
 	document.getElementById("app_ver").innerHTML = appcode;
 	$.ajax({
 		type: "POST",
@@ -865,10 +868,12 @@ function updatecheck(){
 		}
 	});
 }
+
+
 //End update check
 // App Admin user
 function admin_user(){
-	var appcode='SEDARWAVE0026.5'; 
+	var appcode='SEDARWAVE0027'; 
 	var showroom_name=localStorage.getItem("showroom_name");
 	var user_name=localStorage.getItem("user_name");
 	var user_id=localStorage.getItem("user_id");

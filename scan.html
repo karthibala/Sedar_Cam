@@ -646,7 +646,7 @@ function totalitem_count() {
 			var produc_row_count = localStorage.getItem("server_item_count");
 			document.getElementById("serveritem_count").innerHTML = produc_row_count;
 			document.getElementById("localitem_count").innerHTML = productlist_count;
-			
+			update_check();
 		});
 		
 	});
@@ -669,7 +669,7 @@ if(user_name==null){
 	//totalitem_count();
 	// sync with Product list modified
 	
-	update_check();
+	
 	var name='wave';
 	$.ajax({
 		type: "POST",

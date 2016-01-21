@@ -669,7 +669,7 @@ if(user_name==null){
 	//totalitem_count();
 	// sync with Product list modified
 	alert("modified fn");
-	update_check();
+	
 	var name='wave';
 	$.ajax({
 		type: "POST",
@@ -704,7 +704,8 @@ if(user_name==null){
 						}
 				} 
 			});
-		}
+		},
+		alert("Test");
 	});
 	//END sync with Product list modified
 	

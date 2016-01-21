@@ -134,7 +134,7 @@
 							    </div>
 						       <div class='row form-group'>
 							<section class="col col-xs-12">
-								<span style="font-size:22px;" >Local item count :<span id="localitem_count"></span></span>
+								<span style="font-size:22px;" >Local item count :<span id="localitem_count" style="font-size:22px;"></span></span>
 							</section>
 							<section class="col col-xs-12">
 								<span style="font-size:22px;" >Server item count :<span id="serveritem_count" style="font-size:22px;" ></span></span>
@@ -634,12 +634,12 @@ function product_sync8() {
 
 */
 function totalitem_count() {
-//alert("inside local select");
+alert("inside local select");
 	var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
 	db.transaction(function (tx){
 		tx.executeSql('SELECT * FROM productlist', [], function (tx, results) {
 			var productlist_count = results.rows.length;
-			//alert("Local data-"+productlist_count);
+			alert("Local data-"+productlist_count);
 			localStorage.setItem("productlist_count", productlist_count);
 		//	var productlist_count = localStorage.getItem("productlist_count");
 		//	document.getElementById("localitem_count").innerHTML = productlist_count;
@@ -722,8 +722,8 @@ if(user_name==null){
 			var produc_row_count = json.product_count;
 			var productlist_count = localStorage.getItem("productlist_count");
 			//localStorage.setItem("server_item_count", produc_row_count);
-			document.getElementById("serveritem_count").innerHTML = produc_row_count;
-			document.getElementById("productlist_count").innerHTML = productlist_count;
+			//document.getElementById("serveritem_count").innerHTML = produc_row_count;
+			//document.getElementById("productlist_count").innerHTML = productlist_count;
 			
 			alert('ajax server count'+produc_row_count);
 			localStorage.setItem("server_item_count", produc_row_count);

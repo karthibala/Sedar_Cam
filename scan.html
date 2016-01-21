@@ -162,8 +162,9 @@
 <script>
  function update_check() {
 	//update check
-	alert("check update");
-	
+//	alert("update");
+	admin_user();
+	//totalitem_count();
 	var name='wave';
 	$.ajax({
 		type: "POST",
@@ -176,8 +177,8 @@
 			
 			var produc_row_count = json.product_count;
 			var productlist_count = localStorage.getItem("productlist_count");
-			alert('ajax server count'+produc_row_count);
-			alert('ajax local Count'+productlist_count);
+			//alert('ajax server count'+produc_row_count);
+			//alert('ajax local Count'+productlist_count);
 			localStorage.setItem("server_item_count", produc_row_count);
 			document.getElementById("serveritem_count").innerHTML = produc_row_count;
 			document.getElementById("productlist_count").innerHTML = productlist_count;
@@ -192,7 +193,6 @@
 			//	modified_product_sync();
 			//}
 		}
-		admin_user();
 	});
 	//END update check
  }
@@ -475,10 +475,10 @@ function product_sync5() {
 						//	product_sync6();
 							$("#product_sync4").addClass("hide");
 							
-							//alert('Database synchronization completed! Data Count:'+ localStorage.getItem("server_item_count"));
+							alert('Database synchronization completed! Data Count:'+ localStorage.getItem("server_item_count"));
 							$("#product_sync5").removeClass("hide");
 							window.location.reload();
-							//count_data();
+							count_data();
 						}
 					}
 				});
@@ -634,7 +634,7 @@ function product_sync8() {
 
 */
 function totalitem_count() {
-alert("inside local select");
+//alert("inside local select");
 	var db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 100*100*1024);
 	db.transaction(function (tx){
 		tx.executeSql('SELECT * FROM productlist', [], function (tx, results) {
@@ -665,10 +665,11 @@ if(user_name==null){
 }
 
 
-	
+	admin_user();
+	update_check();
 	//totalitem_count();
 	// sync with Product list modified
-	alert("modified fn");
+//	alert("modified fn");
 	var name='wave';
 	$.ajax({
 		type: "POST",
@@ -676,7 +677,6 @@ if(user_name==null){
 		data : 'uname='+name ,
 		dataType:"json",
 		processData: false,
-		async: false,
 		success:function (json) {
 			var ajaxlength = json.rows.length;
 			
@@ -705,10 +705,6 @@ if(user_name==null){
 				} 
 			});
 		}
-		alert("goto next");
-		update_check();
-		//admin_user();
-	
 	});
 	//END sync with Product list modified
 	

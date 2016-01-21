@@ -134,7 +134,7 @@
 							    </div>
 						       <div class='row form-group'>
 							<section class="col col-xs-12">
-								<span style="font-size:22px;" >Local item count :<span id="localitem_count" style="font-size:22px;"></span></span>
+								<span style="font-size:22px;" >Local item count :<span id="localitem_count"></span></span>
 							</section>
 							<section class="col col-xs-12">
 								<span style="font-size:22px;" >Server item count :<span id="serveritem_count" style="font-size:22px;" ></span></span>
@@ -181,7 +181,7 @@
 			//alert('ajax local Count'+productlist_count);
 			localStorage.setItem("server_item_count", produc_row_count);
 			document.getElementById("serveritem_count").innerHTML = produc_row_count;
-			document.getElementById("productlist_count").innerHTML = productlist_count;
+			document.getElementById("localitem_count").innerHTML = productlist_count;
 			
 		
 			if (produc_row_count != productlist_count) {
@@ -668,8 +668,8 @@ if(user_name==null){
 	
 	//totalitem_count();
 	// sync with Product list modified
-	//alert("modified fn");
 	
+	update_check();
 	var name='wave';
 	$.ajax({
 		type: "POST",
@@ -707,37 +707,6 @@ if(user_name==null){
 		}
 	});
 	//END sync with Product list modified
-	
-	//Update Check start
-	var name='wave';
-	$.ajax({
-		type: "POST",
-		url: 'http://wave.elasticbeanstalk.com/app/ajax_sync_product_count.php',
-		data : 'uname='+name ,
-		dataType:"json",
-		async: false,
-		processData: false,
-		success:function (json) {  
-			//alert("count");
-			var produc_row_count = json.product_count;
-			var productlist_count = localStorage.getItem("productlist_count");
-			//localStorage.setItem("server_item_count", produc_row_count);
-			//document.getElementById("serveritem_count").innerHTML = produc_row_count;
-			//document.getElementById("productlist_count").innerHTML = productlist_count;
-			
-			//alert('ajax server count'+produc_row_count);
-			localStorage.setItem("server_item_count", produc_row_count);
-			//alert('ajax local Count'+productlist_count);
-			if ( produc_row_count != productlist_count ) {
-				truncate_local_productlist();
-			} 
-			
-			
-			//if (produc_row_count == productlist_count) {
-			//	modified_product_sync();
-			//}
-		}
-	});
 	
 	
 	
@@ -904,7 +873,7 @@ function updatecheck(){
 //End update check
 // App Admin user
 function admin_user(){
-//alert("admin_user");
+alert("admin_user");
 	var appcode='SEDARWAVE0027.5'; 
 	var showroom_name=localStorage.getItem("showroom_name");
 	var user_name=localStorage.getItem("user_name");

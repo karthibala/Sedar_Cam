@@ -721,14 +721,13 @@ if(user_name==null){
 			
 			var produc_row_count = json.product_count;
 			var productlist_count = localStorage.getItem("productlist_count");
-			alert('ajax server count'+produc_row_count);
-			alert('ajax local Count'+productlist_count);
 			localStorage.setItem("server_item_count", produc_row_count);
 			document.getElementById("serveritem_count").innerHTML = produc_row_count;
 			document.getElementById("productlist_count").innerHTML = productlist_count;
 			
-		
-			if (produc_row_count != productlist_count) {
+		alert('ajax server count'+produc_row_count);
+			alert('ajax local Count'+productlist_count);
+			if ( produc_row_count != productlist_count ) {
 				truncate_local_productlist();
 			} 
 			

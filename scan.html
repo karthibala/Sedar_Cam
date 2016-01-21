@@ -162,8 +162,8 @@
 <script>
  function update_check() {
 	//update check
-//	alert("update");
-	admin_user();
+	alert("update check");
+	
 	//totalitem_count();
 	var name='wave';
 	$.ajax({
@@ -193,6 +193,7 @@
 			//	modified_product_sync();
 			//}
 		}
+		admin_user();
 	});
 	//END update check
  }
@@ -665,11 +666,10 @@ if(user_name==null){
 }
 
 
-	admin_user();
-	update_check();
+	
 	//totalitem_count();
 	// sync with Product list modified
-//	alert("modified fn");
+	alert("modified fn");
 	var name='wave';
 	$.ajax({
 		type: "POST",
@@ -705,6 +705,8 @@ if(user_name==null){
 				} 
 			});
 		}
+	alert("updates");	
+	update_check();
 	});
 	//END sync with Product list modified
 	

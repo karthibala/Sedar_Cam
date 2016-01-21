@@ -163,7 +163,7 @@
  function update_check() {
 	//update check
 	alert("update check");
-	
+	admin_user();
 	//totalitem_count();
 	var name='wave';
 	$.ajax({
@@ -193,7 +193,6 @@
 			//	modified_product_sync();
 			//}
 		}
-		admin_user();
 	});
 	//END update check
  }
@@ -670,6 +669,7 @@ if(user_name==null){
 	//totalitem_count();
 	// sync with Product list modified
 	alert("modified fn");
+	update_check();
 	var name='wave';
 	$.ajax({
 		type: "POST",
@@ -705,8 +705,6 @@ if(user_name==null){
 				} 
 			});
 		}
-	alert("updates");	
-	update_check();
 	});
 	//END sync with Product list modified
 	
@@ -875,6 +873,7 @@ function updatecheck(){
 //End update check
 // App Admin user
 function admin_user(){
+alert("admin_user");
 	var appcode='SEDARWAVE0027.5'; 
 	var showroom_name=localStorage.getItem("showroom_name");
 	var user_name=localStorage.getItem("user_name");
